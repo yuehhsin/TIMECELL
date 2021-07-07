@@ -1,15 +1,15 @@
-import React from "react"
-import "./startpage.css"
+import React from "react";
+import "./startpage.css";
 //component
-import SignPopUp from "./../../component/SignPopUp/SignPopUp"
+import SignPopUp from "./../../component/SignPopUp/SignPopUp";
 
-const Startpage = ()=>{
-    return (
-        <div className="startPage" style={{fontFamily: "roboto mono, cursive"}}>
-            <div className="bg"></div>
-            <SignPopUp />
-        </div>
-    )
-}
+const Startpage = () => {
+  return (
+    <div className="startPage" style={{ fontFamily: "roboto mono, cursive" }}>
+      <div className="bg"></div>
+      <SignPopUp />
+    </div>
+  );
+};
 
-export default Startpage
+export default Startpage;

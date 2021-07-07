@@ -1,97 +1,97 @@
-.artboard{
-    /* padding: 10px; */
-    width: calc(100% - 240px);
-    display: flex;
-    justify-content: center;
-    position: relative;
+.artboard {
+  /* padding: 10px; */
+  width: calc(100% - 240px);
+  display: flex;
+  justify-content: center;
+  position: relative;
 }
-.timeblock{
-    width: 140px;
-    height: 40px;
-    background-color: #F4F4F4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.timeblock {
+  width: 140px;
+  height: 40px;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.timeblock:hover{
-    cursor: pointer;
+.timeblock:hover {
+  cursor: pointer;
 }
-.timeblock h5{
-    font-weight: 700;
-    color: #fff;
+.timeblock h5 {
+  font-weight: 700;
+  color: #fff;
 }
-.timeBefore{
-    border-radius: 5px 5px 0px 0px;
+.timeBefore {
+  border-radius: 5px 5px 0px 0px;
 }
-.timeAfter{
-    border-radius: 0px 0px 5px 5px;
-    margin-top: 5px;
-    margin-bottom: 10px;
+.timeAfter {
+  border-radius: 0px 0px 5px 5px;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
-.block{
-    padding-top: 40px;
+.block {
+  padding-top: 40px;
 }
-.timeSel{
-    border: 2px solid #B5ECFF;
-    box-sizing: border-box;
+.timeSel {
+  border: 2px solid #b5ecff;
+  box-sizing: border-box;
 }
-.oneday{
-    margin-right: 20px;
+.oneday {
+  margin-right: 20px;
 }
-.oneday h3{
-    text-align: center;
-    margin: 0px 0px 20px 0px;
+.oneday h3 {
+  text-align: center;
+  margin: 0px 0px 20px 0px;
 }
-.TimeLine h4{
-    /* position: absolute; */
-    left: 260px;
-    margin: 0px;
+.TimeLine h4 {
+  /* position: absolute; */
+  left: 260px;
+  margin: 0px;
 }
-.TimeLine{
-    padding: 45px 30px 0px 0px;
+.TimeLine {
+  padding: 45px 30px 0px 0px;
 }
-.timeBlock{
-    /* border: 1px solid red; */
-    height: 85px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-    box-sizing: border-box;
+.timeBlock {
+  /* border: 1px solid red; */
+  height: 85px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  box-sizing: border-box;
 }
-.timeBloack h4{
-    font-weight: 700;
+.timeBloack h4 {
+  font-weight: 700;
 }
 
-/* NAV *//* NAV *//* NAV *//* NAV *//* NAV */
-.nav{
-    width: calc(100% - 240px);
-    /* border: 1px solid red; */
-    display: flex;
-    justify-content: space-between;
+/* NAV */ /* NAV */ /* NAV */ /* NAV */ /* NAV */
+.nav {
+  width: calc(100% - 240px);
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
 }
-.menu{
-    padding: 15px 20px 25px 20px;
-    display: flex;
+.menu {
+  padding: 15px 20px 25px 20px;
+  display: flex;
 }
-.member{
-    width: 20px;
-    height: 20px;
-    background-image: url("/src/icon/face.png");
-    background-size: cover;
-    margin-right: 10px;
+.member {
+  width: 20px;
+  height: 20px;
+  background-image: url("/src/icon/face.png");
+  background-size: cover;
+  margin-right: 10px;
 }
-.member:hover{
-    cursor: pointer;
+.member:hover {
+  cursor: pointer;
 }
-.camera{
-    width: 20px;
-    height: 20px;
-    background-image: url("/src/icon/camera.png");
-    background-size: cover;
+.camera {
+  width: 20px;
+  height: 20px;
+  background-image: url("/src/icon/camera.png");
+  background-size: cover;
 }
-.camera:hover{
-    cursor: pointer;
+.camera:hover {
+  cursor: pointer;
 }
 /* .logo{
     width: 71px;
@@ -100,43 +100,43 @@
     background-size: cover;
 } */
 
-.selTime{
-    box-sizing: border-box;
-    border: 1px solid black;
+.selTime {
+  box-sizing: border-box;
+  border: 1px solid black;
 }
-.setTime{
-    box-sizing: border-box;
-    border: 1px solid red;
+.setTime {
+  box-sizing: border-box;
+  border: 1px solid red;
 }
 
-/* floatpanel *//* floatpanel *//* floatpanel */
-.floatpanel{
-    width: 160px;
-    height: 40px;
-    background-color: #464646;
-    position: fixed;
-    padding-left: 15px;
-    padding-right: 15px;
-    border-radius: 5px;
-    /* top: 0px; */
-    left: calc((100% - 240px)/2);
-    top: 93%;
-    transform: translateX(-50%);
-    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* floatpanel */ /* floatpanel */ /* floatpanel */
+.floatpanel {
+  width: 160px;
+  height: 40px;
+  background-color: #464646;
+  position: fixed;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 5px;
+  /* top: 0px; */
+  left: calc((100% - 240px) / 2);
+  top: 93%;
+  transform: translateX(-50%);
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.floatpanel h5{
-    color: #fff;
+.floatpanel h5 {
+  color: #fff;
 }
-.claenEvent{
-    width: 24px;
-    height: 24px;
-    background-image: url("/src/icon/cleaning.png");
-    background-size: cover;
+.claenEvent {
+  width: 24px;
+  height: 24px;
+  background-image: url("/src/icon/cleaning.png");
+  background-size: cover;
 }
-.claenEvent:hover{
-    cursor: pointer;
-    background-image: url("/src/icon/cleaning_hover.png");
+.claenEvent:hover {
+  cursor: pointer;
+  background-image: url("/src/icon/cleaning_hover.png");
 }
