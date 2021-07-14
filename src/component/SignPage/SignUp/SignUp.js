@@ -1,13 +1,13 @@
 import React from 'react';
-import './signpopup.css';
-import { Link } from 'react-router-dom';
 
-const SignPopUp = () => {
+const SignUp = ({ setSwi }) => {
   const inputStyle = {
-    fontFamily: 'roboto mono, cursive',
-    fontSize: '10px',
+    fontFamily: 'roboto, cursive',
+    fontSize: '12px',
     letterSpacing: '2px',
-    color: '#000000',
+  };
+  const handleSwi = () => {
+    setSwi('signin');
   };
   return (
     <div className="signpopup">
@@ -15,7 +15,6 @@ const SignPopUp = () => {
       <div className="signinBox">
         <h2>CREATE ACCOUNT</h2>
         <form>
-          <input placeholder="ACCOUNT" style={inputStyle} />
           <input placeholder="EMAIL" style={inputStyle} />
           <input placeholder="PASSWORD" style={inputStyle} type="password" />
           <div className="social_sign">
@@ -23,14 +22,16 @@ const SignPopUp = () => {
             <div className="google" />
             <div className="github" />
           </div>
-          <Link to="/home">
-            <button type="button">SIGN UP</button>
-          </Link>
+          <button type="button" className="CTA">
+            <h4>SIGN UP</h4>
+          </button>
         </form>
-        <h5>SIGN IN</h5>
+        <button type="button" className="switchBTN" onClick={handleSwi}>
+          SIGN IN
+        </button>
       </div>
     </div>
   );
 };
 
-export default SignPopUp;
+export default SignUp;

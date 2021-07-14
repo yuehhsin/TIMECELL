@@ -1,17 +1,15 @@
-import React from "react"
+import React from 'react';
 
-const Nav = ()=>{
-    return (
-        <>
-            <div className="nav">
-                <div className="logo"></div>
-                <div className="menu">
-                    <div className="member"></div>
-                    <div className="camera"></div>
-                </div>
-            </div>
-        </>
-        )
-}
+const Nav = () => (
+  <>
+    <div className="nav">
+      <div className="logo" />
+      <div className="menu">
+        <div className="member" />
+        <div className="camera" />
+      </div>
+    </div>
+  </>
+);
 
-export default Nav
+export default Nav;

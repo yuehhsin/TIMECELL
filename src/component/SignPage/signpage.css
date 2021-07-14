@@ -1,3 +1,8 @@
+.bg {
+  width: 100%;
+  height: 1050px;
+  background-color: rgb(77, 77, 77);
+}
 /* INIT */ /* INIT */ /* INIT */
 html,
 body {
@@ -16,8 +21,8 @@ button:hover {
 
 /* SIGNPOPUP */ /* SIGNPOPUP */ /* SIGNPOPUP */
 .signpopup {
-  width: 681px;
-  height: 411px;
+  width: 706px;
+  height: 428px;
   background-color: #fff;
   position: absolute;
   left: 50%;
@@ -25,29 +30,30 @@ button:hover {
   transform: translateX(-50%) translateY(-50%);
   display: flex;
   justify-content: center;
+  border-radius: 5px;
 }
 .signupImg {
-  width: 303px;
-  height: 411px;
+  width: 350px;
+  height: 428px;
   background-image: url('/src/image/signup.png');
   background-size: cover;
-  color: red;
+  border-radius: 5px 0px 0px 5px;
 }
 .signinBox {
   width: calc(100% - 303px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 50px;
+  padding-top: 65px;
 }
 .signinBox form {
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 .signinBox h5 {
   margin-top: 10px;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 .signinBox span {
   margin-left: 10px;
@@ -60,16 +66,16 @@ button:hover {
 .signinBox input {
   border-bottom: 1px solid rgb(14, 14, 14);
   margin-bottom: 10px;
-  padding: 10px 0px 10px 5px;
+  padding: 10px 0px 10px 0px;
 }
-.signinBox button {
+.CTA {
   width: 234px;
   height: 40px;
   border-radius: 5px;
   background-color: #36bc9b;
   border: none;
   color: #fff;
-  margin-top: 15px;
+  margin-top: 20px;
 }
 .signinBox form h5 {
   margin-top: 0px;
@@ -93,4 +99,31 @@ button:hover {
   height: 18px;
   background-image: url('/src/icon/github.png');
   background-size: cover;
+}
+.switchBTN {
+  padding: 0px;
+  background-color: #fff;
+  font-size: 12px;
+  margin-top: 15px;
+  letter-spacing: 3px;
+  border: none;
+}
+.switchBTN:hover {
+  color: #db4453;
+}
+.signinImg {
+  width: 350px;
+  height: 428px;
+  background-image: url('/src/image/signin.png');
+  background-size: cover;
+  border-radius: 5px 0px 0px 5px;
+}
+.SinginCTA {
+  width: 234px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #db4453;
+  border: none;
+  color: #fff;
+  margin-top: 20px;
 }

@@ -4,12 +4,12 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // page
 import HomePage from './component/HomePage/HomePage';
-import IndexPage from './component/IndexPage/IndexPage';
+import SignPage from './component/SignPage/SignPage';
 
 ReactDOM.render(
   <Router>
     <Switch>
-      <Route path="/" exact component={IndexPage} />
+      <Route path="/sign" exact component={SignPage} />
       <Route path="/home" component={HomePage} />
     </Switch>
   </Router>,

@@ -26,6 +26,6 @@ module.exports = {
     'react/prop-types': [2, { skipUndeclared: true }],
     'react/jsx-props-no-spreading': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
-    // "prettier/prettier": "error",
+    'prettier/prettier': 'error',
   },
 };
