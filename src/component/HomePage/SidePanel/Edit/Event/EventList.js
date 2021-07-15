@@ -1,19 +1,19 @@
-import React from "react";
-import { useState } from "react";
-import open from "./../../../../../icon/add.png";
-import close from "./../../../../../icon/remove.png";
+import React, { useState } from 'react';
 
-//component
-import Event from "./Event";
-import EventForm from "./EventForm";
+import open from '../../../../../icon/add.png';
+import close from '../../../../../icon/remove.png';
+
+// component
+import Event from './Event';
+import EventForm from './EventForm';
 
 const EventList = () => {
-  //HOOK
-  const [inputValue, setInputValue] = useState(""); //取得input值
+  // HOOK
+  const [inputValue, setInputValue] = useState(''); // 取得input值
   const [eventText, setEventText] = useState([
-    { content: "Learn React", color: "#DB4453", id: Math.random() },
-  ]); //建立event列表
-  const [SP, setSP] = useState(true); //開合視窗
+    { content: 'Learn React', color: '#DB4453', id: Math.random() },
+  ]); // 建立event列表
+  const [SP, setSP] = useState(true); // 開合視窗
   const handleSP = () => {
     setSP(!SP);
   };
@@ -24,18 +24,14 @@ const EventList = () => {
         <div
           className="collapse"
           onClick={handleSP}
-          style={
-            SP
-              ? { backgroundImage: `url(${close})` }
-              : { backgroundImage: `url(${open})` }
-          }
-        ></div>
+          style={SP ? { backgroundImage: `url(${close})` } : { backgroundImage: `url(${open})` }}
+        />
       </div>
-      <div style={SP ? { dispaly: "flex" } : { display: "none" }}>
+      <div style={SP ? { dispaly: 'flex' } : { display: 'none' }}>
         <div className="eventList">
-          {eventText.map((event, item) => {
-            return <Event event={event} key={item} />;
-          })}
+          {eventText.map((event, item) => (
+            <Event event={event} key={item} />
+          ))}
         </div>
         <EventForm
           inputValue={inputValue}

@@ -127,3 +127,9 @@ button:hover {
   color: #fff;
   margin-top: 20px;
 }
+.errorMessage h5 {
+  color: #db4453;
+  width: 234px;
+  margin: 0px;
+  margin-top: 15px;
+}

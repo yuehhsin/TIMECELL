@@ -12,3 +12,5 @@
 .env.production.local
 
 npm-debug.log*
+
+src/firebaseInit.js
