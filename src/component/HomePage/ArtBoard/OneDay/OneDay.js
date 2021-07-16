@@ -1,65 +1,29 @@
-import React from "react"
+import React from 'react';
+// component
+import TimeBlock from './TimeBlock';
 
-//component
-import TimeAfter from "./TimeAfter"
-import TimeBefore from "./TimeBefore"
-
-const OneDay = ({day,selTime,SetSelTime})=>{
-    return (
-        <div className="oneday">
-            <h3>{day}</h3>
-            <TimeBefore selTime={selTime} SetSelTime={SetSelTime}/>
-            <TimeAfter selTime={selTime} SetSelTime={SetSelTime}/>
-            <TimeBefore />
-            <TimeAfter />
-            <TimeBefore />
-            <TimeAfter />
-            <TimeBefore />
-            <TimeAfter />
-            <TimeBefore />
-            <TimeAfter />
-            <TimeBefore />
-            <TimeAfter />
-            <TimeBefore />
-            <TimeAfter />
-            <TimeBefore />
-            <TimeAfter />
-            <TimeBefore />
-            <TimeAfter />
-            <TimeBefore />
-            <TimeAfter />
-            <TimeBefore />
-            <TimeAfter />
-            <TimeBefore />
-            <TimeAfter />
-            <div className="block" />
-            <TimeBefore />
-            <TimeAfter />
-            <TimeBefore />
-            <TimeAfter />
-            <TimeBefore />
-            <TimeAfter />
-            <TimeBefore />
-            <TimeAfter />
-            <TimeBefore />
-            <TimeAfter />
-            <TimeBefore />
-            <TimeAfter />
-            <TimeBefore />
-            <TimeAfter />
-            <TimeBefore />
-            <TimeAfter />
-            <TimeBefore />
-            <TimeAfter />
-            <TimeBefore />
-            <TimeAfter />
-            <TimeBefore />
-            <TimeAfter />
-            <TimeBefore />
-            <TimeAfter />
-
-        </div>
-    )
-}
-
-export default OneDay
+const OneDay = ({ day, data, selTB, setSelTB }) => {
+  const timeBefore = 'timeblock timeBefore';
+  const timeAfter = 'timeblock timeAfter';
+  const TBlist = [];
+  if (data !== undefined) {
+    for (let i = 0; i < 24; i += 0.5) {
+      TBlist.push(data[i]);
+    }
+  }
+  return (
+    <div className="oneday">
+      <h3>{day}</h3>
+      {TBlist.map((TBinfo, item) => (
+        <TimeBlock
+          timeClass={item % 2 === 0 ? timeBefore : timeAfter}
+          TBinfo={TBinfo}
+          dataSet={`${day}-${0.5 * item}`}
+          selTB={selTB}
+          setSelTB={setSelTB}
+        />
+      ))}
+    </div>
+  );
+};
+export default OneDay;

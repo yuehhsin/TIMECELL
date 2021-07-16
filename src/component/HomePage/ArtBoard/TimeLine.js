@@ -38,7 +38,7 @@ const TimeLine = () => (
     <div className="timeBlock">
       <h4>12:00</h4>
     </div>
-    <div className="block" />
+    {/* <div className="block" /> */}
     <div className="timeBlock">
       <h4>13:00</h4>
     </div>

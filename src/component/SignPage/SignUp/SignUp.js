@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import firebase from '../../../firebaseInit';
+import firebase, { memberData } from '../../../firebaseInit';
 
 const SignUp = ({ setSwi }) => {
   // hook
@@ -19,6 +19,17 @@ const SignUp = ({ setSwi }) => {
   const handleEmail = (e) => {
     email = e.target.value;
   };
+  // 建立新會員文件
+  const initData = [];
+  for (let i = 0; i < 24; i += 0.5) {
+    initData.push({ Monday: { [i]: { color: 'red', event: ' ' } } });
+    initData.push({ Tuesday: { [i]: { color: 'red', event: ' ' } } });
+    initData.push({ Wednesday: { [i]: { color: 'red', event: ' ' } } });
+    initData.push({ Thursday: { [i]: { color: 'red', event: ' ' } } });
+    initData.push({ Friday: { [i]: { color: 'red', event: ' ' } } });
+    initData.push({ Saturday: { [i]: { color: 'red', event: ' ' } } });
+    initData.push({ Sunday: { [i]: { color: 'red', event: ' ' } } });
+  }
   const hanlePasssword = (e) => {
     password = e.target.value;
   };
@@ -29,6 +40,17 @@ const SignUp = ({ setSwi }) => {
       .createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
         console.log(userCredential);
+        for (let n = 0; n < 336; n += 1) {
+          memberData
+            .doc(email)
+            .set(initData[n], { merge: true })
+            .then(() => {
+              console.log('Document successfully written!');
+            })
+            .catch((E) => {
+              console.error('Error writing document: ', E);
+            });
+        }
       })
       .catch((ero) => {
         setError(ero.message);
@@ -40,7 +62,7 @@ const SignUp = ({ setSwi }) => {
       <div className="signupImg" />
       <div className="signinBox">
         <h2>CREATE ACCOUNT</h2>
-        <form onSubmit={handleSubmit}>
+        <form>
           <input placeholder="EMAIL" style={inputStyle} onChange={handleEmail} />
           <input
             placeholder="PASSWORD"
@@ -54,7 +76,7 @@ const SignUp = ({ setSwi }) => {
             <div className="google" />
             <div className="github" />
           </div>
-          <button type="submit" className="CTA">
+          <button type="submit" className="CTA" onClick={handleSubmit}>
             <h4>SIGN UP</h4>
           </button>
         </form>
