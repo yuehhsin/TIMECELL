@@ -14,12 +14,12 @@ const ArtBoard = ({ TBdata, selTB, setSelTB }) => (
     <div className="artboard">
       <TimeLine />
       <OneDay day="MON" data={TBdata.Monday} selTB={selTB} setSelTB={setSelTB} />
-      <OneDay day="TUE" data={TBdata.Tuesday} />
-      <OneDay day="WED" data={TBdata.Wednesday} />
-      <OneDay day="THU" data={TBdata.Thursday} />
-      <OneDay day="FRI" data={TBdata.Friday} />
-      <OneDay day="SAT" data={TBdata.Saturday} />
-      <OneDay day="SUN" data={TBdata.Sunday} />
+      <OneDay day="TUE" data={TBdata.Tuesday} selTB={selTB} setSelTB={setSelTB} />
+      <OneDay day="WED" data={TBdata.Wednesday} selTB={selTB} setSelTB={setSelTB} />
+      <OneDay day="THU" data={TBdata.Thursday} selTB={selTB} setSelTB={setSelTB} />
+      <OneDay day="FRI" data={TBdata.Friday} selTB={selTB} setSelTB={setSelTB} />
+      <OneDay day="SAT" data={TBdata.Saturday} selTB={selTB} setSelTB={setSelTB} />
+      <OneDay day="SUN" data={TBdata.Sunday} selTB={selTB} setSelTB={setSelTB} />
     </div>
   </>
 );

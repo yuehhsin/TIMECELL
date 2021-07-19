@@ -7,7 +7,7 @@ import close from '../../../../../icon/remove.png';
 import Event from './Event';
 import EventForm from './EventForm';
 
-const EventList = () => {
+const EventList = ({ selEvent, setSelEvent }) => {
   // HOOK
   const [inputValue, setInputValue] = useState(''); // 取得input值
   const [eventText, setEventText] = useState([
@@ -30,7 +30,7 @@ const EventList = () => {
       <div style={SP ? { dispaly: 'flex' } : { display: 'none' }}>
         <div className="eventList">
           {eventText.map((event, item) => (
-            <Event event={event} key={item} />
+            <Event event={event} key={item} selEvent={selEvent} setSelEvent={setSelEvent} />
           ))}
         </div>
         <EventForm

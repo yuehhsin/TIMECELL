@@ -1,0 +1,18 @@
+[debug] [2021-07-19T00:38:03.895Z] ----------------------------------------------------------------------
+[debug] [2021-07-19T00:38:03.896Z] Command:       /usr/local/bin/node /usr/local/bin/firebase emulators:start
+[debug] [2021-07-19T00:38:03.897Z] CLI Version:   9.16.0
+[debug] [2021-07-19T00:38:03.897Z] Platform:      darwin
+[debug] [2021-07-19T00:38:03.897Z] Node Version:  v14.17.0
+[debug] [2021-07-19T00:38:03.898Z] Time:          Mon Jul 19 2021 08:38:03 GMT+0800 (台北標準時間)
+[debug] [2021-07-19T00:38:03.898Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-07-19T00:38:03.947Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] Failed to authenticate, have you run firebase login?
+[warn] ⚠  emulators: You are not currently authenticated so some features may not work correctly. Please run firebase login to authenticate the CLI. 
+[info] i  emulators: Starting emulators: hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: hosting"}}
+[debug] [2021-07-19T00:38:03.972Z] [hub] writing locator at /var/folders/xh/lkpwv25j57g9sykfhn4kx_0r0000gn/T/hub-timecell-98386.json
+[debug] [2021-07-19T00:38:03.979Z] > refreshing access token with scopes: []
+[debug] [2021-07-19T00:38:03.979Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-07-19T00:38:04.139Z] <<< HTTP RESPONSE 400 {"pragma":"no-cache","date":"Mon, 19 Jul 2021 00:38:03 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-07-19T00:38:04.141Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/timecell-98386/sites 

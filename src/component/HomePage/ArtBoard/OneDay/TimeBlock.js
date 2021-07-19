@@ -6,12 +6,12 @@ const TimeBefore = ({ timeClass, TBinfo, dataSet, selTB, setSelTB }) => {
   // HOOK
   const [timeState, setTimeState] = useState('A'); // 紀錄時間塊選取狀態(state: A:未選取 B:選取 C:已填入事件)
   const handleTimeState = (e) => {
-    console.log(selTB);
     if (timeState === 'A') {
       setTimeState('B');
       e.target.classList.add('timeSel');
-      // setSelTB(...e.target.dataset.position);
+      setSelTB([e.target.dataset.position, ...selTB]);
     } else if (timeState === 'B') {
+      setSelTB(selTB.filter((sel) => sel !== e.target.dataset.position));
       setTimeState('A');
       e.target.classList.remove('timeSel');
     }

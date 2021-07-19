@@ -1,0 +1,52 @@
+[debug] [2021-07-19T00:32:19.257Z] ----------------------------------------------------------------------
+[debug] [2021-07-19T00:32:19.260Z] Command:       /usr/local/bin/node /usr/local/bin/firebase emulators:start
+[debug] [2021-07-19T00:32:19.260Z] CLI Version:   9.16.0
+[debug] [2021-07-19T00:32:19.260Z] Platform:      darwin
+[debug] [2021-07-19T00:32:19.260Z] Node Version:  v14.17.0
+[debug] [2021-07-19T00:32:19.270Z] Time:          Mon Jul 19 2021 08:32:19 GMT+0800 (台北標準時間)
+[debug] [2021-07-19T00:32:19.270Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-07-19T00:32:19.275Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2021-07-19T00:32:19.337Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] Failed to authenticate, have you run firebase login?
+[warn] ⚠  emulators: You are not currently authenticated so some features may not work correctly. Please run firebase login to authenticate the CLI. 
+[info] i  emulators: Starting emulators: hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: hosting"}}
+[debug] [2021-07-19T00:32:19.381Z] [hub] writing locator at /var/folders/xh/lkpwv25j57g9sykfhn4kx_0r0000gn/T/hub-timecell-98386.json
+[debug] [2021-07-19T00:32:19.387Z] > refreshing access token with scopes: []
+[debug] [2021-07-19T00:32:19.387Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-07-19T00:32:19.549Z] <<< HTTP RESPONSE 400 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","date":"Mon, 19 Jul 2021 00:32:19 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-07-19T00:32:19.551Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/timecell-98386/sites 
+[debug] [2021-07-19T00:32:20.019Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2021-07-19T00:32:20.019Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2021-07-19T00:32:20.667Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/timecell-98386/sites 401
+[debug] [2021-07-19T00:32:20.667Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/timecell-98386/sites {"error":{"code":401,"message":"Request is missing required authentication credential. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED"}}
+[debug] [2021-07-19T00:32:20.668Z] Failed to list hosting sites
+[debug] HTTP Error: 401, Request is missing required authentication credential. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2021-07-19T00:32:20.668Z] > refreshing access token with scopes: []
+[debug] [2021-07-19T00:32:20.669Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-07-19T00:32:20.778Z] <<< HTTP RESPONSE 400 {"date":"Mon, 19 Jul 2021 00:32:20 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-07-19T00:32:20.779Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/timecell-98386/webApps/-/config [none]
+[debug] [2021-07-19T00:32:20.990Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/timecell-98386/webApps/-/config 401
+[debug] [2021-07-19T00:32:20.990Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/timecell-98386/webApps/-/config {"error":{"code":401,"message":"Request is missing required authentication credential. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED"}}
+[debug] [2021-07-19T00:32:20.990Z] fetchWebSetup error: FirebaseError: HTTP Error: 401, Request is missing required authentication credential. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[warn] ⚠  hosting: Could not fetch web app configuration and there is no cached configuration on this machine. Check your internet connection and make sure you are authenticated. To continue, you must call firebase.initializeApp({...}) in your code before using Firebase. 
+[info] i  hosting[timecell]: Serving hosting files from: dist {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mdist\u001b[22m"}}
+[info] ✔  hosting[timecell]: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
+[warn] ⚠  emulators: The Emulator UI requires a project ID to start. Configure your default project with 'firebase use' or pass the --project flag. {"metadata":{"emulator":{"name":"hub"},"message":"The Emulator UI requires a project ID to start. Configure your default project with 'firebase use' or pass the --project flag."}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+└─────────────────────────────────────────────────────────────┘
+
+┌──────────┬────────────────┐
+│ Emulator │ Host:Port      │
+├──────────┼────────────────┤
+│ Hosting  │ localhost:5000 │
+└──────────┴────────────────┘
+  Emulator Hub running at localhost:4400
+  Other reserved ports: None
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 

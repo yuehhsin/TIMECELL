@@ -5,7 +5,7 @@ import Edit from './Edit/Edit';
 import Statistic from './Statistic/Statistic';
 import Tab from './Tab';
 
-const SidePanel = () => {
+const SidePanel = ({ selEvent, setSelEvent }) => {
   // hook
   useEffect(() => {
     document.querySelector('.sidepanel').style.height = `${document.body.clientHeight}px`;
@@ -14,7 +14,7 @@ const SidePanel = () => {
   return (
     <div className="sidepanel">
       <Tab tab={tab} setTab={setTab} />
-      {tab === 'edit' ? <Edit /> : <Statistic />}
+      {tab === 'edit' ? <Edit selEvent={selEvent} setSelEvent={setSelEvent} /> : <Statistic />}
       <div className="info" />
     </div>
   );
