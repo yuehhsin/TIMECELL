@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EventForm = ({ inputValue, setInputValue, eventText, setEventText, color, setColor }) => {
+const EventForm = ({ inputValue, setInputValue, eventText, setEventText }) => {
   const handeleInputValue = (e) => {
     setInputValue(e.target.value);
   };

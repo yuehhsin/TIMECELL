@@ -20,15 +20,15 @@ const SignUp = ({ setSwi }) => {
     email = e.target.value;
   };
   // 建立新會員文件
-  const initData = [];
+  const Time = [];
   for (let i = 0; i < 24; i += 0.5) {
-    initData.push({ Monday: { [i]: { color: 'red', event: ' ' } } });
-    initData.push({ Tuesday: { [i]: { color: 'red', event: ' ' } } });
-    initData.push({ Wednesday: { [i]: { color: 'red', event: ' ' } } });
-    initData.push({ Thursday: { [i]: { color: 'red', event: ' ' } } });
-    initData.push({ Friday: { [i]: { color: 'red', event: ' ' } } });
-    initData.push({ Saturday: { [i]: { color: 'red', event: ' ' } } });
-    initData.push({ Sunday: { [i]: { color: 'red', event: ' ' } } });
+    Time.push(`MON-${i}`);
+    Time.push(`TUE-${i}`);
+    Time.push(`WED-${i}`);
+    Time.push(`TUR-${i}`);
+    Time.push(`FRI-${i}`);
+    Time.push(`STA-${i}`);
+    Time.push(`SUN-${i}`);
   }
   const hanlePasssword = (e) => {
     password = e.target.value;
@@ -41,16 +41,38 @@ const SignUp = ({ setSwi }) => {
       .then((userCredential) => {
         console.log(userCredential);
         for (let n = 0; n < 336; n += 1) {
+          const weekNtime = Time[n].split('-');
+          // 創建初始化timeblockInfo
           memberData
             .doc(email)
-            .set(initData[n], { merge: true })
+            .collection('timeblockInfo')
+            .doc(Time[n])
+            .set(
+              {
+                week: weekNtime[0],
+                time: weekNtime[1],
+                color: '#F4F4F4',
+                event: 'Fight',
+              },
+              { merge: true },
+            )
             .then(() => {
-              console.log('Document successfully written!');
+              console.log('timeblockInfo successfully written!');
             })
             .catch((E) => {
               console.error('Error writing document: ', E);
             });
         }
+        // 創建初始eventInfo
+        memberData
+          .doc(email)
+          .set({ eventInfo: ['Welcom to Timecell'] })
+          .then(() => {
+            console.log('eventInfo successfully written!');
+          })
+          .catch((E) => {
+            console.error('Error writing document: ', E);
+          });
       })
       .catch((ero) => {
         setError(ero.message);
