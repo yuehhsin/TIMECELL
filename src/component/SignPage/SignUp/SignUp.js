@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import firebase, { memberData } from '../../../firebaseInit';
+import firebase, { memberData, initData } from '../../../firebaseInit';
 
 const SignUp = ({ setSwi }) => {
   // hook
@@ -19,17 +19,6 @@ const SignUp = ({ setSwi }) => {
   const handleEmail = (e) => {
     email = e.target.value;
   };
-  // 建立新會員文件
-  const Time = [];
-  for (let i = 0; i < 24; i += 0.5) {
-    Time.push(`MON-${i}`);
-    Time.push(`TUE-${i}`);
-    Time.push(`WED-${i}`);
-    Time.push(`THU-${i}`);
-    Time.push(`FRI-${i}`);
-    Time.push(`SAT-${i}`);
-    Time.push(`SUN-${i}`);
-  }
   const hanlePasssword = (e) => {
     password = e.target.value;
   };
@@ -38,32 +27,10 @@ const SignUp = ({ setSwi }) => {
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        console.log(userCredential);
-        for (let n = 0; n < 336; n += 1) {
-          const weekNtime = Time[n].split('-');
-          // 創建初始化timeblockInfo
-          memberData
-            .doc(email)
-            .collection('timeblockInfo')
-            .doc(Time[n])
-            .set(
-              {
-                week: weekNtime[0],
-                time: parseFloat(weekNtime[1]),
-                color: '#F4F4F4',
-                event: '',
-              },
-              { merge: true },
-            )
-            .then(() => {
-              console.log('timeblockInfo successfully written!');
-            })
-            .catch((E) => {
-              console.error('Error writing document: ', E);
-            });
-        }
-        // 創建初始eventInfo
+      .then(() => {
+        // 初始化timeInfo
+        initData('test@gmail.com');
+        // 初始化eventInfo
         memberData
           .doc(email)
           .set({ eventInfo: [{ content: 'Hello REACT', color: '#36BC9B', id: Math.random() }] })

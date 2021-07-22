@@ -33,7 +33,7 @@ const HomePage = () => {
         .then(() => {
           setReRender(reRender + 1);
           setSelTB([]);
-          setSelTB([]);
+          setSelEvent([]);
         })
         .catch(() => {
           console.log('updateError');
@@ -48,7 +48,7 @@ const HomePage = () => {
     <div className="entire" style={{ fontFamily: 'roboto mono, cursive' }}>
       <ArtBoard selTB={selTB} setSelTB={setSelTB} reRender={reRender} />
       <SidePanel selEvent={selEvent} setSelEvent={setSelEvent} />
-      <FloatPanel selTB={selTB} />
+      <FloatPanel selTB={selTB} reRender={reRender} setReRender={setReRender} setSelTB={setSelTB} />
     </div>
   );
 };
