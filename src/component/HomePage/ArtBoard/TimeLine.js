@@ -30,15 +30,18 @@ const TimeLine = () => (
       <h4>8:00</h4>
     </div>
     <div className="timeBlock">
+      <h4>9:00</h4>
+    </div>
+    <div className="timeBlock">
       <h4>10:00</h4>
     </div>
     <div className="timeBlock">
       <h4>11:00</h4>
     </div>
+    {/* <div className="block" /> */}
     <div className="timeBlock">
       <h4>12:00</h4>
     </div>
-    {/* <div className="block" /> */}
     <div className="timeBlock">
       <h4>13:00</h4>
     </div>
@@ -71,9 +74,6 @@ const TimeLine = () => (
     </div>
     <div className="timeBlock">
       <h4>23:00</h4>
-    </div>
-    <div className="timeBlock">
-      <h4>24:00</h4>
     </div>
     <div className="block" />
   </div>

@@ -1,6 +1,5 @@
 {
   "hosting": {
-    "site": "timecell",
     "public": "dist",
     "ignore": [
       "firebase.json",

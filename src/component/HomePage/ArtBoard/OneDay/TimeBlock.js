@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 
-const TimeBefore = ({ timeClass, TBinfo, dataSet, selTB, setSelTB }) => {
-  const TBcolor = { backgroundColor: TBinfo.color };
-  const TBevent = TBinfo.event;
+// eslint-disable-next-line object-curly-newline
+const TimeBefore = ({ timeClass, TBinfo, selTB, setSelTB }) => {
+  const TBcolor = {
+    backgroundColor: TBinfo.color,
+    color: TBinfo.color === '#F4F4F4' ? '#000000' : '#FFFFFF',
+  };
   // HOOK
   const [timeState, setTimeState] = useState('A'); // 紀錄時間塊選取狀態(state: A:未選取 B:選取 C:已填入事件)
   const handleTimeState = (e) => {
@@ -16,6 +19,7 @@ const TimeBefore = ({ timeClass, TBinfo, dataSet, selTB, setSelTB }) => {
       e.target.classList.remove('timeSel');
     }
   };
+  const dataSet = `${TBinfo.week}-${TBinfo.time}`;
   return (
     <button
       aria-label="TimeBlock"
@@ -25,7 +29,7 @@ const TimeBefore = ({ timeClass, TBinfo, dataSet, selTB, setSelTB }) => {
       style={TBcolor}
       data-position={dataSet}
     >
-      {TBevent}
+      {TBinfo.event}
     </button>
   );
 };

@@ -131,6 +131,9 @@
 .floatpanel h5 {
   color: #fff;
 }
+.hidden {
+  display: none;
+}
 .claenEvent {
   width: 24px;
   height: 24px;

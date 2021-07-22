@@ -2,19 +2,15 @@ import React from 'react';
 // component
 import TimeBlock from './TimeBlock';
 
+// eslint-disable-next-line object-curly-newline
 const OneDay = ({ day, data, selTB, setSelTB }) => {
   const timeBefore = 'timeblock timeBefore';
   const timeAfter = 'timeblock timeAfter';
-  const TBlist = [];
-  if (data !== undefined) {
-    for (let i = 0; i < 24; i += 0.5) {
-      TBlist.push(data[i]);
-    }
-  }
+
   return (
     <div className="oneday">
       <h3>{day}</h3>
-      {TBlist.map((TBinfo, item) => (
+      {data.map((TBinfo, item) => (
         <TimeBlock
           timeClass={item % 2 === 0 ? timeBefore : timeAfter}
           TBinfo={TBinfo}

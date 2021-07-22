@@ -1,5 +1,8 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
+import { memberData } from '../../../../../firebaseInit';
 
+// eslint-disable-next-line object-curly-newline
 const EventForm = ({ inputValue, setInputValue, eventText, setEventText }) => {
   const handeleInputValue = (e) => {
     setInputValue(e.target.value);
@@ -8,7 +11,20 @@ const EventForm = ({ inputValue, setInputValue, eventText, setEventText }) => {
     e.preventDefault();
     const selColor = document.querySelector('input[name="color"]:checked').value;
     if (inputValue !== '') {
-      setEventText([{ content: inputValue, color: selColor, id: Math.random() }, ...eventText]);
+      // event資料建立到資料庫;
+      const uploadEvent = [
+        { content: inputValue, color: selColor, id: Math.random() },
+        ...eventText,
+      ];
+      memberData
+        .doc('test@gmail.com')
+        .set({ eventInfo: uploadEvent })
+        .then(() => {
+          setEventText(uploadEvent);
+        })
+        .catch((E) => {
+          console.error('Error writing document: ', E);
+        });
       setInputValue('');
     }
   };

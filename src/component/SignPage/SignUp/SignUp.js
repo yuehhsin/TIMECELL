@@ -25,9 +25,9 @@ const SignUp = ({ setSwi }) => {
     Time.push(`MON-${i}`);
     Time.push(`TUE-${i}`);
     Time.push(`WED-${i}`);
-    Time.push(`TUR-${i}`);
+    Time.push(`THU-${i}`);
     Time.push(`FRI-${i}`);
-    Time.push(`STA-${i}`);
+    Time.push(`SAT-${i}`);
     Time.push(`SUN-${i}`);
   }
   const hanlePasssword = (e) => {
@@ -50,9 +50,9 @@ const SignUp = ({ setSwi }) => {
             .set(
               {
                 week: weekNtime[0],
-                time: weekNtime[1],
+                time: parseFloat(weekNtime[1]),
                 color: '#F4F4F4',
-                event: 'Fight',
+                event: '',
               },
               { merge: true },
             )
@@ -66,10 +66,8 @@ const SignUp = ({ setSwi }) => {
         // 創建初始eventInfo
         memberData
           .doc(email)
-          .set({ eventInfo: ['Welcom to Timecell'] })
-          .then(() => {
-            console.log('eventInfo successfully written!');
-          })
+          .set({ eventInfo: [{ content: 'Hello REACT', color: '#36BC9B', id: Math.random() }] })
+          .then(() => {})
           .catch((E) => {
             console.error('Error writing document: ', E);
           });
