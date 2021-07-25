@@ -32,8 +32,8 @@ const ArtBoard = ({ selTB, setSelTB, reRender }) => {
           const list = [];
           querySnapshot.forEach((doc) => {
             list.push(doc.data());
-            setMONTB(list);
           });
+          setMONTB(list);
         });
     };
     MonData();
@@ -49,8 +49,8 @@ const ArtBoard = ({ selTB, setSelTB, reRender }) => {
           const list = [];
           querySnapshot.forEach((doc) => {
             list.push(doc.data());
-            setTUETB(list);
           });
+          setTUETB(list);
         });
     };
     TueData();
@@ -66,8 +66,8 @@ const ArtBoard = ({ selTB, setSelTB, reRender }) => {
           const list = [];
           querySnapshot.forEach((doc) => {
             list.push(doc.data());
-            setWEDTB(list);
           });
+          setWEDTB(list);
         });
     };
     WedData();
@@ -83,8 +83,8 @@ const ArtBoard = ({ selTB, setSelTB, reRender }) => {
           const list = [];
           querySnapshot.forEach((doc) => {
             list.push(doc.data());
-            setTHUTB(list);
           });
+          setTHUTB(list);
         });
     };
     ThuData();
@@ -100,8 +100,8 @@ const ArtBoard = ({ selTB, setSelTB, reRender }) => {
           const list = [];
           querySnapshot.forEach((doc) => {
             list.push(doc.data());
-            setFRITB(list);
           });
+          setFRITB(list);
         });
     };
     FriData();
@@ -117,8 +117,8 @@ const ArtBoard = ({ selTB, setSelTB, reRender }) => {
           const list = [];
           querySnapshot.forEach((doc) => {
             list.push(doc.data());
-            setSATTB(list);
           });
+          setSATTB(list);
         });
     };
     SatData();
@@ -134,8 +134,8 @@ const ArtBoard = ({ selTB, setSelTB, reRender }) => {
           const list = [];
           querySnapshot.forEach((doc) => {
             list.push(doc.data());
-            setSUNTB(list);
           });
+          setSUNTB(list);
         });
     };
     SunData();

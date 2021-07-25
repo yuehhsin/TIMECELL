@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import firebase, { memberData, initData } from '../../../firebaseInit';
+import firebase, { memberData, initData, provider } from '../../../firebaseInit';
 
 const SignUp = ({ setSwi }) => {
   // hook
@@ -24,6 +24,7 @@ const SignUp = ({ setSwi }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    // 註冊
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
@@ -36,12 +37,30 @@ const SignUp = ({ setSwi }) => {
           .set({ eventInfo: [{ content: 'Hello REACT', color: '#36BC9B', id: Math.random() }] })
           .then(() => {})
           .catch((E) => {
-            console.error('Error writing document: ', E);
+            console.error('Write Data Error: ', E);
           });
       })
       .catch((ero) => {
         setError(ero.message);
-        console.log(error.code);
+      });
+  };
+  // Facebook signin
+  const handelFB = () => {
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then((result) => {
+        console.log('fb ok');
+        /** @type {firebase.auth.OAuthCredential} */
+        const { credential } = result;
+        const { user } = result;
+        const { accessToken } = credential;
+      })
+      .catch((error) => {
+        console.log('FB signin error: ', error.message);
+        const errorCode = error.code;
+        const { email } = error;
+        const { credential } = error;
       });
   };
   return (
@@ -57,11 +76,11 @@ const SignUp = ({ setSwi }) => {
             type="password"
             onChange={hanlePasssword}
           />
-          <h5 className="errorMessage">{error}</h5>
           <div className="social_sign">
             <h5>SOCIAL LOGIN</h5>
             <div className="google" />
             <div className="github" />
+            <div className="facebook" onClick={handelFB} />
           </div>
           <button type="submit" className="CTA" onClick={handleSubmit}>
             <h4>SIGN UP</h4>
@@ -70,6 +89,7 @@ const SignUp = ({ setSwi }) => {
         <button type="button" className="switchBTN" onClick={handleSwi}>
           SIGN IN
         </button>
+        <h5 className="errorMessage">{error}</h5>
       </div>
     </div>
   );

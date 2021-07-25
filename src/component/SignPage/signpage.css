@@ -67,6 +67,7 @@ button:hover {
   border-bottom: 1px solid rgb(14, 14, 14);
   margin-bottom: 10px;
   padding: 10px 0px 10px 0px;
+  outline: none;
 }
 .CTA {
   width: 234px;
@@ -94,11 +95,30 @@ button:hover {
   background-size: cover;
   margin-right: 10px;
 }
+.google:hover {
+  background-image: url('/src/icon/google_hover.png');
+  cursor: pointer;
+}
 .github {
   width: 18px;
   height: 18px;
   background-image: url('/src/icon/github.png');
   background-size: cover;
+  margin-right: 10px;
+}
+.github:hover {
+  background-image: url('/src/icon/github_hover.png');
+  cursor: pointer;
+}
+.facebook {
+  width: 18px;
+  height: 18px;
+  background-image: url('/src/icon/facebook.png');
+  background-size: cover;
+}
+.facebook:hover {
+  background-image: url('/src/icon/facebook_hover.png');
+  cursor: pointer;
 }
 .switchBTN {
   padding: 0px;
@@ -127,9 +147,10 @@ button:hover {
   color: #fff;
   margin-top: 20px;
 }
-.errorMessage h5 {
+.errorMessage {
   color: #db4453;
   width: 234px;
   margin: 0px;
-  margin-top: 15px;
+  margin-top: 40px;
+  text-align: center;
 }
