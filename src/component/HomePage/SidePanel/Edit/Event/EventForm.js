@@ -2,7 +2,6 @@
 import React from 'react';
 import { memberData } from '../../../../../firebaseInit';
 
-// eslint-disable-next-line object-curly-newline
 const EventForm = ({ inputValue, setInputValue, eventText, setEventText }) => {
   const handeleInputValue = (e) => {
     setInputValue(e.target.value);

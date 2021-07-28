@@ -30,6 +30,7 @@ input {
 /* SIDEPANEL */ /* SIDEPANEL */ /* SIDEPANEL */
 .sidepanel {
   width: 240px;
+  height: 100%;
   background-color: #383838;
   position: fixed;
   right: 0px;
@@ -249,4 +250,134 @@ input[type='radio']:checked + label:before {
   position: absolute;
   bottom: 20px;
   right: 20px;
+}
+
+/* Analysis */ /* Analysis */ /* Analysis */
+.comment {
+  padding: 12px 18px 12px 18px;
+}
+.comment h4 {
+  color: #fff;
+  margin-bottom: 16px;
+}
+.comment button {
+  padding: 12px 18px 12px 18px;
+  border-radius: 5px;
+  color: #fff;
+  margin-bottom: 10px;
+  width: 100%;
+  border: 1px solid #fff;
+  background-color: #383838;
+  text-align: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+.commentBox {
+  width: 184px;
+  height: 150px;
+  border-radius: 5px;
+  background-color: #464646;
+  margin-bottom: 16px;
+  border: none;
+  padding: 10px;
+  resize: vertical;
+  color: #fff;
+}
+.commentBox:focus {
+  outline-color: #383838;
+}
+
+/* analysisBoard */ /* analysisBoard */ /* analysisBoard */
+.commentIcon {
+  background-image: url('/src/icon/comment.png');
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+}
+.commentIcon:hover {
+  cursor: pointer;
+}
+
+.anaBoard {
+  width: calc(100% - 1040px);
+  padding: 20px 400px 20px 400px;
+}
+.chartScope {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.chart01 {
+  width: 20%;
+  height: 300px;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  padding: 20px;
+  margin-right: 20px;
+}
+.chart02 {
+  width: 70%;
+  height: 300px;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  padding: 20px;
+}
+.anaBoard-title {
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+/* Quote */ /* Quote */ /* Quote */
+.quoteScope {
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px 15px 30px;
+}
+.favIcon {
+  width: 24px;
+  height: 24px;
+  background-image: url('/src/icon/favorite.png');
+  background-size: cover;
+}
+.editIcon {
+  width: 24px;
+  height: 24px;
+  background-image: url('/src/icon/edit_black.png');
+  background-size: cover;
+}
+.delIcon {
+  width: 24px;
+  height: 24px;
+  background-image: url('/src/icon/delete_black.png');
+  background-size: cover;
+}
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.text {
+  margin-left: 20px;
+}
+.text h3 {
+  margin-bottom: 10px;
+}
+.menuList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.align {
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.align h6 {
+  margin: 10px 0px 0px 0px;
 }

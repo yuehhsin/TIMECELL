@@ -12,7 +12,8 @@ const EventList = ({ selEvent, setSelEvent }) => {
   // HOOK
   const [inputValue, setInputValue] = useState(''); // 取得input值
   const [eventText, setEventText] = useState([
-    { content: 'default', color: 'default', id: Math.random() },
+    { content: 'default-1', color: 'default', id: Math.random() },
+    { content: 'default-2', color: 'default', id: Math.random() },
   ]); // 建立event列表
   const [SP, setSP] = useState(true); // 開合視窗
   const handleSP = () => {

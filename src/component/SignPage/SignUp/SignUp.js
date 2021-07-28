@@ -34,7 +34,9 @@ const SignUp = ({ setSwi }) => {
         // 初始化eventInfo
         memberData
           .doc(email)
-          .set({ eventInfo: [{ content: 'Hello REACT', color: '#36BC9B', id: Math.random() }] })
+          .set({
+            eventInfo: [{ content: 'Hello REACT', color: '#36BC9B', id: Math.random() }],
+          })
           .then(() => {})
           .catch((E) => {
             console.error('Write Data Error: ', E);
