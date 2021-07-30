@@ -12,6 +12,7 @@ const Doughnuts = () => {
         data: [12, 19, 3, 5, 2, 3],
         backgroundColor: ['#DB4453', '#F2802D', '#36BC9B', '#5D9CEC', '#8C63E3', '#5C5C5C'],
         borderWidth: 2,
+        borderColor: '#F4F4F4',
       },
     ],
   };

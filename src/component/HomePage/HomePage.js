@@ -15,6 +15,7 @@ const HomePage = () => {
   const [selEvent, setSelEvent] = useState({}); // 選取的事件資訊  {color:red,event:"sleep"}
   const [reRender, setReRender] = useState(1); // 重新render
   const [tab, setTab] = useState('edit'); // edit analysis Tab切換
+  const [comment, setComment] = useState([]); // comment資訊列表
 
   // 重新下載資料庫指令
   useEffect(() => {
@@ -45,15 +46,22 @@ const HomePage = () => {
       updateData(selTB[i]);
     }
   }, [selEvent]);
-
+  console.log('comment', comment);
   return (
     <div className="entire" style={{ fontFamily: 'roboto, cursive' }}>
       {tab === 'edit' ? (
         <ArtBoard selTB={selTB} setSelTB={setSelTB} reRender={reRender} tab={tab} />
       ) : (
-        <AnalysisBoard />
+        <AnalysisBoard comment={comment} />
       )}
-      <SidePanel selEvent={selEvent} setSelEvent={setSelEvent} tab={tab} setTab={setTab} />
+      <SidePanel
+        selEvent={selEvent}
+        setSelEvent={setSelEvent}
+        tab={tab}
+        setTab={setTab}
+        comment={comment}
+        setComment={setComment}
+      />
       <FloatPanel selTB={selTB} reRender={reRender} setReRender={setReRender} setSelTB={setSelTB} />
     </div>
   );

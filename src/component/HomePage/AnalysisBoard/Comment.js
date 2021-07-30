@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 
-let move = false;
-const Comment = () => {
+const Comment = ({ commentText }) => {
   // HOOK
-  const [cursorPos, setCursorPos] = useState({}); // 紀錄滑鼠位置
+  const [cursorPos, setCursorPos] = useState({ x: 800, y: 500 }); // 紀錄滑鼠位置
+  const [move, setMove] = useState(false); // 可以移動的comment
+  const [commentBlock, setCommentBlock] = useState(false); // comment的小視窗
 
   const handleClick = () => {
-    move = move !== true;
+    setMove(move !== true);
+    // setCommentBlock(false);
   };
   window.onmousemove = (e) => {
     if (move === true) {
@@ -16,19 +18,28 @@ const Comment = () => {
     }
   };
   const handleMouseDown = () => {
-    move = true;
+    setMove(true);
   };
   const handleDoubleClick = () => {
+    setCommentBlock(commentBlock !== true);
     console.log('double!!!');
   };
   return (
-    <div
-      className="commentIcon"
-      onClick={handleClick}
-      onDoubleClick={handleDoubleClick}
-      onMouseDown={handleMouseDown}
-      style={{ left: `${cursorPos.x}px`, top: `${cursorPos.y}px` }}
-    />
+    <>
+      <div
+        className="commentIcon"
+        onClick={handleClick}
+        onDoubleClick={handleDoubleClick}
+        onMouseDown={handleMouseDown}
+        style={{ left: `${cursorPos.x}px`, top: `${cursorPos.y}px` }}
+      />
+      <textarea
+        className={commentBlock ? 'commentBlock' : 'hidden'}
+        style={{ left: `${cursorPos.x + 50}px`, top: `${cursorPos.y}px` }}
+      >
+        {commentText}
+      </textarea>
+    </>
   );
 };
 export default Comment;

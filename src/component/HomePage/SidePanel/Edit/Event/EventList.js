@@ -16,9 +16,12 @@ const EventList = ({ selEvent, setSelEvent }) => {
     { content: 'default-2', color: 'default', id: Math.random() },
   ]); // 建立event列表
   const [SP, setSP] = useState(true); // 開合視窗
+
   const handleSP = () => {
     setSP(!SP);
   };
+  const [dragTarget, setDragTarget] = useState({}); // 拖曳的目標
+
   useEffect(() => {
     const downloadEvent = async () => {
       memberData
@@ -60,9 +63,28 @@ const EventList = ({ selEvent, setSelEvent }) => {
         />
       </div>
       <div style={SP ? { dispaly: 'flex' } : { display: 'none' }}>
-        <div className="eventList">
+        <div
+          className="eventList"
+          onDragOver={(e) => {
+            e.preventDefault();
+          }}
+          onDragEnter={(e) => {
+            e.preventDefault();
+          }}
+          onDrop={() => {
+            console.log('drop');
+          }}
+        >
           {eventText.map((event, item) => (
-            <Event event={event} key={item} selEvent={selEvent} setSelEvent={setSelEvent} />
+            <Event
+              event={event}
+              key={item.id}
+              selEvent={selEvent}
+              setSelEvent={setSelEvent}
+              item={item}
+              eventText={eventText}
+              setEventText={setEventText}
+            />
           ))}
         </div>
         <EventForm
