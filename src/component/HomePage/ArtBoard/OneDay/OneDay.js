@@ -1,11 +1,12 @@
 import React from 'react';
+
 // component
 import TimeBlock from './TimeBlock';
 
 // eslint-disable-next-line object-curly-newline
-const OneDay = ({ day, data, selTB, setSelTB }) => {
-  const timeBefore = 'timeblock timeBefore';
-  const timeAfter = 'timeblock timeAfter';
+const OneDay = ({ day, data, selTB, setSelTB, reRender }) => {
+  const timeBefore = 'timeblock timeBefore ';
+  const timeAfter = 'timeblock timeAfter ';
 
   return (
     <div className="oneday">
@@ -17,6 +18,7 @@ const OneDay = ({ day, data, selTB, setSelTB }) => {
           dataSet={`${day}-${0.5 * item}`}
           selTB={selTB}
           setSelTB={setSelTB}
+          reRender={reRender}
         />
       ))}
     </div>

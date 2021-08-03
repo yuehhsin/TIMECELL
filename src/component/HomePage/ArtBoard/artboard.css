@@ -33,7 +33,7 @@
   padding-top: 40px;
 }
 .timeSel {
-  border: 2px solid #b5ecff;
+  border: 2px solid #88e0fe;
   box-sizing: border-box;
 }
 .oneday {
@@ -74,24 +74,24 @@
   padding: 15px 20px 25px 20px;
   display: flex;
 }
-.import-btn{
+.import-btn {
   display: flex;
   align-items: center;
 }
-.import-btn h4{
+.import-btn h4 {
   font-weight: bold;
-  color: #D3D3D3;
+  color: #d3d3d3;
 }
-.split-line{
+.split-line {
   height: 14px;
-  border-left: 2px solid #D3D3D3;
+  border-left: 2px solid #d3d3d3;
   margin-left: 12px;
 }
-.signOut{
+.signOut {
   margin-left: 12px;
   margin-right: 20px;
 }
-.signOut:hover{
+.signOut:hover {
   cursor: pointer;
   color: #383838;
 }
@@ -139,11 +139,10 @@
   padding-left: 15px;
   padding-right: 15px;
   border-radius: 5px;
-  /* top: 0px; */
   left: calc((100% - 240px) / 2);
   top: 93%;
   transform: translateX(-50%);
-  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -163,4 +162,31 @@
 .claenEvent:hover {
   cursor: pointer;
   background-image: url('/src/icon/cleaning_hover.png');
+}
+.cleanPanel {
+  position: absolute;
+  width: 100px;
+  background-color: #fff;
+  left: 150px;
+  bottom: 10px;
+  border-radius: 2px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+}
+.cleanPanel h5 {
+  color: #000000;
+  padding: 7px 10px 7px 10px;
+  text-align: center;
+}
+.cleanPanel h5:hover {
+  cursor: pointer;
+  background-color: #e0e0e0;
+}
+.cleanH5Top {
+  border-bottom: 1px solid #000000;
+}
+.cleanH5Top:hover {
+  border-radius: 2px 2px 0px 0px;
+}
+.cleanH5BTM:hover {
+  border-radius: 0px 0px 2px 2px;
 }

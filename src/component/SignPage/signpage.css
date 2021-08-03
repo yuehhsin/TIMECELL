@@ -85,7 +85,6 @@ button:hover {
 .social_sign {
   width: 100%;
   display: flex;
-  /* justify-content: center; */
   margin-top: 20px;
 }
 .google {

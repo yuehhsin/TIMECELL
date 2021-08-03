@@ -219,7 +219,7 @@ button {
   border-radius: 5px;
   display: flex;
   flex-wrap: wrap;
-  padding: 5px 0px 5px 10px;
+  padding: 10px 0px 5px 10px;
   justify-content: center;
   align-items: center;
 }
@@ -284,26 +284,6 @@ input[type='radio']:checked + label:before {
   background-color: #8b8b8b;
 }
 
-.routineTit {
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
-  padding: 16px 20px 16px 20px;
-  border-top: 1px solid #fff;
-}
-.routine {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 18px 12px 18px;
-  background: linear-gradient(90deg, #f2802d 0%, #f2c72d 100%);
-  border-radius: 5px;
-  color: #fff;
-  margin-bottom: 10px;
-}
-.routineList {
-  padding: 0px 20px 0px 20px;
-}
 .noteTit {
   color: #fff;
   display: flex;
@@ -463,4 +443,70 @@ input[type='radio']:checked + label:before {
 }
 .align h6 {
   margin: 10px 0px 0px 0px;
+}
+
+/* POPUP */ /* POPUP */ /* POPUP */
+.popupBG {
+  position: absolute;
+  width: 100%;
+  height: 250%;
+  background-color: rgba(56, 56, 56, 0.5);
+  z-index: 10000;
+}
+.cautionPop {
+  width: 522px;
+  background-color: #fff;
+  border-radius: 5px;
+  position: absolute;
+  /* left: 50%;
+  transform: translateX(-50%); */
+  top: 300px;
+  padding: 35px 20px 35px 20px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+  z-index: 10001;
+}
+.cautionPop h3 {
+  text-align: center;
+}
+.cautionPop h4 {
+  margin-top: 20px;
+  text-align: center;
+  line-height: 30px;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.popBTN {
+  width: 120px;
+  padding: 10px 15px 10px 15px;
+  background-color: rgb(86, 213, 200);
+  margin-right: 10px;
+  margin-left: 10px;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #db4453;
+}
+.popBTN:hover {
+  background-color: #ce2535;
+}
+
+.grayBG {
+  background-color: #c4c4c4;
+}
+.grayBG:hover {
+  background-color: #9a9a9a;
+}
+.closePop {
+  width: 20px;
+  height: 20px;
+  background-image: url('/src/icon/close_black.png');
+  background-size: cover;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.closePop:hover {
+  background-image: url('/src/icon/close_black_sle.png');
 }

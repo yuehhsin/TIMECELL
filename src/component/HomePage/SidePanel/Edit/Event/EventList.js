@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { memberData } from '../../../../../firebaseInit';
+import React, { useState } from 'react';
 
 import open from '../../../../../icon/add.png';
 import close from '../../../../../icon/remove.png';
@@ -8,58 +7,25 @@ import close from '../../../../../icon/remove.png';
 import Event from './Event';
 import EventForm from './EventForm';
 
-const EventList = ({ selEvent, setSelEvent }) => {
+const EventList = ({ selEvent, setSelEvent, setCaution, eventText, setEventText }) => {
   // HOOK
   const [inputValue, setInputValue] = useState(''); // 取得input值
-  const [eventText, setEventText] = useState([
-    { content: 'default-1', color: 'default', id: Math.random() },
-    { content: 'default-2', color: 'default', id: Math.random() },
-  ]); // 建立event列表
   const [SP, setSP] = useState(true); // 開合視窗
+  const [dragTarget, setDragTarget] = useState({}); // 拖曳的目標
 
   const handleSP = () => {
     setSP(!SP);
   };
-  const [dragTarget, setDragTarget] = useState({}); // 拖曳的目標
-
-  useEffect(() => {
-    const downloadEvent = async () => {
-      memberData
-        .doc('test@gmail.com')
-        .get()
-        .then((doc) => {
-          if (doc.exists) {
-            setEventText(doc.data().eventInfo);
-          }
-          console.log('No such document!');
-        })
-        .catch((error) => {
-          console.log('Error getting document:', error);
-        });
-    };
-    downloadEvent();
-  }, []);
-
-  memberData
-    .orderBy('eventInfo')
-    .get()
-    .then((doc) => {
-      if (!doc.exists) {
-        console.log('No such document!');
-      }
-    })
-    .catch((error) => {
-      console.log('Error getting document:', error);
-    });
-
   return (
     <>
       <div className="eventTit">
         <h4>EVENT</h4>
-        <div
+        <button
+          type="button"
           className="collapse"
           onClick={handleSP}
           style={SP ? { backgroundImage: `url(${close})` } : { backgroundImage: `url(${open})` }}
+          aria-label="collapse"
         />
       </div>
       <div style={SP ? { dispaly: 'flex' } : { display: 'none' }}>
@@ -84,6 +50,7 @@ const EventList = ({ selEvent, setSelEvent }) => {
               item={item}
               eventText={eventText}
               setEventText={setEventText}
+              setCaution={setCaution}
             />
           ))}
         </div>

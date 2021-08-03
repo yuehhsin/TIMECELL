@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 
-const Event = ({ event, setSelEvent, eventText, setEventText, item }) => {
+const Event = ({ event, setSelEvent, eventText, setEventText, item, setCaution }) => {
+  console.log('event', event);
   // HOOK
   const [menu, setMenu] = useState(false); // menu視窗
   const [edit, handleEdit] = useState(false); // edit視窗
   const [eventEdit, handleMenuEdit] = useState(''); // edit onchang
 
   const handleRenderTB = () => {
-    setSelEvent({ color: event.color, event: event.content });
+    setSelEvent({ color: event.color, event: event.content, id: event.id });
   };
   const handledrag = (e) => {
     setTimeout(() => {
@@ -32,8 +33,10 @@ const Event = ({ event, setSelEvent, eventText, setEventText, item }) => {
     handleEdit(true);
     handleMenuEdit(event.content);
   };
+  const handleDelPanel = () => {
+    setCaution(true);
+  };
   const handleEventEdit = (e) => {
-    console.log('target', e.target);
     handleMenuEdit(e.target.value);
   };
   const handleEditSubmit = (e) => {
@@ -75,7 +78,7 @@ const Event = ({ event, setSelEvent, eventText, setEventText, item }) => {
           <h5 className="menuEdit" onClick={handleEditPanel}>
             EDIT
           </h5>
-          <h5>DELETE</h5>
+          <h5 onClick={handleDelPanel}>DELETE</h5>
         </div>
       </button>
     </div>

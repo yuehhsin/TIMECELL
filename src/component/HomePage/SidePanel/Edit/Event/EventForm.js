@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
-import { memberData } from '../../../../../firebaseInit';
 
 const EventForm = ({ inputValue, setInputValue, eventText, setEventText }) => {
   const handeleInputValue = (e) => {
@@ -9,23 +8,27 @@ const EventForm = ({ inputValue, setInputValue, eventText, setEventText }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const selColor = document.querySelector('input[name="color"]:checked').value;
-    if (inputValue !== '') {
-      // event資料建立到資料庫;
-      const uploadEvent = [
-        { content: inputValue, color: selColor, id: Math.random() },
-        ...eventText,
-      ];
-      memberData
-        .doc('test@gmail.com')
-        .set({ eventInfo: uploadEvent })
-        .then(() => {
-          setEventText(uploadEvent);
-        })
-        .catch((E) => {
-          console.error('Error writing document: ', E);
-        });
-      setInputValue('');
-    }
+    const uploadEvent = [{ content: inputValue, color: selColor, id: Math.random() }, ...eventText];
+    setEventText(uploadEvent);
+
+    // if (inputValue !== '') {
+    // const selColor = document.querySelector('input[name="color"]:checked').value;
+    //   // event資料建立到資料庫;
+    //   const uploadEvent = [
+    //     { content: inputValue, color: selColor, id: Math.random() },
+    //     ...eventText,
+    //   ];
+    //   memberData
+    //     .doc('test@gmail.com')
+    //     .set({ eventInfo: uploadEvent })
+    //     .then(() => {
+    //       setEventText(uploadEvent);
+    //     })
+    //     .catch((E) => {
+    //       console.error('Error writing document: ', E);
+    //     });
+    //   setInputValue('');
+    // }
   };
   return (
     <form className="eventForm" onSubmit={handleSubmit}>
@@ -35,6 +38,7 @@ const EventForm = ({ inputValue, setInputValue, eventText, setEventText }) => {
         style={{ fontFamily: 'roboto, cursive' }}
         onChange={handeleInputValue}
         value={inputValue}
+        maxLength="12"
       />
       <div className="selColor">
         <input id="color1" type="radio" name="color" value="#DB4453" defaultChecked hidden />
