@@ -1,11 +1,27 @@
+/* eslint-disable no-param-reassign */
 import React, { useState } from 'react';
 
-const Event = ({ event, setSelEvent, eventText, setEventText, item, setCaution }) => {
-  console.log('event', event);
+const Event = ({
+  event,
+  setSelEvent,
+  eventText,
+  setEventText,
+  item,
+  setCaution,
+  MONTB,
+  TUETB,
+  WEDTB,
+  THUTB,
+  FRITB,
+  SATTB,
+  SUNTB,
+  reRender,
+  setReRender,
+}) => {
   // HOOK
   const [menu, setMenu] = useState(false); // menu視窗
   const [edit, handleEdit] = useState(false); // edit視窗
-  const [eventEdit, handleMenuEdit] = useState(''); // edit onchang
+  const [eventEdit, handleMenuEdit] = useState(''); // edit(input onchang)
 
   const handleRenderTB = () => {
     setSelEvent({ color: event.color, event: event.content, id: event.id });
@@ -39,14 +55,28 @@ const Event = ({ event, setSelEvent, eventText, setEventText, item, setCaution }
   const handleEventEdit = (e) => {
     handleMenuEdit(e.target.value);
   };
+  const updateTB = (TB, orginalEvent) => {
+    for (let i = 0; i < TB.length; i += 1) {
+      if (TB[i].event === orginalEvent) {
+        TB[i].event = eventEdit;
+      }
+    }
+  };
   const handleEditSubmit = (e) => {
     e.preventDefault();
     if (eventEdit !== '') {
-      const updateEventText = eventText;
-      updateEventText[item].content = eventEdit;
+      const orginalEvent = JSON.parse(JSON.stringify(eventText))[item].content;
+      eventText[item].content = eventEdit;
       handleMenuEdit('');
-      setEventText(updateEventText);
       handleEdit(false);
+      updateTB(MONTB, orginalEvent);
+      updateTB(TUETB, orginalEvent);
+      updateTB(WEDTB, orginalEvent);
+      updateTB(THUTB, orginalEvent);
+      updateTB(FRITB, orginalEvent);
+      updateTB(SATTB, orginalEvent);
+      updateTB(SUNTB, orginalEvent);
+      setReRender(reRender + 1);
     }
   };
   return (

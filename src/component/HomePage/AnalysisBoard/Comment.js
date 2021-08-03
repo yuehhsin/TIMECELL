@@ -22,7 +22,6 @@ const Comment = ({ commentText }) => {
   };
   const handleDoubleClick = () => {
     setCommentBlock(commentBlock !== true);
-    console.log('double!!!');
   };
   return (
     <>

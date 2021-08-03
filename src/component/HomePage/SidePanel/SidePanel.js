@@ -15,6 +15,15 @@ const SidePanel = ({
   setCaution,
   eventText,
   setEventText,
+  MONTB,
+  TUETB,
+  WEDTB,
+  THUTB,
+  FRITB,
+  SATTB,
+  SUNTB,
+  reRender,
+  setReRender,
 }) => (
   <div className="sidepanel">
     <Tab tab={tab} setTab={setTab} />
@@ -25,6 +34,15 @@ const SidePanel = ({
         setCaution={setCaution}
         eventText={eventText}
         setEventText={setEventText}
+        MONTB={MONTB}
+        TUETB={TUETB}
+        WEDTB={WEDTB}
+        THUTB={THUTB}
+        FRITB={FRITB}
+        SATTB={SATTB}
+        SUNTB={SUNTB}
+        reRender={reRender}
+        setReRender={setReRender}
       />
     ) : (
       <Analysis comment={comment} setComment={setComment} />

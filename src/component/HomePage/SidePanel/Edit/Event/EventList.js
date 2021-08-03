@@ -7,7 +7,22 @@ import close from '../../../../../icon/remove.png';
 import Event from './Event';
 import EventForm from './EventForm';
 
-const EventList = ({ selEvent, setSelEvent, setCaution, eventText, setEventText }) => {
+const EventList = ({
+  selEvent,
+  setSelEvent,
+  setCaution,
+  eventText,
+  setEventText,
+  MONTB,
+  TUETB,
+  WEDTB,
+  THUTB,
+  FRITB,
+  SATTB,
+  SUNTB,
+  reRender,
+  setReRender,
+}) => {
   // HOOK
   const [inputValue, setInputValue] = useState(''); // 取得input值
   const [SP, setSP] = useState(true); // 開合視窗
@@ -51,6 +66,15 @@ const EventList = ({ selEvent, setSelEvent, setCaution, eventText, setEventText 
               eventText={eventText}
               setEventText={setEventText}
               setCaution={setCaution}
+              MONTB={MONTB}
+              TUETB={TUETB}
+              WEDTB={WEDTB}
+              THUTB={THUTB}
+              FRITB={FRITB}
+              SATTB={SATTB}
+              SUNTB={SUNTB}
+              reRender={reRender}
+              setReRender={setReRender}
             />
           ))}
         </div>

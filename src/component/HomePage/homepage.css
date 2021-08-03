@@ -223,6 +223,12 @@ button {
   justify-content: center;
   align-items: center;
 }
+.eventMenuBG {
+  width: 100%;
+  height: 250%;
+  border: 1px solid red;
+  position: fixed;
+}
 /* ARDIO */
 input[type='radio'] + label {
   vertical-align: middle;
