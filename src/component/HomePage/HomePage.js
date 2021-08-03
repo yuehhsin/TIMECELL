@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { memberData } from '../../firebaseInit';
 
 // css
 import './homepage.css';
 // component
 import ArtBoard from './ArtBoard/ArtBoard';
 import SidePanel from './SidePanel/SidePanel';
-import FloatPanel from './FloatPanel/FloatPanel';
+import FloatPanel from './Popup/FloatPanel';
 import AnalysisBoard from './AnalysisBoard/AnalysisBoard';
 import Caution from './Caution/Caution';
 import CleanACaution from './Caution/CleanACaution';
@@ -386,7 +385,19 @@ const HomePage = () => {
         eventText={eventText}
         setEventText={setEventText}
       />
-      <FloatPanel selTB={selTB} setCACaution={setCACaution} />
+      <FloatPanel
+        selTB={selTB}
+        setCACaution={setCACaution}
+        MONTB={MONTB}
+        TUETB={TUETB}
+        WEDTB={WEDTB}
+        THUTB={THUTB}
+        FRITB={FRITB}
+        SATTB={SATTB}
+        SUNTB={SUNTB}
+        reRender={reRender}
+        setReRender={setReRender}
+      />
     </div>
   );
 };

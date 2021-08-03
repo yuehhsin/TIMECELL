@@ -451,7 +451,7 @@ input[type='radio']:checked + label:before {
   width: 100%;
   height: 250%;
   background-color: rgba(56, 56, 56, 0.5);
-  z-index: 10000;
+  z-index: 1002;
 }
 .cautionPop {
   width: 522px;
@@ -463,7 +463,7 @@ input[type='radio']:checked + label:before {
   top: 300px;
   padding: 35px 20px 35px 20px;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
-  z-index: 10001;
+  z-index: 1003;
 }
 .cautionPop h3 {
   text-align: center;
