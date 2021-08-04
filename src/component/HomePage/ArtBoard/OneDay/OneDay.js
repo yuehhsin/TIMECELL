@@ -4,7 +4,7 @@ import React from 'react';
 import TimeBlock from './TimeBlock';
 
 // eslint-disable-next-line object-curly-newline
-const OneDay = ({ day, data, selTB, setSelTB, reRender }) => {
+const OneDay = ({ day, data, selTB, setSelTB, reRender, mouseDown }) => {
   const timeBefore = 'timeblock timeBefore ';
   const timeAfter = 'timeblock timeAfter ';
 
@@ -19,6 +19,7 @@ const OneDay = ({ day, data, selTB, setSelTB, reRender }) => {
           selTB={selTB}
           setSelTB={setSelTB}
           reRender={reRender}
+          mouseDown={mouseDown}
         />
       ))}
     </div>

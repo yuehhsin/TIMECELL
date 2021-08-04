@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import firebase, { memberData, initData, provider } from '../../../firebaseInit';
+import firebase, { memberData, initData, provider } from '../../../../firebaseInit';
+import 'animate.css';
 
-const SignUp = ({ setSwi }) => {
+const SignUp = ({ setSwitch, setSignPop }) => {
   // hook
   const [error, setError] = useState('');
 
@@ -13,8 +14,8 @@ const SignUp = ({ setSwi }) => {
     fontSize: '12px',
     letterSpacing: '2px',
   };
-  const handleSwi = () => {
-    setSwi('signin');
+  const handleSwitch = () => {
+    setSwitch('signin');
   };
   const handleEmail = (e) => {
     email = e.target.value;
@@ -65,8 +66,13 @@ const SignUp = ({ setSwi }) => {
         const { credential } = error;
       });
   };
+
+  const handlePopClose = () => {
+    setSignPop(false);
+  };
   return (
-    <div className="signpopup">
+    <div className="signpopup animate__animated animate__bounce">
+      <button type="button" className="closePop" aria-label="ClosePop" onClick={handlePopClose} />
       <div className="signupImg" />
       <div className="signinBox">
         <h2>CREATE ACCOUNT</h2>
@@ -88,7 +94,7 @@ const SignUp = ({ setSwi }) => {
             <h4>SIGN UP</h4>
           </button>
         </form>
-        <button type="button" className="switchBTN" onClick={handleSwi}>
+        <button type="button" className="switchBTN" onClick={handleSwitch}>
           SIGN IN
         </button>
         <h5 className="errorMessage">{error}</h5>

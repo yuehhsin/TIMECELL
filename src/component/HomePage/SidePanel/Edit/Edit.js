@@ -1,7 +1,7 @@
 import React from 'react';
 
 // component
-import Style from './Style/Style';
+import Timer from './Timer/Timer';
 import EventList from './Event/EventList';
 
 const Edit = ({
@@ -21,7 +21,7 @@ const Edit = ({
   setReRender,
 }) => (
   <>
-    <Style />
+    <Timer />
     <EventList
       selEvent={selEvent}
       setSelEvent={setSelEvent}

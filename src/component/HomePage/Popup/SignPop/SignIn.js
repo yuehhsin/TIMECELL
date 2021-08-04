@@ -1,21 +1,25 @@
 import React from 'react';
 // import firebase from '../../../firebaseInit';
 
-const SingIn = ({ setSwi }) => {
+const SingIn = ({ setSwitch, setSignPop }) => {
   const inputStyle = {
     fontFamily: 'roboto, cursive',
     fontSize: '12px',
     letterSpacing: '2px',
   };
-  const handleSwi = () => {
-    setSwi('signup');
+  const handleSwitch = () => {
+    setSwitch('signup');
   };
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('hi');
   };
+  const handlePopClose = () => {
+    setSignPop(false);
+  };
   return (
     <div className="signpopup">
+      <button type="button" className="closePop" aria-label="ClosePop" onClick={handlePopClose} />
       <div className="signinImg" />
       <div className="signinBox">
         <h2>SIGN IN</h2>
@@ -26,7 +30,7 @@ const SingIn = ({ setSwi }) => {
             <h4>SIGN IN</h4>
           </button>
         </form>
-        <button type="submit" className="switchBTN" onClick={handleSwi}>
+        <button type="submit" className="switchBTN" onClick={handleSwitch}>
           SIGN UP
         </button>
       </div>

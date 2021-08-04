@@ -7,10 +7,15 @@ const EventForm = ({ inputValue, setInputValue, eventText, setEventText }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    const selColor = document.querySelector('input[name="color"]:checked').value;
-    const uploadEvent = [{ content: inputValue, color: selColor, id: Math.random() }, ...eventText];
-    setEventText(uploadEvent);
-
+    if (inputValue !== '') {
+      const selColor = document.querySelector('input[name="color"]:checked').value;
+      const uploadEvent = [
+        { content: inputValue, color: selColor, id: Math.random() },
+        ...eventText,
+      ];
+      setEventText(uploadEvent);
+      setInputValue('');
+    }
     // if (inputValue !== '') {
     // const selColor = document.querySelector('input[name="color"]:checked').value;
     //   // event資料建立到資料庫;
@@ -32,14 +37,17 @@ const EventForm = ({ inputValue, setInputValue, eventText, setEventText }) => {
   };
   return (
     <form className="eventForm" onSubmit={handleSubmit}>
-      <input
-        placeholder="Create New Event"
-        className="eventInput"
-        style={{ fontFamily: 'roboto, cursive' }}
-        onChange={handeleInputValue}
-        value={inputValue}
-        maxLength="12"
-      />
+      <div style={{ position: 'relative' }}>
+        <input
+          placeholder="Create New Event"
+          className="eventInput"
+          style={{ fontFamily: 'roboto, cursive' }}
+          onChange={handeleInputValue}
+          value={inputValue}
+          maxLength="12"
+        />
+        <button type="submit" className="eventSubmitBTN" />
+      </div>
       <div className="selColor">
         <input id="color1" type="radio" name="color" value="#DB4453" defaultChecked hidden />
         <label htmlFor="color1" className="color1" />

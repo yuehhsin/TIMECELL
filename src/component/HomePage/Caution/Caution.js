@@ -1,15 +1,17 @@
 import React from 'react';
 import 'animate.css';
 
-const Caution = ({ setCaution, selEvent }) => {
+const Caution = ({ setCaution, selEvent, eventText, setEventText }) => {
   const handleClosePop = () => {
     setCaution(false);
   };
   const handelDel = () => {
-    console.log('click del', selEvent);
+    setEventText(eventText.filter((el) => el.id !== selEvent.id));
+    setCaution(false);
+    // 處理畫面上應該被刪除的時間塊
   };
   const popupX = (document.body.clientWidth - 240 - 512) / 2;
-  console.log('popupX', popupX);
+
   return (
     <>
       <div className="popupBG" onClick={handleClosePop} />
@@ -19,9 +21,15 @@ const Caution = ({ setCaution, selEvent }) => {
       >
         <h3>CAUTION</h3>
         <h4>
-          This Event is marked , all blocks of
-          <span>EVENT</span>
-          will be erased,Continue delete?
+          This Event is marked ,
+          {selEvent.event ? (
+            <span>
+              all blocks of "<b>{selEvent.event}</b>
+" will be erased , Continue delete?
+</span>
+          ) : (
+            <span> , Continue delete?</span>
+          )}
         </h4>
         <button type="button" className="closePop" aria-label="ClosePop" onClick={handleClosePop} />
         <div className="center">

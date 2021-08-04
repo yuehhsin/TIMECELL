@@ -9,12 +9,14 @@ import FloatPanel from './Popup/FloatPanel';
 import AnalysisBoard from './AnalysisBoard/AnalysisBoard';
 import Caution from './Caution/Caution';
 import CleanACaution from './Caution/CleanACaution';
+import SignPop from './Popup/SignPop/SignPop';
 
 const HomePage = () => {
   // HOOK
   const [tab, setTab] = useState('edit'); // Tab切換
   const [caution, setCaution] = useState(false); // caution popup
-  const [caCaution, setCACaution] = useState(false); // cleanall caution popup
+  const [caCaution, setCACaution] = useState(false); // clean-all popup
+  const [signPop, setSignPop] = useState(false); // signPop
   const [reRender, setReRender] = useState(1); // 重新render
   // HOOK: 整體資料
   const [eventText, setEventText] = useState([
@@ -275,8 +277,8 @@ const HomePage = () => {
   //   downloadEvent();
   // }, []);
 
+  // udate TB
   useEffect(() => {
-    // udate TB
     for (let i = 0; i < selTB.length; i += 1) {
       const Item = selTB[i].split('-')[1] / 0.5;
       const monList = MONTB;
@@ -331,8 +333,24 @@ const HomePage = () => {
   }, [reRender]);
 
   return (
-    <div className="entire" style={{ fontFamily: 'roboto, cursive' }}>
-      {caution ? <Caution setCaution={setCaution} selEvent={selEvent} /> : false}
+    <div
+      className="entire"
+      style={{ fontFamily: 'roboto, cursive' }}
+      onContextMenu={(e) => {
+        e.preventDefault();
+      }}
+    >
+      {signPop ? <SignPop setSignPop={setSignPop} /> : false}
+      {caution ? (
+        <Caution
+          setCaution={setCaution}
+          selEvent={selEvent}
+          eventText={eventText}
+          setEventText={setEventText}
+        />
+      ) : (
+        false
+      )}
       {caCaution ? (
         <CleanACaution
           setCACaution={setCACaution}
@@ -370,6 +388,7 @@ const HomePage = () => {
           FRITB={FRITB}
           SATTB={SATTB}
           SUNTB={SUNTB}
+          setSignPop={setSignPop}
         />
       ) : (
         <AnalysisBoard comment={comment} />

@@ -100,6 +100,7 @@ const Event = ({
           style={{ backgroundColor: event.color, textIndent: '20px' }}
           onChange={handleEventEdit}
           value={eventEdit}
+          maxLength="12"
         />
         <button type="submit" className="eventEditSubmit" aria-label="eventEdit-submit" />
       </form>
