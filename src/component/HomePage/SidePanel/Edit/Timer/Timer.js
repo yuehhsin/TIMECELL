@@ -11,17 +11,35 @@ const Style = () => {
   const handleSP = () => {
     setSP(!SP);
   };
+
   useEffect(() => {
     setInterval(() => {
       const now = new Date();
-      const minutes =
-        now.getMinutes() < 10 ? `0${now.getMinutes().toString()}` : now.getMinutes().toString();
-      const seconds =
-        now.getSeconds() < 10 ? `0${now.getSeconds().toString()}` : now.getSeconds().toString();
+      let getMin;
+      let getSec;
+      if (now.getSeconds() !== 0) {
+        if (now.getMinutes() > 30) {
+          getMin = 30 - (now.getMinutes() - 30) - 1;
+        } else if (now.getMinutes() < 30) {
+          getMin = 30 - now.getMinutes() - 1;
+        }
+        getSec = 60 - now.getSeconds();
+      } else if (now.getSeconds() === 0) {
+        if (now.getMinutes() > 30) {
+          getMin = 30 - (now.getMinutes() - 30);
+        }
+        if (now.getMinutes() < 30) {
+          getMin = 30 - now.getMinutes();
+        }
+        getSec = 0;
+      }
+      console.log(getMin, getSec);
+      const minutes = getMin < 10 ? `0${getMin}` : getMin.toString();
+      const seconds = getSec < 10 ? `0${getSec}` : getSec.toString();
       setTime(minutes + seconds);
     }, 1000);
   });
-  console.log(time[0]);
+
   return (
     <>
       <div className="styleTit">

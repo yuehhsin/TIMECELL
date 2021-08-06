@@ -3,6 +3,8 @@ import React from 'react';
 // component
 import Timer from './Timer/Timer';
 import EventList from './Event/EventList';
+import Memo from './Memo/Memo';
+import Statistic from './Statistic/Statistic';
 
 const Edit = ({
   selEvent,
@@ -19,6 +21,8 @@ const Edit = ({
   SUNTB,
   reRender,
   setReRender,
+  comment,
+  setComment,
 }) => (
   <>
     <Timer />
@@ -37,6 +41,17 @@ const Edit = ({
       SUNTB={SUNTB}
       reRender={reRender}
       setReRender={setReRender}
+    />
+    <Memo comment={comment} setComment={setComment} />
+    <Statistic
+      eventText={eventText}
+      MONTB={MONTB}
+      TUETB={TUETB}
+      WEDTB={WEDTB}
+      THUTB={THUTB}
+      FRITB={FRITB}
+      SATTB={SATTB}
+      SUNTB={SUNTB}
     />
   </>
 );

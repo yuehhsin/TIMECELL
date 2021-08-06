@@ -33,7 +33,25 @@ button {
   background: none;
   border: none;
 }
-
+select {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  padding-right: 14px;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+::-webkit-scrollbar-track {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  margin: 80px 0 5px 0;
+}
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  background: rgb(167, 167, 167);
+}
 /* SIDEPANEL */ /* SIDEPANEL */ /* SIDEPANEL */
 .sidepanel {
   width: 240px;
@@ -42,6 +60,7 @@ button {
   position: fixed;
   right: 0px;
   top: 0px;
+  overflow: auto;
 }
 .tab {
   border-bottom: 1px solid #fff;
@@ -175,7 +194,7 @@ button {
   position: relative;
 }
 ::placeholder {
-  color: #383838;
+  color: #c4c4c4;
 }
 .nosee {
   width: 220px;
@@ -325,7 +344,8 @@ input[type='radio']:checked + label:before {
 
 /* Analysis */ /* Analysis */ /* Analysis */
 .comment {
-  padding: 12px 18px 12px 18px;
+  padding: 0px 18px 12px 18px;
+  box-sizing: border-box;
 }
 .comment h4 {
   color: #fff;
@@ -343,6 +363,9 @@ input[type='radio']:checked + label:before {
   text-align: center;
   box-sizing: border-box;
 }
+.comment button:hover {
+  background-color: #464646;
+}
 .commentBox {
   width: 184px;
   height: 150px;
@@ -350,12 +373,15 @@ input[type='radio']:checked + label:before {
   background-color: #464646;
   margin-bottom: 16px;
   border: none;
-  padding: 10px;
+  padding: 15px 10px 15px 10px;
   resize: vertical;
   color: #fff;
 }
 .commentBox:focus {
   outline-color: #383838;
+}
+.commentBox::placeholder {
+  color: #c4c4c4;
 }
 
 /* analysisBoard */ /* analysisBoard */ /* analysisBoard */
@@ -371,28 +397,12 @@ input[type='radio']:checked + label:before {
 }
 
 .anaBoard {
-  width: calc(100% - 1040px);
-  padding: 20px 400px 20px 400px;
+  width: 100%;
+  height: 200px;
+  position: absolute;
 }
-.chartScope {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-.chart01 {
-  width: 20%;
-  height: 300px;
-  background-color: #f4f4f4;
-  border-radius: 5px;
-  padding: 20px;
-  margin-right: 20px;
-}
-.chart02 {
-  width: 70%;
-  height: 300px;
-  background-color: #f4f4f4;
-  border-radius: 5px;
-  padding: 20px;
+.chartjs-render-monitor {
+  padding-bottom: 20px;
 }
 .anaBoard-title {
   margin-top: 100px;
@@ -403,15 +413,54 @@ input[type='radio']:checked + label:before {
   height: 100px;
   position: absolute;
   left: 20px;
-  padding: 10px 20px 10px 20px;
-  background-color: #383838;
+  padding: 45px 20px 10px 20px;
+  background-color: #fff;
   border-radius: 5px;
-  color: #fff;
+  color: #383838;
+  border: 1px solid #8b8b8b;
+  box-sizing: border-box;
+  outline: none;
+  resize: vertical;
 }
 .commentBlock:hover {
   cursor: default;
 }
-
+.memoDel {
+  position: absolute;
+  top: 0;
+  padding: 5px;
+  border-radius: 2px;
+  border: 1px solid #383838;
+  background-color: #fff;
+}
+.memoDel:hover {
+  background-color: #383838;
+  color: #fff;
+}
+.weekDought {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+.dayDropdpwn {
+  background-color: #383838;
+  height: 30px;
+  padding: 5px 8px 5px 8px;
+  margin-left: 20px;
+  margin-bottom: 16px;
+  color: #fff;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  z-index: 1;
+  outline: none;
+  text-align: center;
+}
+.dayDropdpwn:hover {
+  background-color: #464646;
+  cursor: pointer;
+}
 /* Quote */ /* Quote */ /* Quote */
 .quoteScope {
   background-color: #f4f4f4;

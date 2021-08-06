@@ -43,11 +43,12 @@ const SidePanel = ({
         SUNTB={SUNTB}
         reRender={reRender}
         setReRender={setReRender}
+        comment={comment}
+        setComment={setComment}
       />
     ) : (
       <Analysis comment={comment} setComment={setComment} />
     )}
-    <div className="info" />
   </div>
 );
 

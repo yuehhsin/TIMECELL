@@ -10,6 +10,7 @@ import AnalysisBoard from './AnalysisBoard/AnalysisBoard';
 import Caution from './Caution/Caution';
 import CleanACaution from './Caution/CleanACaution';
 import SignPop from './Popup/SignPop/SignPop';
+import Comment from './Popup/Comment';
 
 const HomePage = () => {
   // HOOK
@@ -20,7 +21,9 @@ const HomePage = () => {
   const [reRender, setReRender] = useState(1); // 重新render
   // HOOK: 整體資料
   const [eventText, setEventText] = useState([
-    { content: 'KEEP GOING', color: '#36BC9B', id: Math.random() },
+    { content: 'WORK OUT', color: '#66D1F2', id: Math.random() },
+    { content: 'MEAL', color: '#F2C72D', id: Math.random() },
+    { content: 'SLEEP', color: '#8B8B8B', id: Math.random() },
   ]); // firebase: EVENT資料
   const [MONTB, setMONTB] = useState([]); // firebase: MON資料
   const [TUETB, setTUETB] = useState([]); // firebase: TUE資料
@@ -33,6 +36,7 @@ const HomePage = () => {
   // HOOK: 選取資料
   const [selTB, setSelTB] = useState([]); // 選取的時間塊位置 [MON-0,MON-2]
   const [selEvent, setSelEvent] = useState({}); // 選取的事件資訊  {color:red,event:"sleep",id:12345}
+  const [selMemo, setSelMemo] = useState({}); // {id: 1234}
 
   // Take a try
   useEffect(() => {
@@ -136,7 +140,6 @@ const HomePage = () => {
     setFRITB(friDataTB);
     setSATTB(satDataTB);
     setSUNTB(sunDataTB);
-    console.log('MONTB', monDataTB);
   }, []);
 
   // 下載資料庫時間塊資料 //又爆掉了
@@ -331,14 +334,13 @@ const HomePage = () => {
     setSelEvent({});
     setSelTB([]);
   }, [reRender]);
-
   return (
     <div
       className="entire"
       style={{ fontFamily: 'roboto, cursive' }}
-      onContextMenu={(e) => {
-        e.preventDefault();
-      }}
+      // onContextMenu={(e) => {
+      //   e.preventDefault();
+      // }}
     >
       {signPop ? <SignPop setSignPop={setSignPop} /> : false}
       {caution ? (
@@ -426,6 +428,14 @@ const HomePage = () => {
         reRender={reRender}
         setReRender={setReRender}
       />
+      {comment.map((commentText) => (
+        <Comment
+          commentText={commentText.content}
+          dataId={commentText.id}
+          comment={comment}
+          setComment={setComment}
+        />
+      ))}
     </div>
   );
 };
