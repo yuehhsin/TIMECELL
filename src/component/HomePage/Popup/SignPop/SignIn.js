@@ -17,8 +17,9 @@ const SingIn = ({ setSwitch, setSignPop }) => {
   const handlePopClose = () => {
     setSignPop(false);
   };
+  const popupX = (document.body.clientWidth - 240 - 512) / 2;
   return (
-    <div className="signpopup">
+    <div className="signpopup" style={{ left: `${popupX}px`, top: '250px' }}>
       <button type="button" className="closePop" aria-label="ClosePop" onClick={handlePopClose} />
       <div className="signinImg" />
       <div className="signinBox">

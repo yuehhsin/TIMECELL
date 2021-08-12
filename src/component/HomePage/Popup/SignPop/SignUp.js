@@ -66,12 +66,16 @@ const SignUp = ({ setSwitch, setSignPop }) => {
         const { credential } = error;
       });
   };
-
   const handlePopClose = () => {
     setSignPop(false);
   };
+  const popupX = (document.body.clientWidth - 240 - 512) / 2;
+
   return (
-    <div className="signpopup animate__animated animate__bounce">
+    <div
+      className="signpopup animate__animated animate__bounce"
+      style={{ left: `${popupX}px`, top: '250px' }}
+    >
       <button type="button" className="closePop" aria-label="ClosePop" onClick={handlePopClose} />
       <div className="signupImg" />
       <div className="signinBox">

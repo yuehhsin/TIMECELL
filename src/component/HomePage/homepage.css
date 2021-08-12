@@ -61,6 +61,7 @@ select {
   right: 0px;
   top: 0px;
   overflow: auto;
+  user-select: none;
 }
 .tab {
   border-bottom: 1px solid #fff;
@@ -580,4 +581,18 @@ input[type='radio']:checked + label:before {
 }
 .closePop:hover {
   background-image: url('/src/icon/close_black_sle.png');
+}
+
+/* welcome */ /* welcome */ /* welcome */
+.welPTNScope {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.welcomeBTN {
+  background-color: #f2c72d;
+}
+.welcomeBTN:hover {
+  background-color: #ebbd15;
 }

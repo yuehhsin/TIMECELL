@@ -2,7 +2,7 @@ import React from 'react';
 
 // compponent
 import Edit from './Edit/Edit';
-import Analysis from './Analysis/Analysis';
+import Developer from './Developer/Developer';
 import Tab from './Tab';
 
 const SidePanel = ({
@@ -47,7 +47,7 @@ const SidePanel = ({
         setComment={setComment}
       />
     ) : (
-      <Analysis comment={comment} setComment={setComment} />
+      <Developer />
     )}
   </div>
 );

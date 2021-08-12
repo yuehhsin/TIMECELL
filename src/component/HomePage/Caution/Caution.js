@@ -1,14 +1,40 @@
 import React from 'react';
 import 'animate.css';
 
-const Caution = ({ setCaution, selEvent, eventText, setEventText }) => {
+const Caution = ({
+  setCaution,
+  selEvent,
+  eventText,
+  setEventText,
+  MONTB,
+  TUETB,
+  WEDTB,
+  THUTB,
+  FRITB,
+  SATTB,
+  SUNTB,
+}) => {
   const handleClosePop = () => {
     setCaution(false);
+  };
+  const handleDelEvent = (TB) => {
+    for (let i = 0; i < TB.length; i += 1) {
+      if (TB[i].event === selEvent.event) {
+        TB[i].event = '';
+        TB[i].color = '#F4F4F4';
+      }
+    }
   };
   const handelDel = () => {
     setEventText(eventText.filter((el) => el.id !== selEvent.id));
     setCaution(false);
-    // 處理畫面上應該被刪除的時間塊
+    handleDelEvent(MONTB);
+    handleDelEvent(TUETB);
+    handleDelEvent(WEDTB);
+    handleDelEvent(THUTB);
+    handleDelEvent(FRITB);
+    handleDelEvent(SATTB);
+    handleDelEvent(SUNTB);
   };
   const popupX = (document.body.clientWidth - 240 - 512) / 2;
 
@@ -33,7 +59,7 @@ const Caution = ({ setCaution, selEvent, eventText, setEventText }) => {
         </h4>
         <button type="button" className="closePop" aria-label="ClosePop" onClick={handleClosePop} />
         <div className="center">
-          <button type="button" className="popBTN grayBG">
+          <button type="button" className="popBTN grayBG" onClick={handleClosePop}>
             CANCLE
           </button>
           <button type="button" className="popBTN" onClick={handelDel}>

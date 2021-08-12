@@ -6,11 +6,11 @@ import './homepage.css';
 import ArtBoard from './ArtBoard/ArtBoard';
 import SidePanel from './SidePanel/SidePanel';
 import FloatPanel from './Popup/FloatPanel';
-import AnalysisBoard from './AnalysisBoard/AnalysisBoard';
 import Caution from './Caution/Caution';
 import CleanACaution from './Caution/CleanACaution';
 import SignPop from './Popup/SignPop/SignPop';
 import Comment from './Popup/Comment';
+import WelcomePop from './Popup/WelcomePop';
 
 const HomePage = () => {
   // HOOK
@@ -18,6 +18,7 @@ const HomePage = () => {
   const [caution, setCaution] = useState(false); // caution popup
   const [caCaution, setCACaution] = useState(false); // clean-all popup
   const [signPop, setSignPop] = useState(false); // signPop
+  const [welcomePop, setWelcomePop] = useState(true); // welcomePop
   const [reRender, setReRender] = useState(1); // 重新render
   // HOOK: 整體資料
   const [eventText, setEventText] = useState([
@@ -342,6 +343,7 @@ const HomePage = () => {
       //   e.preventDefault();
       // }}
     >
+      {welcomePop ? <WelcomePop setWelcomePop={setWelcomePop} /> : false}
       {signPop ? <SignPop setSignPop={setSignPop} /> : false}
       {caution ? (
         <Caution
@@ -349,6 +351,13 @@ const HomePage = () => {
           selEvent={selEvent}
           eventText={eventText}
           setEventText={setEventText}
+          MONTB={MONTB}
+          TUETB={TUETB}
+          WEDTB={WEDTB}
+          THUTB={THUTB}
+          FRITB={FRITB}
+          SATTB={SATTB}
+          SUNTB={SUNTB}
         />
       ) : (
         false
@@ -377,24 +386,20 @@ const HomePage = () => {
       ) : (
         false
       )}
-      {tab === 'edit' ? (
-        <ArtBoard
-          selTB={selTB}
-          setSelTB={setSelTB}
-          tab={tab}
-          reRender={reRender}
-          MONTB={MONTB}
-          TUETB={TUETB}
-          WEDTB={WEDTB}
-          THUTB={THUTB}
-          FRITB={FRITB}
-          SATTB={SATTB}
-          SUNTB={SUNTB}
-          setSignPop={setSignPop}
-        />
-      ) : (
-        <AnalysisBoard comment={comment} />
-      )}
+      <ArtBoard
+        selTB={selTB}
+        setSelTB={setSelTB}
+        tab={tab}
+        reRender={reRender}
+        MONTB={MONTB}
+        TUETB={TUETB}
+        WEDTB={WEDTB}
+        THUTB={THUTB}
+        FRITB={FRITB}
+        SATTB={SATTB}
+        SUNTB={SUNTB}
+        setSignPop={setSignPop}
+      />
       <SidePanel
         selEvent={selEvent}
         setSelEvent={setSelEvent}

@@ -7,7 +7,7 @@ import close from '../../../../../icon/remove.png';
 const Style = () => {
   // HOOK
   const [SP, setSP] = useState(true); // 開合視窗
-  const [time, setTime] = useState('1000');
+  const [time, setTime] = useState('0000');
   const handleSP = () => {
     setSP(!SP);
   };

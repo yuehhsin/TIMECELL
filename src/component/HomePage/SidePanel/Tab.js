@@ -5,7 +5,7 @@ const Tab = ({ tab, setTab }) => {
     setTab('edit');
   };
   const handleSta = () => {
-    setTab('statistic');
+    setTab('developer');
   };
   return (
     <div className="tab">
@@ -14,9 +14,9 @@ const Tab = ({ tab, setTab }) => {
       </h4>
       <h4
         onClick={handleSta}
-        style={tab === 'statistic' ? { color: '#fff' } : { color: '#878787' }}
+        style={tab === 'developer' ? { color: '#fff' } : { color: '#878787' }}
       >
-        STATISTIC
+        DEVELOPER
       </h4>
     </div>
   );
