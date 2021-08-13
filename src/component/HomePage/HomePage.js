@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-// css
 import './homepage.css';
+import '../../generalCss.css';
+
 // component
 import ArtBoard from './ArtBoard/ArtBoard';
 import SidePanel from './SidePanel/SidePanel';

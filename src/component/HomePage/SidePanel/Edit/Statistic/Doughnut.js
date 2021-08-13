@@ -21,8 +21,8 @@ const Doughnuts = ({ eventText, MONTB, TUETB, WEDTB, THUTB, FRITB, SATTB, SUNTB,
       monEventList.push(TB[i].event);
     }
     for (let i = 0; i < monEventList.length; i += 1) {
-      const num = monEventList[i];
-      monCounts[num] = monCounts[num] ? monCounts[num] + 1 : 1;
+      const Num = monEventList[i];
+      monCounts[Num] = monCounts[Num] ? monCounts[Num] + 1 : 1;
     }
     contentList = Object.keys(monCounts);
     for (let i = 0; i < Object.keys(monCounts).length; i += 1) {

@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-
-import open from '../../../../../icon/add.png';
-import close from '../../../../../icon/remove.png';
-
-// component
+import styled from 'styled-components';
+import Title, { ColBTN, Container } from '../../../../../shareStyled';
 import Event from './Event';
 import EventForm from './EventForm';
 
@@ -33,19 +30,12 @@ const EventList = ({
   };
   return (
     <>
-      <div className="eventTit">
+      <Title>
         <h4>EVENT</h4>
-        <button
-          type="button"
-          className="collapse"
-          onClick={handleSP}
-          style={SP ? { backgroundImage: `url(${close})` } : { backgroundImage: `url(${open})` }}
-          aria-label="collapse"
-        />
-      </div>
-      <div style={SP ? { dispaly: 'flex' } : { display: 'none' }}>
-        <div
-          className="eventList"
+        <ColBTN type="button" onClick={handleSP} aria-label="collapse" colSty={SP} />
+      </Title>
+      <Container colSty={SP}>
+        <Eventlist
           onDragOver={(e) => {
             e.preventDefault();
           }}
@@ -64,7 +54,6 @@ const EventList = ({
               setSelEvent={setSelEvent}
               item={item}
               eventText={eventText}
-              setEventText={setEventText}
               setCaution={setCaution}
               MONTB={MONTB}
               TUETB={TUETB}
@@ -77,16 +66,21 @@ const EventList = ({
               setReRender={setReRender}
             />
           ))}
-        </div>
+        </Eventlist>
         <EventForm
           inputValue={inputValue}
           setInputValue={setInputValue}
           eventText={eventText}
           setEventText={setEventText}
         />
-      </div>
+      </Container>
     </>
   );
 };
 
 export default EventList;
+
+// STYLE
+const Eventlist = styled.div`
+  padding: 0px 20px 0px 20px;
+`;

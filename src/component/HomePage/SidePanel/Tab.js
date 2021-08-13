@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 const Tab = ({ tab, setTab }) => {
   const handleEdit = () => {
@@ -8,18 +9,41 @@ const Tab = ({ tab, setTab }) => {
     setTab('developer');
   };
   return (
-    <div className="tab">
-      <h4 onClick={handleEdit} style={tab === 'edit' ? { color: '#fff' } : { color: '#878787' }}>
+    <TabScope>
+      <button
+        type="button"
+        onClick={handleEdit}
+        colorSty={tab}
+        style={tab === 'edit' ? { color: '#fff' } : { color: '#878787' }}
+      >
         EDIT
-      </h4>
-      <h4
+      </button>
+      <button
+        type="button"
         onClick={handleSta}
         style={tab === 'developer' ? { color: '#fff' } : { color: '#878787' }}
       >
         DEVELOPER
-      </h4>
-    </div>
+      </button>
+    </TabScope>
   );
 };
 
 export default Tab;
+
+// STYLE
+const TabScope = styled.div`
+  display: flex;
+  & button {
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 2px;
+    padding: 16px 0px 16px 0px;
+    margin-left: 20px;
+    color: #878787;
+    &:hover {
+      cursor: pointer;
+      color: #fff;
+    }
+  }
+`;

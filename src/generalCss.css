@@ -1,0 +1,23 @@
+input[type='radio'] + label {
+  vertical-align: middle;
+}
+input[type='radio'] + label:hover {
+  cursor: pointer;
+}
+label {
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+input[type='radio'] + label::before {
+  width: 20px;
+  height: 20px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  content: ' ';
+  display: inline-block;
+  vertical-align: middle;
+}
+input[type='radio']:checked + label:before {
+  box-sizing: border-box;
+  border-radius: 50%;
+}

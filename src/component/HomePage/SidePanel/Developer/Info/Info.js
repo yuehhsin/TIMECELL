@@ -1,26 +1,20 @@
 import React, { useState } from 'react';
-import open from '../../../../../icon/add.png';
-import close from '../../../../../icon/remove.png';
+import styled from 'styled-components';
+import Title, { ColBTN, Container } from '../../../../../shareStyled';
 
 const Info = () => {
   // HOOK
-  const [SP, setSP] = useState(true); // 開合視窗
+  const [SP, setSP] = useState(true);
   const handleSP = () => {
     setSP(!SP);
   };
 
   return (
     <>
-      <div className="styleTit">
+      <Title>
         <h4>INFO</h4>
-        <button
-          type="button"
-          className="collapse"
-          onClick={handleSP}
-          style={SP ? { backgroundImage: `url(${close})` } : { backgroundImage: `url(${open})` }}
-          aria-label="collapse"
-        />
-      </div>
+        <ColBTN type="button" onClick={handleSP} aria-label="collapse" colSty={SP} />
+      </Title>
     </>
   );
 };

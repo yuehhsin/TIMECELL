@@ -1,6 +1,5 @@
 import React from 'react';
-
-// compponent
+import styled from 'styled-components';
 import Edit from './Edit/Edit';
 import Developer from './Developer/Developer';
 import Tab from './Tab';
@@ -25,7 +24,7 @@ const SidePanel = ({
   reRender,
   setReRender,
 }) => (
-  <div className="sidepanel">
+  <SidePanelScope>
     <Tab tab={tab} setTab={setTab} />
     {tab === 'edit' ? (
       <Edit
@@ -49,7 +48,19 @@ const SidePanel = ({
     ) : (
       <Developer />
     )}
-  </div>
+  </SidePanelScope>
 );
 
 export default SidePanel;
+
+// STYLE
+const SidePanelScope = styled.div`
+  width: 240px;
+  height: 100%;
+  background-color: #383838;
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  overflow: auto;
+  user-select: none;
+`;
