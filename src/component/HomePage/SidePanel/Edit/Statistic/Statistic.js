@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Doughnuts from './Doughnut';
-import Title, { ColBTN } from '../../../../../shareStyled';
+import Title, { ColBTN } from '../../../../../Style/shareStyled';
 
 const Statistic = ({ eventText, MONTB, TUETB, WEDTB, THUTB, FRITB, SATTB, SUNTB }) => {
   // HOOK

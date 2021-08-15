@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import Title, { ColBTN, Container } from '../../../../../shareStyled';
+import Title, { ColBTN, Container } from '../../../../../Style/shareStyled';
 import timedot from '../../../../../icon/timedot.png';
 import 'animate.css';
 

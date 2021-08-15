@@ -1,28 +1,32 @@
 import React from 'react';
-
-// component
+import styled from 'styled-components';
 import TimeBlock from './TimeBlock';
 
-// eslint-disable-next-line object-curly-newline
-const OneDay = ({ day, data, selTB, setSelTB, reRender, mouseDown }) => {
-  const timeBefore = 'timeblock timeBefore ';
-  const timeAfter = 'timeblock timeAfter ';
+const OneDay = ({ day, data, selTB, setSelTB, reRender, mouseDown }) => (
+  <Oneday>
+    <h3>{day}</h3>
+    {data.map((TBinfo, item) => (
+      <TimeBlock
+        timeBefore={item % 2 === 0}
+        TBinfo={TBinfo}
+        dataSet={`${day}-${0.5 * item}`}
+        selTB={selTB}
+        setSelTB={setSelTB}
+        reRender={reRender}
+        mouseDown={mouseDown}
+      />
+    ))}
+  </Oneday>
+);
 
-  return (
-    <div className="oneday">
-      <h3>{day}</h3>
-      {data.map((TBinfo, item) => (
-        <TimeBlock
-          timeClass={item % 2 === 0 ? timeBefore : timeAfter}
-          TBinfo={TBinfo}
-          dataSet={`${day}-${0.5 * item}`}
-          selTB={selTB}
-          setSelTB={setSelTB}
-          reRender={reRender}
-          mouseDown={mouseDown}
-        />
-      ))}
-    </div>
-  );
-};
 export default OneDay;
+
+// STYLE
+const Oneday = styled.div`
+  margin-right: 20px;
+  user-select: none;
+  & h3 {
+    text-align: center;
+    margin: 0px 0px 20px 0px;
+  }
+`;

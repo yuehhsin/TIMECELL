@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-
-// css
+import styled from 'styled-components';
 import './artboard.css';
-
-// component
 import OneDay from './OneDay/OneDay';
 import TimeLine from './TimeLine';
 import Nav from './Nav';
@@ -31,7 +28,7 @@ const ArtBoard = ({
   };
   return (
     <>
-      <div className="artboard" onMouseDown={handleMouseDown} onMouseUp={handleMouseOut}>
+      <Artboard onMouseDown={handleMouseDown} onMouseUp={handleMouseOut}>
         <Nav setSignPop={setSignPop} />
         <TimeLine />
         <OneDay
@@ -90,9 +87,18 @@ const ArtBoard = ({
           reRender={reRender}
           mouseDown={mouseDown}
         />
-      </div>
+      </Artboard>
     </>
   );
 };
 
 export default ArtBoard;
+
+// STYLE
+const Artboard = styled.div`
+  width: calc(100% - 240px);
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-top: 80px;
+`;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Title, { ColBTN } from '../../../../../shareStyled';
+import Title, { ColBTN } from '../../../../../Style/shareStyled';
 
 const Memo = ({ comment, setComment }) => {
   // HOOK

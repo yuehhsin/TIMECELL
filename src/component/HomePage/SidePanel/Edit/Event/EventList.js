@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Title, { ColBTN, Container } from '../../../../../shareStyled';
+import Title, { ColBTN, Container } from '../../../../../Style/shareStyled';
 import Event from './Event';
 import EventForm from './EventForm';
 

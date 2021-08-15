@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Title, { ColBTN, Container } from '../../../../../shareStyled';
+import Title, { ColBTN, Container } from '../../../../../Style/shareStyled';
 
 const Info = () => {
   // HOOK

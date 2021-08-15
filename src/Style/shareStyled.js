@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import close from './icon/remove.png';
-import open from './icon/add.png';
+import close from '../icon/remove.png';
+import open from '../icon/add.png';
 
 const Title = styled.div`
   color: #fff;
@@ -20,6 +20,10 @@ export const ColBTN = styled.button`
 
 export const Container = styled.div`
   display: ${(props) => (props.colSty ? 'block' : 'none')};
+`;
+
+export const PosRelative = styled.div`
+  position: relative;
 `;
 
 export default Title;
