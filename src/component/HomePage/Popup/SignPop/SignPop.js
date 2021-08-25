@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { PopBG } from '../../../../Style/shareStyled';
+
 import SignUp from './SignUp';
 import SignIn from './SignIn';
 
@@ -14,7 +16,7 @@ const SignPop = ({ setSignPop }) => {
 
   return (
     <>
-      <button type="button" className="popupBG" onClick={handlePopClose} aria-label="close BG" />
+      <PopBG type="button" onClick={handlePopClose} aria-label="close BG" />
       {Switch === 'signup' ? <SignUp setSignPop={setSignPop} setSwitch={setSwitch} /> : false}
       {Switch === 'signin' ? <SignIn setSignPop={setSignPop} setSwitch={setSwitch} /> : false}
     </>

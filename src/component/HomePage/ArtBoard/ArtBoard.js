@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import './artboard.css';
 import OneDay from './OneDay/OneDay';
 import TimeLine from './TimeLine';
 import Nav from './Nav';
@@ -17,6 +16,8 @@ const ArtBoard = ({
   SUNTB,
   reRender,
   setSignPop,
+  sidepanel,
+  setSidePanel,
 }) => {
   const [mouseDown, setMouseDown] = useState(false);
 
@@ -28,65 +29,67 @@ const ArtBoard = ({
   };
   return (
     <>
-      <Artboard onMouseDown={handleMouseDown} onMouseUp={handleMouseOut}>
-        <Nav setSignPop={setSignPop} />
+      <Artboard onMouseDown={handleMouseDown} onMouseUp={handleMouseOut} sidepanelSty={sidepanel}>
+        <Nav setSignPop={setSignPop} sidepanel={sidepanel} setSidePanel={setSidePanel} />
         <TimeLine />
-        <OneDay
-          day="MON"
-          data={MONTB}
-          selTB={selTB}
-          setSelTB={setSelTB}
-          reRender={reRender}
-          mouseDown={mouseDown}
-        />
-        <OneDay
-          day="TUE"
-          data={TUETB}
-          selTB={selTB}
-          setSelTB={setSelTB}
-          reRender={reRender}
-          mouseDown={mouseDown}
-        />
-        <OneDay
-          day="WED"
-          data={WEDTB}
-          selTB={selTB}
-          setSelTB={setSelTB}
-          reRender={reRender}
-          mouseDown={mouseDown}
-        />
-        <OneDay
-          day="THU"
-          data={THUTB}
-          selTB={selTB}
-          setSelTB={setSelTB}
-          reRender={reRender}
-          mouseDown={mouseDown}
-        />
-        <OneDay
-          day="FRI"
-          data={FRITB}
-          selTB={selTB}
-          setSelTB={setSelTB}
-          reRender={reRender}
-          mouseDown={mouseDown}
-        />
-        <OneDay
-          day="SAT"
-          data={SATTB}
-          selTB={selTB}
-          setSelTB={setSelTB}
-          reRender={reRender}
-          mouseDown={mouseDown}
-        />
-        <OneDay
-          day="SUN"
-          data={SUNTB}
-          selTB={selTB}
-          setSelTB={setSelTB}
-          reRender={reRender}
-          mouseDown={mouseDown}
-        />
+        <Week>
+          <OneDay
+            day="MON"
+            data={MONTB}
+            selTB={selTB}
+            setSelTB={setSelTB}
+            reRender={reRender}
+            mouseDown={mouseDown}
+          />
+          <OneDay
+            day="TUE"
+            data={TUETB}
+            selTB={selTB}
+            setSelTB={setSelTB}
+            reRender={reRender}
+            mouseDown={mouseDown}
+          />
+          <OneDay
+            day="WED"
+            data={WEDTB}
+            selTB={selTB}
+            setSelTB={setSelTB}
+            reRender={reRender}
+            mouseDown={mouseDown}
+          />
+          <OneDay
+            day="THU"
+            data={THUTB}
+            selTB={selTB}
+            setSelTB={setSelTB}
+            reRender={reRender}
+            mouseDown={mouseDown}
+          />
+          <OneDay
+            day="FRI"
+            data={FRITB}
+            selTB={selTB}
+            setSelTB={setSelTB}
+            reRender={reRender}
+            mouseDown={mouseDown}
+          />
+          <OneDay
+            day="SAT"
+            data={SATTB}
+            selTB={selTB}
+            setSelTB={setSelTB}
+            reRender={reRender}
+            mouseDown={mouseDown}
+          />
+          <OneDay
+            day="SUN"
+            data={SUNTB}
+            selTB={selTB}
+            setSelTB={setSelTB}
+            reRender={reRender}
+            mouseDown={mouseDown}
+          />
+        </Week>
       </Artboard>
     </>
   );
@@ -96,9 +99,14 @@ export default ArtBoard;
 
 // STYLE
 const Artboard = styled.div`
-  width: calc(100% - 240px);
+  width: ${(props) => (props.sidepanelSty ? 'calc(100% - 300px)' : 'calc(100% - 60px)')};
+  margin-left: 30px;
   display: flex;
   justify-content: center;
   position: relative;
   margin-top: 80px;
+`;
+const Week = styled.div`
+  display: flex;
+  overflow: scroll;
 `;

@@ -52,8 +52,6 @@ export default Statistic;
 const StatisticContainer = styled.div`
   display: ${(props) => (props.colSty ? 'block' : 'none')};
   width: 100%;
-  height: 200px;
-  position: absolute;
 `;
 const SelDay = styled.select`
   background-color: #383838;

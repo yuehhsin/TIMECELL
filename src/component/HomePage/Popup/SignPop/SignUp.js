@@ -1,5 +1,14 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
+import { PopUp, CloseBtn, SignText, SignSubmit } from '../../../../Style/shareStyled';
 import firebase, { memberData, initData, provider } from '../../../../firebaseInit';
+import signupImg from '../../../../image/signup.png';
+import google from '../../../../icon/google.png';
+import googleSel from '../../../../icon/google_hover.png';
+import github from '../../../../icon/github.png';
+import githubSel from '../../../../icon/github_hover.png';
+import facebook from '../../../../icon/facebook.png';
+import facebookSel from '../../../../icon/facebook_hover.png';
 import 'animate.css';
 
 const SignUp = ({ setSwitch, setSignPop }) => {
@@ -70,15 +79,13 @@ const SignUp = ({ setSwitch, setSignPop }) => {
     setSignPop(false);
   };
   const popupX = (document.body.clientWidth - 240 - 512) / 2;
+  const popupY = (window.screen.height - 428) / 2 - 100;
 
   return (
-    <div
-      className="signpopup animate__animated animate__bounce"
-      style={{ left: `${popupX}px`, top: '250px' }}
-    >
-      <button type="button" className="closePop" aria-label="ClosePop" onClick={handlePopClose} />
-      <div className="signupImg" />
-      <div className="signinBox">
+    <PopUp className="animate__animated animate__bounce" posXsty={popupX} posYsty={popupY}>
+      <CloseBtn type="button" aria-label="ClosePop" onClick={handlePopClose} />
+      <SignImg />
+      <SignText>
         <h2>CREATE ACCOUNT</h2>
         <form>
           <input placeholder="EMAIL" style={inputStyle} onChange={handleEmail} />
@@ -88,23 +95,96 @@ const SignUp = ({ setSwitch, setSignPop }) => {
             type="password"
             onChange={hanlePasssword}
           />
-          <div className="social_sign">
+          <SocialLogin>
             <h5>SOCIAL LOGIN</h5>
-            <div className="google" />
-            <div className="github" />
-            <div className="facebook" onClick={handelFB} />
-          </div>
-          <button type="submit" className="CTA" onClick={handleSubmit}>
+            <GoogleLogin />
+            <GithubLogin />
+            <FacebookLogin onClick={handelFB} />
+          </SocialLogin>
+          <SignSubmit type="submit" onClick={handleSubmit} color="#36bc9b" colorSel="#1EB28E">
             <h4>SIGN UP</h4>
-          </button>
+          </SignSubmit>
         </form>
-        <button type="button" className="switchBTN" onClick={handleSwitch}>
+        <SwitchBtn type="button" onClick={handleSwitch}>
           SIGN IN
-        </button>
-        <h5 className="errorMessage">{error}</h5>
-      </div>
-    </div>
+        </SwitchBtn>
+        <ErrorMessage>{error}</ErrorMessage>
+      </SignText>
+    </PopUp>
   );
 };
 
 export default SignUp;
+
+// STYLE
+const SignImg = styled.div`
+  width: 350px;
+  height: 428px;
+  background-image: url(${signupImg});
+  background-size: cover;
+  border-radius: 5px 0px 0px 5px;
+`;
+const SocialLogin = styled.div`
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
+`;
+const GoogleLogin = styled.div`
+  width: 18px;
+  height: 18px;
+  background-image: url(${google});
+  background-size: cover;
+  margin-right: 10px;
+  &:hover {
+    background-image: url(${googleSel});
+    cursor: pointer;
+  }
+`;
+const GithubLogin = styled.div`
+  width: 18px;
+  height: 18px;
+  background-image: url(${github});
+  background-size: cover;
+  margin-right: 10px;
+  &:hover {
+    background-image: url(${githubSel});
+    cursor: pointer;
+  }
+`;
+const FacebookLogin = styled.div`
+  width: 18px;
+  height: 18px;
+  background-image: url(${facebook});
+  background-size: cover;
+  margin-right: 10px;
+  &:hover {
+    background-image: url(${facebookSel});
+    cursor: pointer;
+  }
+`;
+// const SignupSubmit = styled.button`
+//   width: 234px;
+//   height: 40px;
+//   border-radius: 5px;
+//   background-color: #36bc9b;
+//   border: none;
+//   color: #fff;
+//   margin-top: 20px;
+// `;
+const SwitchBtn = styled.button`
+  padding: 0px;
+  font-size: 12px;
+  margin-top: 15px;
+  letter-spacing: 3px;
+  border: none;
+  &:hover {
+    color: #db4453;
+  }
+`;
+const ErrorMessage = styled.h5`
+  color: #db4453;
+  width: 234px;
+  margin: 0px;
+  margin-top: 10px;
+  text-align: center;
+`;

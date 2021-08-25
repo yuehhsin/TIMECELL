@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from 'react';
-
-import './homepage.css';
 import '../../Style/generalCss.css';
-
-// component
 import ArtBoard from './ArtBoard/ArtBoard';
 import SidePanel from './SidePanel/SidePanel';
 import FloatPanel from './Popup/FloatPanel';
 import Caution from './Caution/Caution';
 import CleanACaution from './Caution/CleanACaution';
 import SignPop from './Popup/SignPop/SignPop';
-import Comment from './Popup/Comment';
+import MemoPop from './Popup/MemoPop';
 import WelcomePop from './Popup/WelcomePop';
 
 const HomePage = () => {
@@ -21,6 +17,8 @@ const HomePage = () => {
   const [signPop, setSignPop] = useState(false); // signPop
   const [welcomePop, setWelcomePop] = useState(true); // welcomePop
   const [reRender, setReRender] = useState(1); // 重新render
+  const [sidepanel, setSidePanel] = useState(true); // sidepane display
+  const [keyboard, setKeyboard] = useState('');
   // HOOK: 整體資料
   const [eventText, setEventText] = useState([
     { content: 'WORK OUT', color: '#66D1F2', id: Math.random() },
@@ -38,9 +36,7 @@ const HomePage = () => {
   // HOOK: 選取資料
   const [selTB, setSelTB] = useState([]); // 選取的時間塊位置 [MON-0,MON-2]
   const [selEvent, setSelEvent] = useState({}); // 選取的事件資訊  {color:red,event:"sleep",id:12345}
-  const [selMemo, setSelMemo] = useState({}); // {id: 1234}
 
-  // Take a try
   useEffect(() => {
     const Time = [];
     const monDataTB = [];
@@ -282,6 +278,36 @@ const HomePage = () => {
   //   downloadEvent();
   // }, []);
 
+  // document.addEventListener('keyup', (e) => {
+  //   console.log('e', e.keyCode);
+  //   // setKeyboard(e.keyCode);
+  // });
+
+  const handleHotKey = (e) => {
+    if (e.keyCode === 8 || e.keyCode === 68) {
+      const delTB = (List, Week, TB) => {
+        for (let i = 0; i < List.length; i += 1) {
+          if (List[i].split('-')[0] === Week) {
+            const index = parseFloat(List[i].split('-')[1]) / 0.5;
+            TB[index].event = '';
+            TB[index].color = '#F4F4F4';
+            setReRender(reRender + 1);
+          }
+        }
+      };
+      const List = selTB;
+      delTB(List, 'MON', MONTB);
+      delTB(List, 'TUE', TUETB);
+      delTB(List, 'WED', WEDTB);
+      delTB(List, 'THU', THUTB);
+      delTB(List, 'FRI', FRITB);
+      delTB(List, 'SAT', SATTB);
+      delTB(List, 'SUN', SUNTB);
+      console.log('good!');
+    } else if (e.keyCode === 65) {
+      setSidePanel(!sidepanel);
+    }
+  };
   // udate TB
   useEffect(() => {
     for (let i = 0; i < selTB.length; i += 1) {
@@ -336,10 +362,12 @@ const HomePage = () => {
     setSelEvent({});
     setSelTB([]);
   }, [reRender]);
+
   return (
     <div
       className="entire"
       style={{ fontFamily: 'roboto, cursive' }}
+      onKeyUp={handleHotKey}
       // onContextMenu={(e) => {
       //   e.preventDefault();
       // }}
@@ -400,7 +428,17 @@ const HomePage = () => {
         SATTB={SATTB}
         SUNTB={SUNTB}
         setSignPop={setSignPop}
+        sidepanel={sidepanel}
+        setSidePanel={setSidePanel}
       />
+      {comment.map((commentText) => (
+        <MemoPop
+          commentText={commentText.content}
+          dataId={commentText.id}
+          comment={comment}
+          setComment={setComment}
+        />
+      ))}
       <SidePanel
         selEvent={selEvent}
         setSelEvent={setSelEvent}
@@ -420,6 +458,8 @@ const HomePage = () => {
         SUNTB={SUNTB}
         reRender={reRender}
         setReRender={setReRender}
+        sidepanel={sidepanel}
+        setSidePanel={setSidePanel}
       />
       <FloatPanel
         selTB={selTB}
@@ -434,14 +474,6 @@ const HomePage = () => {
         reRender={reRender}
         setReRender={setReRender}
       />
-      {comment.map((commentText) => (
-        <Comment
-          commentText={commentText.content}
-          dataId={commentText.id}
-          comment={comment}
-          setComment={setComment}
-        />
-      ))}
     </div>
   );
 };

@@ -5,8 +5,10 @@ import sign from '../../../icon/face.png';
 import signSel from '../../../icon/face_sel.png';
 import save from '../../../icon/save.png';
 import saveSel from '../../../icon/save_sel.png';
+import unFoldSP from '../../../icon/unFoldSP.png';
+import unFoldSPSel from '../../../icon/unFoldSP_sel.png';
 
-const Nav = ({ setSignPop }) => {
+const Nav = ({ setSignPop, sidepanel, setSidePanel }) => {
   // HOOK
   const [signHover, setSignHover] = useState(false); // signBTN(hover顯示)
   const [saveHover, setSaveHover] = useState(false); // signBTN(hover顯示)
@@ -40,10 +42,13 @@ const Nav = ({ setSignPop }) => {
   //       console.log('sign out error: ', error);
   //     });
   // };
+  const handleUnfoldSP = () => {
+    setSidePanel(true);
+  };
   return (
     <>
-      <NavBar>
-        <GoBackBtn>BACK</GoBackBtn>
+      <NavBar sidepanelSty={sidepanel}>
+        <GoBackBtn> </GoBackBtn>
         <Menu>
           <PosRelative>
             <SignBtn
@@ -62,9 +67,14 @@ const Nav = ({ setSignPop }) => {
               onMouseOver={handleMouseInSave}
               onMouseOut={handleMouseOutSave}
               saveHoverSty={saveHover}
+              sidepanelSty={sidepanel}
             />
             <SaveInfo saveHoverSty={saveHover}>SAVE</SaveInfo>
           </PosRelative>
+          <SPmenu sidepanelSty={sidepanel}>
+            <SplitLine />
+            <UnFoldSidepanel onClick={handleUnfoldSP} />
+          </SPmenu>
         </Menu>
       </NavBar>
     </>
@@ -74,7 +84,7 @@ export default Nav;
 
 // STYLE
 const NavBar = styled.div`
-  width: calc(100% - 240px);
+  width: ${(props) => (props.sidepanelSty ? 'calc(100% - 240px)' : 'calc(100% - 20px)')};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -82,6 +92,8 @@ const NavBar = styled.div`
   position: fixed;
   background-color: #fff;
   top: 0;
+  left: 0px;
+  // border: 1px solid red;
 `;
 const GoBackBtn = styled.button`
   display: flex;
@@ -119,8 +131,8 @@ const SignInfo = styled.h6`
 `;
 const SaveBtn = styled.button`
   margin-left: 14px;
-  margin-right: 20px;
   background-image: ${(props) => (props.saveHoverSty ? `url(${saveSel})` : `url(${save})`)};
+  margin-right: ${(props) => (props.sidepanelSty ? '20px' : '0px')};
   background-size: cover;
   width: 20px;
   height: 20px;
@@ -132,4 +144,20 @@ const SaveInfo = styled.h6`
   position: absolute;
   top: 6px;
   left: -3px;
+`;
+const UnFoldSidepanel = styled.button`
+  width: 24px;
+  height: 24px;
+  background-image: url(${unFoldSP});
+  background-size: cover;
+  margin-left: 10px;
+  &:hover {
+    background-image: url(${unFoldSPSel});
+  }
+`;
+const SPmenu = styled.div`
+  display: ${(props) => (props.sidepanelSty ? 'none' : 'flex')};
+  // border: 1px solid red;
+  justify-content: center;
+  align-items: center;
 `;

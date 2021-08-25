@@ -33,9 +33,12 @@ const Timer = () => {
         }
         getSec = 0;
       }
-      const minutes = getMin < 10 ? `0${getMin}` : getMin.toString();
-      const seconds = getSec < 10 ? `0${getSec}` : getSec.toString();
-      setTime(minutes + seconds);
+
+      if (getMin || getSec) {
+        const minutes = getMin < 10 ? `0${getMin}` : getMin.toString();
+        const seconds = getSec < 10 ? `0${getSec}` : getSec.toString();
+        setTime(minutes + seconds);
+      }
     }, 1000);
   });
 

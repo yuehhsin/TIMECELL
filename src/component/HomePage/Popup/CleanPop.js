@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 const CleanPop = ({
   setCACaution,
@@ -40,15 +41,42 @@ const CleanPop = ({
   };
   return (
     <>
-      <div className="cleanPanel">
-        <h5 className="cleanH5Top" onClick={handleCleanSel}>
-          CLEAN ONE
-        </h5>
-        <h5 className="cleanH5BTM" onClick={handleCleanAll}>
-          CLEAN ALL
-        </h5>
-      </div>
+      <CleanPopUp>
+        <CleanBtn onClick={handleCleanSel}>CLEAN</CleanBtn>
+        <CleanAllBtn onClick={handleCleanAll}>CLEAN ALL</CleanAllBtn>
+      </CleanPopUp>
     </>
   );
 };
 export default CleanPop;
+
+const CleanPopUp = styled.div`
+  position: absolute;
+  width: 100px;
+  background-color: #fff;
+  left: 150px;
+  bottom: 10px;
+  border-radius: 2px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+  z-index: 1002;
+  & h5 {
+    color: #000000;
+    padding: 7px 10px 7px 10px;
+    text-align: center;
+    cursor: pointer;
+    &:hover {
+      background-color: #e0e0e0;
+    }
+  }
+`;
+const CleanBtn = styled.h5`
+  border-bottom: 1px solid #000000;
+  &:hover {
+    border-radius: 2px 2px 0px 0px;
+  }
+`;
+const CleanAllBtn = styled.h5`
+  &:hover {
+    border-radius: 0px 0px 2px 2px;
+  }
+`;

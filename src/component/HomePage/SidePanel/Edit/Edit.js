@@ -5,6 +5,7 @@ import Timer from './Timer/Timer';
 import EventList from './Event/EventList';
 import Memo from './Memo/Memo';
 import Statistic from './Statistic/Statistic';
+import Hotkey from './Hotkey/Hotkey';
 
 const Edit = ({
   selEvent,
@@ -53,6 +54,7 @@ const Edit = ({
       SATTB={SATTB}
       SUNTB={SUNTB}
     />
+    <Hotkey />
   </>
 );
 export default Edit;

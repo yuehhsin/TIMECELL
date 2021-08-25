@@ -42,14 +42,12 @@ const EventList = ({
           onDragEnter={(e) => {
             e.preventDefault();
           }}
-          onDrop={() => {
-            console.log('drop');
-          }}
+          onDrop={() => {}}
         >
           {eventText.map((event, item) => (
             <Event
               event={event}
-              key={item.id}
+              key={item}
               selEvent={selEvent}
               setSelEvent={setSelEvent}
               item={item}

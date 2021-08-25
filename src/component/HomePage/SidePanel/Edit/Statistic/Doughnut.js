@@ -69,7 +69,6 @@ const Doughnuts = ({ eventText, MONTB, TUETB, WEDTB, THUTB, FRITB, SATTB, SUNTB,
       .concat(FRITB)
       .concat(SATTB)
       .concat(SUNTB);
-    console.log(weekTB);
     handleSelDay(weekTB, 168);
   }
 
@@ -85,6 +84,6 @@ const Doughnuts = ({ eventText, MONTB, TUETB, WEDTB, THUTB, FRITB, SATTB, SUNTB,
       },
     ],
   };
-  return <Doughnut data={data} height={100} width={100} options={{ maintainAspectRatio: false }} />;
+  return <Doughnut data={data} height={75} width={75} options={{ maintainAspectRatio: false }} />;
 };
 export default Doughnuts;

@@ -13,7 +13,6 @@ const Tab = ({ tab, setTab }) => {
       <button
         type="button"
         onClick={handleEdit}
-        colorSty={tab}
         style={tab === 'edit' ? { color: '#fff' } : { color: '#878787' }}
       >
         EDIT

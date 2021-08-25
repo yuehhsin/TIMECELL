@@ -65,4 +65,7 @@ const Timeblock = styled.button`
   border-radius: ${(props) => (props.blockSty ? '5px 5px 0px 0px' : '0px 0px 5px 5px')};
   margin-top: ${(props) => (props.blockSty ? 'none' : '5px')};
   margin-bottom: ${(props) => (props.blockSty ? 'none' : '10px')};
+  &:focus {
+    outline: none;
+  }
 `;
