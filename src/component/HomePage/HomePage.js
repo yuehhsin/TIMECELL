@@ -3,6 +3,7 @@ import '../../Style/generalCss.css';
 import ArtBoard from './ArtBoard/ArtBoard';
 import SidePanel from './SidePanel/SidePanel';
 import FloatPanel from './Popup/FloatPanel';
+import SavePop from './Popup/SavePop';
 import Caution from './Caution/Caution';
 import CleanACaution from './Caution/CleanACaution';
 import SignPop from './Popup/SignPop/SignPop';
@@ -12,6 +13,7 @@ import WelcomePop from './Popup/WelcomePop';
 const HomePage = () => {
   // HOOK
   const [tab, setTab] = useState('edit'); // Tab切換
+  const [UUID, setUUID] = useState('');
   const [caution, setCaution] = useState(false); // caution popup
   const [caCaution, setCACaution] = useState(false); // clean-all popup
   const [signPop, setSignPop] = useState(false); // signPop
@@ -19,6 +21,7 @@ const HomePage = () => {
   const [reRender, setReRender] = useState(1); // 重新render
   const [sidepanel, setSidePanel] = useState(true); // sidepane display
   const [keyboard, setKeyboard] = useState('');
+  const [save, setSave] = useState(false);
   // HOOK: 整體資料
   const [eventText, setEventText] = useState([
     { content: 'WORK OUT', color: '#66D1F2', id: Math.random() },
@@ -140,7 +143,7 @@ const HomePage = () => {
     setSUNTB(sunDataTB);
   }, []);
 
-  // 下載資料庫時間塊資料 //又爆掉了
+  // 下載資料庫時間塊資料
   // useEffect(() => {
   //   // MON TB
   //   const MonData = async () => {
@@ -362,7 +365,6 @@ const HomePage = () => {
     setSelEvent({});
     setSelTB([]);
   }, [reRender]);
-
   return (
     <div
       className="entire"
@@ -373,7 +375,7 @@ const HomePage = () => {
       // }}
     >
       {welcomePop ? <WelcomePop setWelcomePop={setWelcomePop} /> : false}
-      {signPop ? <SignPop setSignPop={setSignPop} /> : false}
+      {signPop ? <SignPop setSignPop={setSignPop} UUID={UUID} setUUID={setUUID} /> : false}
       {caution ? (
         <Caution
           setCaution={setCaution}
@@ -430,6 +432,10 @@ const HomePage = () => {
         setSignPop={setSignPop}
         sidepanel={sidepanel}
         setSidePanel={setSidePanel}
+        UUID={UUID}
+        setUUID={setUUID}
+        setSave={setSave}
+        save={save}
       />
       {comment.map((commentText) => (
         <MemoPop
@@ -474,6 +480,7 @@ const HomePage = () => {
         reRender={reRender}
         setReRender={setReRender}
       />
+      {save ? <SavePop setSave={setSave} /> : false}
     </div>
   );
 };

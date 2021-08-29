@@ -21,9 +21,7 @@ const Tab = ({ tab, setTab }) => {
         type="button"
         onClick={handleSta}
         style={tab === 'developer' ? { color: '#fff' } : { color: '#878787' }}
-      >
-        DEVELOPER
-      </button>
+      />
     </TabScope>
   );
 };

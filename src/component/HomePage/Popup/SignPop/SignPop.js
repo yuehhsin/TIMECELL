@@ -6,7 +6,7 @@ import SignIn from './SignIn';
 
 import './signpop.css';
 
-const SignPop = ({ setSignPop }) => {
+const SignPop = ({ setSignPop, setUUID }) => {
   // HOOK
   const [Switch, setSwitch] = useState('signup');
 
@@ -18,7 +18,11 @@ const SignPop = ({ setSignPop }) => {
     <>
       <PopBG type="button" onClick={handlePopClose} aria-label="close BG" />
       {Switch === 'signup' ? <SignUp setSignPop={setSignPop} setSwitch={setSwitch} /> : false}
-      {Switch === 'signin' ? <SignIn setSignPop={setSignPop} setSwitch={setSwitch} /> : false}
+      {Switch === 'signin' ? (
+        <SignIn setSignPop={setSignPop} setSwitch={setSwitch} setUUID={setUUID} />
+      ) : (
+        false
+      )}
     </>
   );
 };

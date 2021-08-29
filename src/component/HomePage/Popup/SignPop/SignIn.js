@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import firebase from '../../../../firebaseInit';
 import { PopUp, CloseBtn, SignText, SignSubmit } from '../../../../Style/shareStyled';
 import signinImg from '../../../../image/signin.png';
 
-const SingIn = ({ setSwitch, setSignPop }) => {
+const SingIn = ({ setSwitch, setSignPop, setUUID }) => {
+  const [signinForm, setSigninForm] = useState({ email: '', password: '' });
+  const [signupMessage, setSignupMessage] = useState('');
+  const [messageColor, setMessageColor] = useState('');
   const inputStyle = {
     fontFamily: 'roboto, cursive',
     fontSize: '12px',
@@ -14,6 +18,31 @@ const SingIn = ({ setSwitch, setSignPop }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(signinForm.email, signinForm.password)
+      .then((res) => {
+        setUUID(res.user.uid);
+        if (res.user.email === signinForm.email) {
+          setMessageColor('#383838');
+          setSignupMessage('Sign In Success!!!');
+          setTimeout(() => {
+            setSignPop(false);
+          }, 1000);
+          // localStorage.setItem('email', JSON.stringify(signinForm.email));
+        }
+      })
+      .catch((error) => {
+        setMessageColor('#8B8B8B');
+        console.log(error);
+        if (signinForm.email === '' || signinForm.password === '') {
+          setSignupMessage('The field cannot be empty');
+        } else if (error.code === 'auth/user-not-found') {
+          setSignupMessage('Email address has not been registered');
+        } else {
+          setSignupMessage('Email or password input error');
+        }
+      });
   };
   const handlePopClose = () => {
     setSignPop(false);
@@ -28,9 +57,22 @@ const SingIn = ({ setSwitch, setSignPop }) => {
       <SignText>
         <h2>SIGN IN</h2>
         <form>
-          <input placeholder="EMAIL" style={inputStyle} />
-          <input placeholder="PASSWORD" style={inputStyle} type="password" />
-          <SignSubmit type="button" onSubmit={handleSubmit} color="#db4453" colorSel="#D03746">
+          <input
+            placeholder="EMAIL"
+            style={inputStyle}
+            onChange={(e) => {
+              signinForm.email = e.target.value;
+            }}
+          />
+          <input
+            placeholder="PASSWORD"
+            style={inputStyle}
+            type="password"
+            onChange={(e) => {
+              signinForm.password = e.target.value;
+            }}
+          />
+          <SignSubmit type="submit" onClick={handleSubmit} color="#db4453" colorSel="#D03746">
             <h4>SIGN IN</h4>
           </SignSubmit>
         </form>
@@ -38,6 +80,7 @@ const SingIn = ({ setSwitch, setSignPop }) => {
           SIGN UP
         </SwitchBtn>
       </SignText>
+      <SignupMessage BGcolor={messageColor}>{signupMessage}</SignupMessage>
     </PopUp>
   );
 };
@@ -60,4 +103,14 @@ const SwitchBtn = styled.button`
   &:hover {
     color: #db4453;
   }
+`;
+const SignupMessage = styled.h4`
+  background-color: ${(props) => props.BGcolor};
+  text-align: center;
+  position: absolute;
+  padding: 5px 0px 5px 0px;
+  bottom: 50px;
+  right: 0px;
+  width: 378px;
+  color: #fff;
 `;

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import firebase from '../../../firebaseInit';
 import { PosRelative } from '../../../Style/shareStyled';
 import sign from '../../../icon/face.png';
 import signSel from '../../../icon/face_sel.png';
@@ -8,10 +9,10 @@ import saveSel from '../../../icon/save_sel.png';
 import unFoldSP from '../../../icon/unFoldSP.png';
 import unFoldSPSel from '../../../icon/unFoldSP_sel.png';
 
-const Nav = ({ setSignPop, sidepanel, setSidePanel }) => {
+const Nav = ({ setSignPop, sidepanel, setSidePanel, UUID, setUUID, setSave, save }) => {
   // HOOK
-  const [signHover, setSignHover] = useState(false); // signBTN(hover顯示)
-  const [saveHover, setSaveHover] = useState(false); // signBTN(hover顯示)
+  const [signHover, setSignHover] = useState(false);
+  const [saveHover, setSaveHover] = useState(false);
 
   const handleMouseInSign = () => {
     setSignHover(true);
@@ -28,48 +29,59 @@ const Nav = ({ setSignPop, sidepanel, setSidePanel }) => {
   const handleSign = () => {
     setSignPop(true);
   };
-  // const handleSignout = () => {
-  //   // 登出
-  //   firebase
-  //     .auth()
-  //     .signOut()
-  //     .then(() => {
-  //       console.log('Sign-out successful');
-  //       // Sign-out successful.
-  //       // 跳轉回singpage
-  //     })
-  //     .catch((error) => {
-  //       console.log('sign out error: ', error);
-  //     });
-  // };
+  const handleSignout = () => {
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        setUUID('');
+        console.log('Sign-out successful');
+      })
+      .catch((error) => {
+        console.log('sign out error: ', error);
+      });
+  };
   const handleUnfoldSP = () => {
     setSidePanel(true);
+  };
+  const handleSave = () => {
+    console.log('hey');
+    setSave(true);
   };
   return (
     <>
       <NavBar sidepanelSty={sidepanel}>
         <GoBackBtn> </GoBackBtn>
         <Menu>
+          {UUID === '' ? (
+            false
+          ) : (
+            <>
+              <PosRelative>
+                <SaveBtn
+                  type="button"
+                  onMouseOver={handleMouseInSave}
+                  onMouseOut={handleMouseOutSave}
+                  saveHoverSty={saveHover}
+                  onClick={handleSave}
+                />
+                <SaveInfo saveHoverSty={saveHover}>SAVE</SaveInfo>
+              </PosRelative>
+              <SplitLine />
+            </>
+          )}
           <PosRelative>
             <SignBtn
               type="button"
               onMouseOver={handleMouseInSign}
               onMouseOut={handleMouseOutSign}
-              onClick={handleSign}
+              onClick={UUID === '' ? handleSign : handleSignout}
               signHoverSty={signHover}
-            />
-            <SignInfo signHoverSty={signHover}>SIGN</SignInfo>
-          </PosRelative>
-          <SplitLine />
-          <PosRelative>
-            <SaveBtn
-              type="button"
-              onMouseOver={handleMouseInSave}
-              onMouseOut={handleMouseOutSave}
-              saveHoverSty={saveHover}
               sidepanelSty={sidepanel}
             />
-            <SaveInfo saveHoverSty={saveHover}>SAVE</SaveInfo>
+            <SignInfo signHoverSty={signHover} isSignin={UUID}>
+              {UUID === '' ? 'SIGN' : 'SIGN OUT'}
+            </SignInfo>
           </PosRelative>
           <SPmenu sidepanelSty={sidepanel}>
             <SplitLine />
@@ -93,7 +105,6 @@ const NavBar = styled.div`
   background-color: #fff;
   top: 0;
   left: 0px;
-  // border: 1px solid red;
 `;
 const GoBackBtn = styled.button`
   display: flex;
@@ -117,22 +128,23 @@ const SplitLine = styled.div`
 `;
 const SignBtn = styled.button`
   background-image: ${(props) => (props.signHoverSty ? `url(${signSel})` : `url(${sign})`)};
+  margin-right: ${(props) => (props.sidepanelSty ? '14px' : '0px')};
   background-size: cover;
   width: 20px;
   height: 20px;
+  margin-left: 14px;
 `;
 const SignInfo = styled.h6`
   display: ${(props) => (props.signHoverSty ? 'block' : 'none')};
+  text-align: center;
   letter-spacing: 1px;
   margin-left: 2px;
   position: absolute;
   top: 6px;
-  left: -6px;
+  left: 6px;
 `;
 const SaveBtn = styled.button`
-  margin-left: 14px;
   background-image: ${(props) => (props.saveHoverSty ? `url(${saveSel})` : `url(${save})`)};
-  margin-right: ${(props) => (props.sidepanelSty ? '20px' : '0px')};
   background-size: cover;
   width: 20px;
   height: 20px;
@@ -143,7 +155,7 @@ const SaveInfo = styled.h6`
   margin-left: 12px;
   position: absolute;
   top: 6px;
-  left: -3px;
+  right: -5px;
 `;
 const UnFoldSidepanel = styled.button`
   width: 24px;
@@ -157,7 +169,6 @@ const UnFoldSidepanel = styled.button`
 `;
 const SPmenu = styled.div`
   display: ${(props) => (props.sidepanelSty ? 'none' : 'flex')};
-  // border: 1px solid red;
   justify-content: center;
   align-items: center;
 `;

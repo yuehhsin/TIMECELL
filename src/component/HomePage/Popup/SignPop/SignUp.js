@@ -13,10 +13,9 @@ import 'animate.css';
 
 const SignUp = ({ setSwitch, setSignPop }) => {
   // hook
-  const [error, setError] = useState('');
-
-  let email = '';
-  let password = '';
+  const [signupMessage, setSignupMessage] = useState('');
+  const [messageColor, setMessageColor] = useState('');
+  const [signupForm, setSignupForm] = useState({ email: '', password: '' });
 
   const inputStyle = {
     fontFamily: 'roboto, cursive',
@@ -26,34 +25,42 @@ const SignUp = ({ setSwitch, setSignPop }) => {
   const handleSwitch = () => {
     setSwitch('signin');
   };
-  const handleEmail = (e) => {
-    email = e.target.value;
-  };
-  const hanlePasssword = (e) => {
-    password = e.target.value;
-  };
   const handleSubmit = (e) => {
     e.preventDefault();
     // 註冊
     firebase
       .auth()
-      .createUserWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(signupForm.email, signupForm.password)
       .then(() => {
+        setSignupMessage('Registration Success!!!');
+        setMessageColor('#383838');
+        setTimeout(() => {
+          setSwitch('signin');
+        }, 1000);
         // 初始化timeInfo
-        initData('test@gmail.com');
-        // 初始化eventInfo
-        memberData
-          .doc(email)
-          .set({
-            eventInfo: [{ content: 'Hello REACT', color: '#36BC9B', id: Math.random() }],
-          })
-          .then(() => {})
-          .catch((E) => {
-            console.error('Write Data Error: ', E);
-          });
+        // initData('test@gmail.com');
+        // // 初始化eventInfo
+        // memberData
+        //   .doc(email)
+        //   .set({
+        //     eventInfo: [{ content: 'Hello REACT', color: '#36BC9B', id: Math.random() }],
+        //   })
+        //   .then(() => {})
+        //   .catch((E) => {
+        //     console.error('Write Data Error: ', E);
+        //   });
       })
       .catch((ero) => {
-        setError(ero.message);
+        console.log('signup-error', ero.message);
+        setMessageColor('#8B8B8B');
+        console.log('input', e.target);
+        if (signupForm.email === '' || signupForm.password === '') {
+          setSignupMessage('The field cannot be empty');
+        } else if (e.code === 'auth/user-not-found') {
+          setSignupMessage('Email address has not been registered');
+        } else {
+          setSignupMessage('Email or password input error');
+        }
       });
   };
   // Facebook signin
@@ -82,18 +89,26 @@ const SignUp = ({ setSwitch, setSignPop }) => {
   const popupY = (window.screen.height - 428) / 2 - 100;
 
   return (
-    <PopUp className="animate__animated animate__bounce" posXsty={popupX} posYsty={popupY}>
+    <PopUp posXsty={popupX} posYsty={popupY}>
       <CloseBtn type="button" aria-label="ClosePop" onClick={handlePopClose} />
       <SignImg />
       <SignText>
         <h2>CREATE ACCOUNT</h2>
         <form>
-          <input placeholder="EMAIL" style={inputStyle} onChange={handleEmail} />
+          <input
+            placeholder="EMAIL"
+            style={inputStyle}
+            onChange={(e) => {
+              signupForm.email = e.target.value;
+            }}
+          />
           <input
             placeholder="PASSWORD"
             style={inputStyle}
             type="password"
-            onChange={hanlePasssword}
+            onChange={(e) => {
+              signupForm.password = e.target.value;
+            }}
           />
           <SocialLogin>
             <h5>SOCIAL LOGIN</h5>
@@ -108,8 +123,8 @@ const SignUp = ({ setSwitch, setSignPop }) => {
         <SwitchBtn type="button" onClick={handleSwitch}>
           SIGN IN
         </SwitchBtn>
-        <ErrorMessage>{error}</ErrorMessage>
       </SignText>
+      <SignupMessage BGcolor={messageColor}>{signupMessage}</SignupMessage>
     </PopUp>
   );
 };
@@ -162,15 +177,6 @@ const FacebookLogin = styled.div`
     cursor: pointer;
   }
 `;
-// const SignupSubmit = styled.button`
-//   width: 234px;
-//   height: 40px;
-//   border-radius: 5px;
-//   background-color: #36bc9b;
-//   border: none;
-//   color: #fff;
-//   margin-top: 20px;
-// `;
 const SwitchBtn = styled.button`
   padding: 0px;
   font-size: 12px;
@@ -181,10 +187,13 @@ const SwitchBtn = styled.button`
     color: #db4453;
   }
 `;
-const ErrorMessage = styled.h5`
-  color: #db4453;
-  width: 234px;
-  margin: 0px;
-  margin-top: 10px;
+const SignupMessage = styled.h4`
+  background-color: ${(props) => props.BGcolor};
   text-align: center;
+  position: absolute;
+  padding: 5px 0px 5px 0px;
+  bottom: 50px;
+  right: 0px;
+  width: 378px;
+  color: #fff;
 `;

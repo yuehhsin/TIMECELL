@@ -18,6 +18,10 @@ const ArtBoard = ({
   setSignPop,
   sidepanel,
   setSidePanel,
+  UUID,
+  setUUID,
+  setSave,
+  save,
 }) => {
   const [mouseDown, setMouseDown] = useState(false);
 
@@ -29,8 +33,21 @@ const ArtBoard = ({
   };
   return (
     <>
-      <Artboard onMouseDown={handleMouseDown} onMouseUp={handleMouseOut} sidepanelSty={sidepanel}>
-        <Nav setSignPop={setSignPop} sidepanel={sidepanel} setSidePanel={setSidePanel} />
+      <Artboard
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseOut}
+        sidepanelSty={sidepanel}
+        setUUID={setUUID}
+      >
+        <Nav
+          setSignPop={setSignPop}
+          sidepanel={sidepanel}
+          setSidePanel={setSidePanel}
+          UUID={UUID}
+          setUUID={setUUID}
+          setSave={setSave}
+          save={save}
+        />
         <TimeLine />
         <Week>
           <OneDay

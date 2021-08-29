@@ -46,7 +46,7 @@ export const PopUp = styled.div`
   width: 706px;
   height: 428px;
   background-color: #fff;
-  position: absolute;
+  position: fixed;
   left: 50%;
   display: flex;
   justify-content: center;
