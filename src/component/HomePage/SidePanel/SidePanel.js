@@ -16,13 +16,6 @@ const SidePanel = ({
   setCaution,
   eventText,
   setEventText,
-  MONTB,
-  TUETB,
-  WEDTB,
-  THUTB,
-  FRITB,
-  SATTB,
-  SUNTB,
   reRender,
   setReRender,
   sidepanel,
@@ -43,13 +36,6 @@ const SidePanel = ({
           setCaution={setCaution}
           eventText={eventText}
           setEventText={setEventText}
-          MONTB={MONTB}
-          TUETB={TUETB}
-          WEDTB={WEDTB}
-          THUTB={THUTB}
-          FRITB={FRITB}
-          SATTB={SATTB}
-          SUNTB={SUNTB}
           reRender={reRender}
           setReRender={setReRender}
           comment={comment}

@@ -1,29 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import cleanIcon from '../../../icon/cleaning.png';
 import cleanIconSel from '../../../icon/cleaning_hover.png';
-
 import 'animate.css';
-
-// Component
 import CleanPop from './CleanPop';
+import { timeblockDataContext } from '../../contexts';
 
-const FloatPanel = ({
-  selTB,
-  setCACaution,
-  MONTB,
-  TUETB,
-  WEDTB,
-  THUTB,
-  FRITB,
-  SATTB,
-  SUNTB,
-  reRender,
-  setReRender,
-}) => {
-  // HOOK
+const FloatPanel = ({ setCACaution }) => {
+  const { selTB } = useContext(timeblockDataContext);
   const [cleanPop, setCleanPop] = useState(false);
-
   const selTime = `Select  ${selTB.length * 0.5}  Hour`;
   const floatpanel = selTB.length === 0 ? 'none' : 'flex';
   const handleCleanPanel = () => {
@@ -37,20 +22,7 @@ const FloatPanel = ({
       <CleanBG onClick={handleClose} displaySty={cleanPop} />
       <Floatpanel className="animate__animated animate__fadeInUp" displaySty={floatpanel}>
         {cleanPop ? (
-          <CleanPop
-            setCACaution={setCACaution}
-            setCleanPop={setCleanPop}
-            selTB={selTB}
-            MONTB={MONTB}
-            TUETB={TUETB}
-            WEDTB={WEDTB}
-            THUTB={THUTB}
-            FRITB={FRITB}
-            SATTB={SATTB}
-            SUNTB={SUNTB}
-            reRender={reRender}
-            setReRender={setReRender}
-          />
+          <CleanPop setCACaution={setCACaution} setCleanPop={setCleanPop} selTB={selTB} />
         ) : (
           false
         )}

@@ -1,3 +1,4 @@
+// X
 import React from 'react';
 
 // component
@@ -13,13 +14,6 @@ const Edit = ({
   setCaution,
   eventText,
   setEventText,
-  MONTB,
-  TUETB,
-  WEDTB,
-  THUTB,
-  FRITB,
-  SATTB,
-  SUNTB,
   reRender,
   setReRender,
   comment,
@@ -33,27 +27,11 @@ const Edit = ({
       setCaution={setCaution}
       eventText={eventText}
       setEventText={setEventText}
-      MONTB={MONTB}
-      TUETB={TUETB}
-      WEDTB={WEDTB}
-      THUTB={THUTB}
-      FRITB={FRITB}
-      SATTB={SATTB}
-      SUNTB={SUNTB}
       reRender={reRender}
       setReRender={setReRender}
     />
     <Memo comment={comment} setComment={setComment} />
-    <Statistic
-      eventText={eventText}
-      MONTB={MONTB}
-      TUETB={TUETB}
-      WEDTB={WEDTB}
-      THUTB={THUTB}
-      FRITB={FRITB}
-      SATTB={SATTB}
-      SUNTB={SUNTB}
-    />
+    {/* <Statistic eventText={eventText} /> */}
     <Hotkey />
   </>
 );

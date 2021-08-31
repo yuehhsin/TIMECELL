@@ -1,30 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import OneDay from './OneDay/OneDay';
 import TimeLine from './TimeLine';
 import Nav from './Nav';
+import { timeblockDataContext } from '../../contexts';
 
-const ArtBoard = ({
-  selTB,
-  setSelTB,
-  MONTB,
-  TUETB,
-  WEDTB,
-  THUTB,
-  FRITB,
-  SATTB,
-  SUNTB,
-  reRender,
-  setSignPop,
-  sidepanel,
-  setSidePanel,
-  UUID,
-  setUUID,
-  setSave,
-  save,
-}) => {
+const ArtBoard = ({ setSignPop, sidepanel, setSidePanel, UUID, setUUID, setSave, save }) => {
+  const { tbData } = useContext(timeblockDataContext);
   const [mouseDown, setMouseDown] = useState(false);
-
   const handleMouseDown = () => {
     setMouseDown(true);
   };
@@ -50,62 +33,13 @@ const ArtBoard = ({
         />
         <TimeLine />
         <Week>
-          <OneDay
-            day="MON"
-            data={MONTB}
-            selTB={selTB}
-            setSelTB={setSelTB}
-            reRender={reRender}
-            mouseDown={mouseDown}
-          />
-          <OneDay
-            day="TUE"
-            data={TUETB}
-            selTB={selTB}
-            setSelTB={setSelTB}
-            reRender={reRender}
-            mouseDown={mouseDown}
-          />
-          <OneDay
-            day="WED"
-            data={WEDTB}
-            selTB={selTB}
-            setSelTB={setSelTB}
-            reRender={reRender}
-            mouseDown={mouseDown}
-          />
-          <OneDay
-            day="THU"
-            data={THUTB}
-            selTB={selTB}
-            setSelTB={setSelTB}
-            reRender={reRender}
-            mouseDown={mouseDown}
-          />
-          <OneDay
-            day="FRI"
-            data={FRITB}
-            selTB={selTB}
-            setSelTB={setSelTB}
-            reRender={reRender}
-            mouseDown={mouseDown}
-          />
-          <OneDay
-            day="SAT"
-            data={SATTB}
-            selTB={selTB}
-            setSelTB={setSelTB}
-            reRender={reRender}
-            mouseDown={mouseDown}
-          />
-          <OneDay
-            day="SUN"
-            data={SUNTB}
-            selTB={selTB}
-            setSelTB={setSelTB}
-            reRender={reRender}
-            mouseDown={mouseDown}
-          />
+          <OneDay day="MON" data={tbData.MON} mouseDown={mouseDown} />
+          <OneDay day="TUE" data={tbData.TUE} mouseDown={mouseDown} />
+          <OneDay day="WED" data={tbData.WED} mouseDown={mouseDown} />
+          <OneDay day="THU" data={tbData.THU} mouseDown={mouseDown} />
+          <OneDay day="FRI" data={tbData.FRI} mouseDown={mouseDown} />
+          <OneDay day="SAT" data={tbData.SAT} mouseDown={mouseDown} />
+          <OneDay day="SUN" data={tbData.SUN} mouseDown={mouseDown} />
         </Week>
       </Artboard>
     </>

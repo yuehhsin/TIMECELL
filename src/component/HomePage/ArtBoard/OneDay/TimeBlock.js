@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import styled from 'styled-components';
+import { timeblockDataContext } from '../../../contexts';
 
-const TimeBefore = ({ timeBefore, TBinfo, selTB, setSelTB, reRender, mouseDown }) => {
+const TimeBefore = ({ timeBefore, TBinfo, mouseDown }) => {
   const TBcolor = {
     backgroundColor: TBinfo.color,
     color: TBinfo.color === '#F4F4F4' ? '#000000' : '#FFFFFF',
   };
-
   // HOOK
+  const { reRender, selTB, setSelTB } = useContext(timeblockDataContext);
   const [timeState, setTimeState] = useState(false); // 紀錄時間塊選取狀態
 
   const handleTimeState = (e) => {

@@ -1,28 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import menuIcon from '../../../../../icon/menu_white.png';
 import doneIcon from '../../../../../icon/done.png';
+import { timeblockDataContext } from '../../../../contexts';
 
-const Event = ({
-  event,
-  setSelEvent,
-  eventText,
-  item,
-  setCaution,
-  MONTB,
-  TUETB,
-  WEDTB,
-  THUTB,
-  FRITB,
-  SATTB,
-  SUNTB,
-  reRender,
-  setReRender,
-}) => {
+const Event = ({ event, item, setCaution }) => {
   // HOOK
   const [menu, setMenu] = useState(false); // menu視窗
   const [edit, handleEdit] = useState(false); // edit視窗
   const [eventEdit, handleMenuEdit] = useState(''); // edit(input onchang)
+  const { tbData, setSelEvent, reRender, setReRender, eventText } =
+    useContext(timeblockDataContext);
 
   const handleRenderTB = () => {
     setSelEvent({ color: event.color, event: event.content, id: event.id });
@@ -56,13 +44,7 @@ const Event = ({
   const handleEventEdit = (e) => {
     handleMenuEdit(e.target.value);
   };
-  const updateTB = (TB, orginalEvent) => {
-    for (let i = 0; i < TB.length; i += 1) {
-      if (TB[i].event === orginalEvent) {
-        TB[i].event = eventEdit;
-      }
-    }
-  };
+
   const handleEditSubmit = (e) => {
     e.preventDefault();
     if (eventEdit !== '') {
@@ -70,13 +52,13 @@ const Event = ({
       eventText[item].content = eventEdit;
       handleMenuEdit('');
       handleEdit(false);
-      updateTB(MONTB, orginalEvent);
-      updateTB(TUETB, orginalEvent);
-      updateTB(WEDTB, orginalEvent);
-      updateTB(THUTB, orginalEvent);
-      updateTB(FRITB, orginalEvent);
-      updateTB(SATTB, orginalEvent);
-      updateTB(SUNTB, orginalEvent);
+      for (let i = 0; i < tbData.MON.length; i += 1) {
+        if (tbData.MON[i].event === orginalEvent) {
+          console.log('before', tbData.MON[i].event);
+          tbData.MON[i].event = eventEdit;
+          console.log('after', tbData.MON[i].event);
+        }
+      }
       setReRender(reRender + 1);
     }
   };

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import TimeBlock from './TimeBlock';
 
-const OneDay = ({ day, data, selTB, setSelTB, reRender, mouseDown }) => (
+const OneDay = ({ day, data, mouseDown }) => (
   <Oneday>
     <h3>{day}</h3>
     {data.map((TBinfo, item) => (
@@ -11,9 +11,6 @@ const OneDay = ({ day, data, selTB, setSelTB, reRender, mouseDown }) => (
         timeBefore={item % 2 === 0}
         TBinfo={TBinfo}
         dataSet={`${day}-${0.5 * item}`}
-        selTB={selTB}
-        setSelTB={setSelTB}
-        reRender={reRender}
         mouseDown={mouseDown}
       />
     ))}

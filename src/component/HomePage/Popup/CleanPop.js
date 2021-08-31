@@ -1,20 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { timeblockDataContext } from '../../contexts';
 
-const CleanPop = ({
-  setCACaution,
-  setCleanPop,
-  selTB,
-  MONTB,
-  TUETB,
-  WEDTB,
-  THUTB,
-  FRITB,
-  SATTB,
-  SUNTB,
-  reRender,
-  setReRender,
-}) => {
+const CleanPop = ({ setCACaution, setCleanPop }) => {
+  const { tbData, selTB, reRender, setReRender } = useContext(timeblockDataContext);
   const handleCleanAll = () => {
     setCACaution(true);
     setCleanPop(false);
@@ -31,13 +20,13 @@ const CleanPop = ({
   };
   const handleCleanSel = () => {
     const List = selTB;
-    delTB(List, 'MON', MONTB);
-    delTB(List, 'TUE', TUETB);
-    delTB(List, 'WED', WEDTB);
-    delTB(List, 'THU', THUTB);
-    delTB(List, 'FRI', FRITB);
-    delTB(List, 'SAT', SATTB);
-    delTB(List, 'SUN', SUNTB);
+    delTB(List, 'MON', tbData.MON);
+    delTB(List, 'TUE', tbData.TUE);
+    delTB(List, 'WED', tbData.WED);
+    delTB(List, 'THU', tbData.THU);
+    delTB(List, 'FRI', tbData.FRI);
+    delTB(List, 'SAT', tbData.SAT);
+    delTB(List, 'SUN', tbData.SUN);
   };
   return (
     <>

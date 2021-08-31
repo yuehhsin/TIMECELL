@@ -1,3 +1,4 @@
+// X
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Title, { ColBTN, Container } from '../../../../../Style/shareStyled';
@@ -10,13 +11,6 @@ const EventList = ({
   setCaution,
   eventText,
   setEventText,
-  MONTB,
-  TUETB,
-  WEDTB,
-  THUTB,
-  FRITB,
-  SATTB,
-  SUNTB,
   reRender,
   setReRender,
 }) => {
@@ -53,13 +47,6 @@ const EventList = ({
               item={item}
               eventText={eventText}
               setCaution={setCaution}
-              MONTB={MONTB}
-              TUETB={TUETB}
-              WEDTB={WEDTB}
-              THUTB={THUTB}
-              FRITB={FRITB}
-              SATTB={SATTB}
-              SUNTB={SUNTB}
               reRender={reRender}
               setReRender={setReRender}
             />
