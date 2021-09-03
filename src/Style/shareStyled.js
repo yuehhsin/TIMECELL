@@ -41,6 +41,9 @@ export const PopBG = styled.button`
   background-color: rgba(56, 56, 56, 0.5);
   z-index: 1002;
   top: 0px;
+  &:hover {
+    cursor: default;
+  }
 `;
 export const PopUp = styled.div`
   width: 706px;
@@ -69,6 +72,7 @@ export const CloseBtn = styled.button`
   }
 `;
 export const SignText = styled.div`
+  font-size: 20px;
   width: calc(100% - 303px);
   display: flex;
   flex-direction: column;

@@ -5,6 +5,12 @@ body {
   padding: 0px;
   font-family: 'roboto';
 }
+h1 {
+  font-weight: 700;
+  font-size: 22px;
+  margin: 0px;
+  letter-spacing: 4px;
+}
 h2 {
   font-weight: 700;
   font-size: 18px;
