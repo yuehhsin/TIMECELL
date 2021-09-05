@@ -32,8 +32,16 @@ The component planning is divided into four major sections (Artboard, Sidepanel,
 組件的規劃依照 UI 的設計稿與功能，分為四大區塊(Artboard, Sidepanel, Popup, Caution) 。其中 Pop Up 視窗由 `React-Router` 進行路由的管理，而 Caution 視窗考慮到使用者可能會自行操作網址，將造成流程上的問題，因此直接使用 `State` 進行視窗的切換。
 ![組件規劃](https://user-images.githubusercontent.com/75563062/132125102-72955bd3-20b0-4d75-b78f-e08f5b7bb817.png)
 
-<!-- 
-## Features
 
-## 使用者體驗
- -->
+## Features
+### 1° Select time range and add event
+In addition to click one by one to select the time range, you can also Drag-Drop to select a large range of time segments at once for better user experience ⭐️
+
+選取時間的操作除了使用滑鼠逐一點擊外，還可以按壓滑鼠一次選取大量時間區段，以獲得更好的使用者體驗。
+
+![Webp net-gifmaker](https://user-images.githubusercontent.com/75563062/132138955-39dfa6c6-bb72-4a79-a41a-b92f81147449.gif)
+
+### 2° Add/Edit Event
+![Webp net-gifmaker](https://user-images.githubusercontent.com/75563062/132139865-7dd38942-ab39-440e-9471-82d20caefc77.gif)
+
+
