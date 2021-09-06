@@ -32,14 +32,42 @@ The component planning is divided into four major sections (Artboard, Sidepanel,
 
 
 ## Features
-### 1° Select time range and add event
-In addition to click one by one to select the time range, you can also Drag-Drop to select a large range of time segments at once for better user experience ⭐️
+### 1️⃣ Select time range and add event
+In addition to click one by one to select the time range, you can also long press the mouse to select a large range of time segments at once for better user experience ⭐️
 
-選取時間的操作除了使用滑鼠逐一點擊外，還可以按壓滑鼠一次選取大量時間區段，以獲得更好的使用者體驗。
+選取時間的操作除了使用滑鼠逐一點擊外，還可以長按滑鼠一次選取大量時間區段，以獲得更好的使用者體驗。
 
-![Webp net-gifmaker](https://user-images.githubusercontent.com/75563062/132138955-39dfa6c6-bb72-4a79-a41a-b92f81147449.gif)
+![Webp net-gifmaker](https://user-images.githubusercontent.com/75563062/132156297-75c19fa6-355d-49ce-9d49-952ccb7a0710.gif)
 
-### 2° Add/Edit Event
-![Webp net-gifmaker](https://user-images.githubusercontent.com/75563062/132139865-7dd38942-ab39-440e-9471-82d20caefc77.gif)
+### 2️⃣ Add / Edit Event
+You can add events in the `EVENT` tab of the Side Panel. In the menu of each event category, you can edit the content of the event and delete the event in real time. Because deleting the event will delete all record of the event on the screen, a warning window will first appear to confirm whether to perform the action.
 
+在 Side Panel 的 `EVENT` 標籤處，可以新增事件。每個事件類別的選單裡可以即時編輯事件的內容和刪除事件，由於刪除事件會同步刪除畫面上的該事件的紀錄，因此會先出現一個警示窗口，確認是否執行該動作。
 
+![Webp net-gifmaker](https://user-images.githubusercontent.com/75563062/132157631-9eb56a18-14d4-4e43-988e-394f3f0f58e3.gif)
+
+### 3️⃣ Add Memo
+You can add a memo in the `MEMO` tab of the Side Panel. **`Double click`** The memo icon can expand/collapse the content, and the memo can be **`dragged`** to any position and **`zoomed`** in size.
+
+在 Side Panel 的 `MEMO` 標籤處，可以新增備忘錄。**`雙點擊`** 備忘錄圖示可以展開 / 收合內容、備忘錄可以任意 **`拖曳`** 位置、**`縮放`** 大小。
+
+![Webp net-gifmaker](https://user-images.githubusercontent.com/75563062/132170111-4aa2f8ad-3173-4551-8330-a12efb53ad3e.gif)
+
+### 4️⃣ View Statistics
+Through the third-party package `chart.js` , you can view the time data of the event at the `STATISTIC` tab of the Side Panel.
+
+透過第三方套件 `chart.js`，在 Side Panel 的 `STATISTIC` 標籤處，可以查看事件的時間數據。
+
+![Webp net-gifmaker](https://user-images.githubusercontent.com/75563062/132171606-b0812c8c-66d8-43c7-b868-67a0b76df8a3.gif)
+
+<!-- ### 5️⃣ 登入註冊 儲存！
+ -->
+ 
+ <!-- ### 6️⃣ Hotkey
+ -->
+ 
+  <!-- ### 7️⃣ RWD
+ -->
+ 
+<!-- Git 說明 -->
+<!-- seo -->
