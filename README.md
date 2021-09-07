@@ -96,6 +96,7 @@ Five weeks of development, from knowing nothing about JSX to finish TIMECELL, al
 
 #### SEO Problem
 Since TIMECELL is a SPA, the crawler of the browser cannot obtain the content of the website，So there are some SEO settings in the HTML meta tag.
+
 由於 TIMECELL 是個單頁式應用，瀏覽器的爬蟲沒有辦法取得網站內容（但其實 TIMECELL 本身也沒有什麼文字內容），所以在 HTML 的 meta 標籤有做一些 SEO 的設定。
 
 ```
