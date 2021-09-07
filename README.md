@@ -18,9 +18,9 @@ You do not need to register and log in to use TIMECELL, but if you want to store
 | Password | 12345678 |
 
 ## Skills Structure
-The front-end development part of TIMECELL is constructed by using **`React`** , and is used with the package `React-Router` to implement Multiple Page Application（**SPA**）,making the user experience better.The back-end development uses the `Firebase` back-end service platform to set up the website (Hoisting), database (Firestore) and membership system (Auth) operations.The development tools use `Webpack` for JavaScript module packaging, `Babel` to solve browser compatibility issues, `NPM` for package management, `styled-components` write actual CSS to style React components, `ESLint & Prettier` to check syntax and unified coding style, and `GitHub` to control the Git version.
+The front-end development part of TIMECELL is constructed by using **`React`** , and is used with the package `React-Router` to implement Single Page Application（**SPA**）,making the user experience better.The back-end development uses the `Firebase` back-end service platform to set up the website (Hoisting), database (Firestore) and membership system (Auth) operations.The development tools use `Webpack` for JavaScript module packaging, `Babel` to solve browser compatibility issues, `NPM` for package management, `styled-components` write actual CSS to style React components, `ESLint & Prettier` to check syntax and unified coding style, and `GitHub` to control the Git version.
 
-TIMECELL 在前端開發的部分是使用 **React** 建構的，搭配套件 React-Router 實現多頁式應用，讓使用者體驗更好。後端開發使用 **Firebase** 後端服務平臺，進行架設網站（Hoisting）、資料庫（Firestore）和會員系統（Auth）的操作。開發工具使用 **Webpack** 進行 JavaScript 的模組打包、**Babel** 解決瀏覽器相容性問題、**NPM** 進行套件管理、**styled-components** 將元素樣式直接寫進組件，**ESLint & Prettier** 檢查語法與統一程式碼風格、**GitHub** 控制 Git 的版本。
+TIMECELL 在前端開發的部分是使用 **React** 建構的，搭配套件 React-Router 實現單頁式應用，讓使用者體驗更好。後端開發使用 **Firebase** 後端服務平臺，進行架設網站（Hoisting）、資料庫（Firestore）和會員系統（Auth）的操作。開發工具使用 **Webpack** 進行 JavaScript 的模組打包、**Babel** 解決瀏覽器相容性問題、**NPM** 進行套件管理、**styled-components** 將元素樣式直接寫進組件，**ESLint & Prettier** 檢查語法與統一程式碼風格、**GitHub** 控制 Git 的版本。
 
 ![技術架構](https://user-images.githubusercontent.com/75563062/132124477-6f21d4fb-7ce3-4550-a7fa-ba054b1ed646.png)
 
@@ -68,13 +68,42 @@ In order to prevent users from accidentally refreshing the page and causing the 
 為了防止使用者不小心刷新頁面導致編輯的資料消失，TIMECELL 每分鐘會自動將資料暫存在 `Local Starge`。
 
 ![Webp net-gifmaker](https://user-images.githubusercontent.com/75563062/132281058-a9db2727-ee28-4039-ac7b-061c583dbf5e.gif)
+
 [測試帳號密碼](#Test Account)
 
- <!-- ### 6️⃣ Hotkey
- -->
+### 6️⃣ Hotkey
+ TIMECELL provides HotKey for users to edit time and screen more quickly.
  
+ TIMECELL 提供快捷鍵，方便使用者更快速的編輯時間和畫面。
+
+| ACTION | HOTKEY |
+| -------- | -------- |
+| Delete Seletced Data | BackSpace |
+| Delete All Data | Shift + A |
+| Close Side panel | \ |
+
+![Webp net-gifmaker](https://user-images.githubusercontent.com/75563062/132318662-4930dc94-11c2-4d6a-a06d-c2be732da961.gif)
+
   <!-- ### 7️⃣ RWD
  -->
  
-<!-- Git 說明 -->
-<!-- seo -->
+## Extra Note
+#### Development Log
+The practice project started in order to learn React. From the very beginning, Webpack setting was full of frustrations. The component architecture has been refactored many times with the design and function revisions. The warnings in the official React documents are always understand after personal experience.
+Five weeks of development, from knowing nothing about JSX to finish TIMECELL, although there are still many flaw that need to be corrected and improved, the development of TIMECELL has temporarily ended. Any ideas and comments can be made on the TIMECELL website（section of DEVELOP）.
+
+為了學習 React 而開始的練習專案，從一開始 Webpack 的設定就滿滿的挫折，component 的架構隨著設計、功能的修正重構了好多次，React 官方文件的警示總是在親身經歷後才深深的領悟🙈。五個星期的開發時間，從 JSX 是什麼都不知道，到 TIMECELL 的誕生，雖然還有很多需要修正與改善的地方，但 TIMECELL 的開發就先告一個段落（該找工作了🌝），有任何想法意見都可以透過 TIMECELL 網站的 DEVELOP 的留言區塊告訴我喔🌼
+
+#### SEO Problem
+Since TIMECELL is a SPA, the crawler of the browser cannot obtain the content of the website，So there are some SEO settings in the HTML meta tag.
+由於 TIMECELL 是個單頁式應用，瀏覽器的爬蟲沒有辦法取得網站內容（但其實 TIMECELL 本身也沒有什麼文字內容），所以在 HTML 的 meta 標籤有做一些 SEO 的設定。
+
+```
+<meta name="keywords" content="TIMECELL, time planing, record time">
+<meta name="description" content="TIMECELL is an online time planning tool,You can quickly plan and record the time you have.">
+<meta name="robots" content="index, follow"> 
+<link rel="canonical" href="https://timecell-98386.web.app/" />
+<meta property="og:title" content="TIMECELL">
+<meta property="og:description" content="TIMECELL">
+```
+
