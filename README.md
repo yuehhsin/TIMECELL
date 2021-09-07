@@ -60,9 +60,16 @@ Through the third-party package `chart.js` , you can view the time data of the e
 
 ![Webp net-gifmaker](https://user-images.githubusercontent.com/75563062/132171606-b0812c8c-66d8-43c7-b868-67a0b76df8a3.gif)
 
-<!-- ### 5️⃣ 登入註冊 儲存！
- -->
- 
+### 5️⃣ Sign-up, Sign-in and Save
+You can find member-related functions at the top of Artboard. After logging in as a member, you can save time data and evevts.
+In order to prevent users from accidentally refreshing the page and causing the edited data to disappear, TIMECELL will automatically store the data in `Local Starge` every minute 😇.
+
+在 Artboard 上方可以找到與會員相關的功能，成為會員登入後，可以儲存時間資料與事件。 
+為了防止使用者不小心刷新頁面導致編輯的資料消失，TIMECELL 每分鐘會自動將資料暫存在 `Local Starge`。
+
+![Webp net-gifmaker](https://user-images.githubusercontent.com/75563062/132281058-a9db2727-ee28-4039-ac7b-061c583dbf5e.gif)
+[測試帳號密碼](#Test Account)
+
  <!-- ### 6️⃣ Hotkey
  -->
  
