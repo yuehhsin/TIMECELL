@@ -69,7 +69,7 @@ In order to prevent users from accidentally refreshing the page and causing the 
 
 ![Webp net-gifmaker](https://user-images.githubusercontent.com/75563062/132281058-a9db2727-ee28-4039-ac7b-061c583dbf5e.gif)
 
-[測試帳號密碼](#Test Account)
+[測試帳號密碼](#test-account)
 
 ### 6️⃣ Hotkey
  TIMECELL provides HotKey for users to edit time and screen more quickly.
