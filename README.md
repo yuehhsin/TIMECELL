@@ -1,7 +1,7 @@
 # TIMECELL
 ![Screen Shot 2021-09-12 at 1 26 1](https://user-images.githubusercontent.com/75563062/132973346-c71a886f-3a85-4325-8da2-4d0affccdbad.png)
 
-TIMECELL is an experimental online time planning tool. Based on the theory of time digitization and limited time of concentration, Dividing time into blocks every thirty minutes, just like time cells. And with simple mouse click and drag functions, You can quickly plan and record the time you have 💛
+TIMECELL is an experimental online time planning tool. Based on the theory of time digitization and limited time of concentration, Dividing time into blocks every thirty minutes, just like time cells. And with simple mouse click and drag functions, You can quickly plan and record the time you have 🌼
 
 TIMECELL 是一個實驗性的在線時間規劃工具。基於時間數值化和專注時間有限性的理論，將一天的時間分成每三十分鐘一個單位，就好像時間細胞一樣。通過簡單的滑鼠點擊和拖動功能，規劃與紀錄時間不再是繁雜的負擔。
 ## Catalog
