@@ -18,7 +18,6 @@ TIMECELL 是一個實驗性的在線時間規劃工具。基於時間數值化�
   - [#6 Hotkey](#6%EF%B8%8F⃣-hotkey)
 - [Extra Note](#extra-note)
 
-  - [Development Log](#development-log)
   - [SEO Problem](#seo-problem)
 
 ## Live Demo
@@ -105,11 +104,6 @@ In order to prevent users from accidentally refreshing the page and causing the 
  -->
  
 ## Extra Note
-#### Development Log
-The practice project started in order to learn React. From the very beginning, Webpack setting was full of frustrations. The component architecture has been refactored many times with the design and function revisions. The warnings in the official React documents are always understand after personal experience.
-Five weeks of development, from knowing nothing about JSX to finish TIMECELL, although there are still many flaw that can be corrected and improved, the development of TIMECELL has temporarily ended. Any ideas and comments can be made on the TIMECELL website（section of DEVELOP）.
-
-為了學習 React 而開始的練習專案，從一開始 Webpack 的設定就滿滿的挫折，component 的架構隨著設計、功能的修正重構了好多次，React 官方文件的警示總是在親身經歷後才深深的領悟🙈。五個星期的開發時間，從 JSX 是什麼都不知道，到 TIMECELL 的誕生，雖然還有很多可以修正與改善的地方，但 TIMECELL 的開發就先告一個段落（該找工作了🌝），有任何想法意見都可以透過 TIMECELL 網站的 DEVELOP 的留言區塊告訴我喔～
 
 #### SEO Problem
 Since TIMECELL is a SPA, the crawler of the browser cannot obtain the content of the website，So there are some SEO settings in the HTML meta tag.
@@ -124,4 +118,4 @@ Since TIMECELL is a SPA, the crawler of the browser cannot obtain the content of
 <meta property="og:title" content="TIMECELL">
 <meta property="og:description" content="TIMECELL">
 ```
-
+#### base64
