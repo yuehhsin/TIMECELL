@@ -21,8 +21,6 @@ TIMECELL 是一個實驗性的在線時間規劃工具。基於時間數值化�
   - [Development Log](#development-log)
   - [SEO Problem](#seo-problem)
 
-
-
 ## Live Demo
 https://timecell-98386.web.app/
 
@@ -41,7 +39,7 @@ The front-end development part of TIMECELL is constructed by using **`React`** ,
 
 TIMECELL 在前端開發的部分是使用 **React** 建構的，搭配套件 React-Router 實現單頁式應用，讓使用者體驗更好。後端開發使用 **Firebase** 後端服務平臺，進行架設網站（Hoisting）、資料庫（Firestore）和會員系統（Auth）的操作。開發工具使用 **Webpack** 進行 JavaScript 的模組打包、**Babel** 解決瀏覽器相容性問題、**NPM** 進行套件管理、**styled-components** 將元素樣式直接寫進組件，**ESLint & Prettier** 檢查語法與統一程式碼風格、**GitHub** 控制 Git 的版本。
 
-![技術架構](https://user-images.githubusercontent.com/75563062/132124477-6f21d4fb-7ce3-4550-a7fa-ba054b1ed646.png)
+![技術架構](https://user-images.githubusercontent.com/75563062/132973445-1907a0e6-4ddc-45bf-9753-6e89b79c9030.png)
 
 ## Component Planning
 The component planning is divided into four major sections (Artboard, Sidepanel, Popup, Caution) according to the UI design draft and function.The Pop Up Dialogs is managed by `React-Router`, and the Caution Dialogs considers that users may manipulate the URL by themselves, which will cause process problems, so the `State` is used directly to switch.
