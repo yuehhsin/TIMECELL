@@ -1,9 +1,14 @@
-/* INIT */ /* INIT */ /* INIT */
 html,
 body {
   margin: 0px;
   padding: 0px;
   font-family: 'roboto';
+}
+h1 {
+  font-weight: 700;
+  font-size: 22px;
+  margin: 0px;
+  letter-spacing: 4px;
 }
 h2 {
   font-weight: 700;
@@ -28,6 +33,12 @@ h5 {
   font-size: 13px;
   margin: 0px;
   letter-spacing: 1px;
+}
+h6 {
+  margin: 0px;
+}
+a {
+  text-decoration: none;
 }
 input {
   padding: 0px;
@@ -87,8 +98,6 @@ select {
   background-color: #fff;
   border-radius: 5px;
   position: absolute;
-  /* left: 50%;
-  transform: translateX(-50%); */
   top: 300px;
   padding: 35px 20px 35px 20px;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
