@@ -6,7 +6,6 @@ import Timer from './Timer/Timer';
 import EventList from './Event/EventList';
 import Memo from './Memo/Memo';
 import Statistic from './Statistic/Statistic';
-import Hotkey from './Hotkey/Hotkey';
 
 const Edit = ({
   selEvent,
@@ -31,8 +30,7 @@ const Edit = ({
       setReRender={setReRender}
     />
     <Memo memo={memo} setMemo={setMemo} />
-    {/* <Statistic eventText={eventText} /> */}
-    <Hotkey />
+    <Statistic eventText={eventText} />
   </>
 );
 export default Edit;

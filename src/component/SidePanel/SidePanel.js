@@ -71,6 +71,7 @@ const FoleSPbtn = styled.button`
   position: absolute;
   top: 14px;
   right: 20px;
+  cursor: pointer;
   &:hover {
     background-image: url(${foldSPSel});
   }

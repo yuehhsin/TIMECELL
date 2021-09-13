@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import firebase from '../../firebaseInit';
 import { PopUp, CloseBtn, SignText, SignSubmit, PopBG } from '../../style/shareStyled';
 import signinImg from '../../image/signin.png';
@@ -14,20 +14,19 @@ const SingIn = () => {
     fontSize: '12px',
     letterSpacing: '2px',
   };
+  const history = useHistory();
   const handleSubmit = (e) => {
     e.preventDefault();
     firebase
       .auth()
       .signInWithEmailAndPassword(signinForm.email, signinForm.password)
       .then((res) => {
-        // setUUID(res.user.uid);
         if (res.user.email === signinForm.email) {
           setMessageColor('#383838');
           setSignupMessage('Sign In Success!!!');
           setTimeout(() => {
-            document.location.href = '/';
+            history.push('/');
           }, 1000);
-          // localStorage.setItem('email', JSON.stringify(signinForm.email));
         }
       })
       .catch((error) => {

@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Doughnut, defaults } from 'react-chartjs-2';
+import { timeblockDataContext } from '../../../../contexts/contexts';
 
 defaults.global.legend.display = false;
 defaults.global.animation.duration = 10;
 
-const Doughnuts = ({ eventText, MONTB, TUETB, WEDTB, THUTB, FRITB, SATTB, SUNTB, selDat }) => {
+const Doughnuts = ({ selDat }) => {
   const colorList = [];
   const monEventList = [];
   const monCounts = {};
   const monData = [];
   const MONDATA = [];
   let contentList = [];
+  const { tbData, eventText } = useContext(timeblockDataContext);
   const dic = {};
   for (let i = 0; i < eventText.length; i += 1) {
     dic[eventText[i].content] = eventText[i].color;
@@ -49,26 +51,26 @@ const Doughnuts = ({ eventText, MONTB, TUETB, WEDTB, THUTB, FRITB, SATTB, SUNTB,
   };
 
   if (selDat === 'MON') {
-    handleSelDay(MONTB, 24);
+    handleSelDay(tbData.MON, 24);
   } else if (selDat === 'TUE') {
-    handleSelDay(TUETB, 24);
+    handleSelDay(tbData.TUE, 24);
   } else if (selDat === 'WED') {
-    handleSelDay(WEDTB, 24);
+    handleSelDay(tbData.WED, 24);
   } else if (selDat === 'THU') {
-    handleSelDay(THUTB, 24);
+    handleSelDay(tbData.THU, 24);
   } else if (selDat === 'FRI') {
-    handleSelDay(FRITB, 24);
+    handleSelDay(tbData.FRI, 24);
   } else if (selDat === 'SAT') {
-    handleSelDay(SATTB, 24);
+    handleSelDay(tbData.SAT, 24);
   } else if (selDat === 'SUN') {
-    handleSelDay(SUNTB, 24);
+    handleSelDay(tbData.SUN, 24);
   } else if (selDat === 'WEEK') {
-    const weekTB = MONTB.concat(TUETB)
-      .concat(WEDTB)
-      .concat(THUTB)
-      .concat(FRITB)
-      .concat(SATTB)
-      .concat(SUNTB);
+    const weekTB = tbData.MON.concat(tbData.TUE)
+      .concat(tbData.WED)
+      .concat(tbData.THU)
+      .concat(tbData.FRI)
+      .concat(tbData.SAT)
+      .concat(tbData.SUN);
     handleSelDay(weekTB, 168);
   }
 

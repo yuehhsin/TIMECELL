@@ -31,8 +31,12 @@ const CleanOptions = ({ setCACaution, setCleanPop }) => {
   return (
     <>
       <CleanPopUp>
-        <CleanBtn onClick={handleCleanSel}>CLEAN</CleanBtn>
-        <CleanAllBtn onClick={handleCleanAll}>CLEAN ALL</CleanAllBtn>
+        <CleanBtn onClick={handleCleanSel}>
+          <h5>CLEAN</h5>
+        </CleanBtn>
+        <CleanAllBtn onClick={handleCleanAll}>
+          <h5>CLEAN ALL</h5>
+        </CleanAllBtn>
       </CleanPopUp>
     </>
   );
@@ -44,13 +48,13 @@ const CleanPopUp = styled.div`
   width: 100px;
   background-color: #fff;
   left: 150px;
-  bottom: 10px;
+  bottom: 8px;
   border-radius: 2px;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
   z-index: 1002;
   & h5 {
     color: #000000;
-    padding: 7px 10px 7px 10px;
+    padding: 4px 5px 4px 5px;
     text-align: center;
     cursor: pointer;
     &:hover {
@@ -60,11 +64,17 @@ const CleanPopUp = styled.div`
 `;
 const CleanBtn = styled.h5`
   border-bottom: 1px solid #000000;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   &:hover {
     border-radius: 2px 2px 0px 0px;
   }
 `;
 const CleanAllBtn = styled.h5`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   &:hover {
     border-radius: 0px 0px 2px 2px;
   }

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import 'animate.css';
 import { Link } from 'react-router-dom';
-import KVimage from '../../image/Welcome.png';
+import welcomeKv from '../../image/welcomeKv.gif';
 import { PopBG } from '../../style/shareStyled';
 
 const WelcomePop = () => {
@@ -13,22 +13,29 @@ const WelcomePop = () => {
         <PopBG className="popupBG" />
       </Link>
       <WelcomePopUp
+        style={{ left: `${popupX}px`, top: '200px' }}
         className=" animate__animated animate__rubberBand"
-        style={{ left: `${popupX}px`, top: '300px' }}
       >
+        <KV />
         <Content>
           <h2>WELCOME TO TIMECELL</h2>
           <h4>
-            TIMECELL is an experimental online time planning tool. Based on the theory of time
-            digitization and limited time of concentration, Dividing time into blocks every thirty
-            minutes, just like time cells. And with simple mouse click and drag functions, You can
-            quickly plan and record the time you have 💛
+            TIMECELL is an experimental online time planning tool. And with simple mouse click and
+            drag functions, You can quickly plan and record the time you have 🌼
+            <span>
+              <a
+                href="https://github.com/yuehhsin/TIMECELL#features"
+                target="_blank"
+                rel="noreferrer"
+              >
+                See More
+              </a>
+            </span>
           </h4>
           <Link to="/">
             <button type="button">TAKE A TRY</button>
           </Link>
         </Content>
-        <KV />
       </WelcomePopUp>
     </>
   );
@@ -37,35 +44,43 @@ const WelcomePop = () => {
 export default WelcomePop;
 
 const WelcomePopUp = styled.div`
-  width: 800px;
-  height: 480px;
   background-color: #fff;
-  position: absolute;
+  position: fixed;
   left: 50%;
-  display: flex;
-  justify-content: center;
   border-radius: 5px;
   z-index: 1003;
   box-shadow: 2px 2px 2px rgb(0 0 0 / 25%);
   border-radius: 10px;
 `;
 const KV = styled.div`
-  width: 60%;
-  background-image: url(${KVimage});
+  width: 800px;
+  height: 442.78px;
+  background-image: url(${welcomeKv});
   background-size: cover;
-  border-radius: 0px 5px 5px 0px;
+  border-radius: 10px 10px 0px 0px;
 `;
 const Content = styled.div`
-  width: 40%;
+  width: 740px;
   padding: 30px;
   & h2 {
-    margin-top: 20px;
+    margin-top: 10px;
     font-size: 20px;
   }
   & h4 {
-    margin-top: 20px;
+    margin-top: 10px;
     font-weight: 400;
     line-height: 25px;
+  }
+  & span {
+    margin-left: 5px;
+  }
+  & a {
+    font-weight: bold;
+    color: #f2c72d;
+    cursor: pointer;
+    &:hover {
+      color: #f2802d;
+    }
   }
   & button {
     padding: 10px 12px 10px 12px;
@@ -73,6 +88,7 @@ const Content = styled.div`
     border-radius: 5px;
     background-color: #36bc9b;
     color: #fff;
+    cursor: pointer;
     &:hover {
       background-color: #32b192;
     }

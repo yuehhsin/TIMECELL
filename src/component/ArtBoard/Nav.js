@@ -1,8 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
-import { Link, useHistory } from 'react-router-dom';
-import firebase, { memberData, db } from '../../firebaseInit';
-import { PosRelative } from '../../style/shareStyled';
+import { useHistory, Link } from 'react-router-dom';
+import firebase, { db } from '../../firebaseInit';
 import sign from '../../icon/face.png';
 import signSel from '../../icon/face_sel.png';
 import save from '../../icon/save.png';
@@ -10,39 +9,27 @@ import logout from '../../icon/logout.png';
 import saveSel from '../../icon/save_sel.png';
 import unFoldSP from '../../icon/unFoldSP.png';
 import unFoldSPSel from '../../icon/unFoldSP_sel.png';
+import logoutSel from '../../icon/logout_sel.png';
 import { timeblockDataContext } from '../../contexts/contexts';
 
-const Nav = ({ sidepanel, setSidePanel, UUID, setUUID, userId, setUserId }) => {
-  // HOOK
-  // const [signHover, setSignHover] = useState(false);
-  // const [saveHover, setSaveHover] = useState(false);
+const Nav = ({ sidepanel, setSidePanel, userId, setSaveCaution }) => {
+  const [signHover, setSignHover] = useState(false);
+  const [saveHover, setSaveHover] = useState(false);
+  const [logoutHover, setLogoutHover] = useState(false);
 
-  // const handleMouseInSign = () => {
-  //   setSignHover(true);
-  // };
-  // const handleMouseOutSign = () => {
-  //   setSignHover(false);
-  // };
-  // const handleMouseInSave = () => {
-  //   setSaveHover(true);
-  // };
-  // const handleMouseOutSave = () => {
-  //   setSaveHover(false);
-  // };
-  const { tbData } = useContext(timeblockDataContext);
+  const { tbData, eventText } = useContext(timeblockDataContext);
   const history = useHistory();
-  const handleSign = () => {
-    console.log('...');
-    // document.location.href = '/signup';
-  };
+
   const handleSave = () => {
     if (userId !== '') {
-      // 初始化timeInfo
+      setSaveCaution(true);
+      const cloudData = tbData;
+      cloudData.events = eventText;
       db.collection('member')
         .doc(userId)
-        .set(tbData)
+        .set(cloudData)
         .then(() => {
-          console.log('data created');
+          setSaveCaution(false);
         });
     } else {
       history.push('/signIn');
@@ -62,42 +49,62 @@ const Nav = ({ sidepanel, setSidePanel, UUID, setUUID, userId, setUserId }) => {
   const handleUnfoldSP = () => {
     setSidePanel(true);
   };
-
+  const handleSignUp = () => {
+    localStorage.setItem('temporaryData', JSON.stringify(tbData));
+    history.push('/signUp');
+  };
   return (
     <>
       <NavBar sidepanelSty={sidepanel}>
-        <GoBackBtn> </GoBackBtn>
+        <Link to="/welcome">
+          <GoBackBtn>BACK</GoBackBtn>
+        </Link>
         <Menu>
-          {/* save BTN */}
-          <PosRelative>
+          <BTN>
             <SaveBtn
               type="button"
-              // onMouseOver={handleMouseInSave}
-              // onMouseOut={handleMouseOutSave}
-              // saveHoverSty={saveHover}
+              styDisplay={saveHover}
               onClick={handleSave}
+              onMouseOver={() => {
+                setSaveHover(true);
+              }}
+              onMouseOut={() => {
+                setSaveHover(false);
+              }}
             />
-            <SaveInfo>SAVE</SaveInfo>
-          </PosRelative>
+            <SaveInfo styDisplay={saveHover}>SAVE</SaveInfo>
+          </BTN>
           <SplitLine />
-          {/* sign BTN */}
-          <Link to="signup">
-            <PosRelative>
-              <SignBtn
-                type="button"
-                // onMouseOver={handleMouseInSign}
-                // onMouseOut={handleMouseOutSign}
-                // signHoverSty={signHover}
-                // sidepanelSty={sidepanel}
-              />
-              <SignInfo>SIGN OUT</SignInfo>
-            </PosRelative>
-          </Link>
-          {/* sign out BTN */}
-          <PosRelative>
-            <LogoutBtn type="button" onClick={handleSignout} />
-            <SignInfo>SIGN OUT</SignInfo>
-          </PosRelative>
+          <BTN>
+            <SignBtn
+              type="button"
+              styDisplay={signHover}
+              StySign={userId}
+              onClick={handleSignUp}
+              onMouseOver={() => {
+                setSignHover(true);
+              }}
+              onMouseOut={() => {
+                setSignHover(false);
+              }}
+            />
+            <SignInfo styDisplay={signHover}>SIGN</SignInfo>
+          </BTN>
+          <BTN>
+            <LogoutBtn
+              type="button"
+              onClick={handleSignout}
+              styDisplay={logoutHover}
+              StySign={userId}
+              onMouseOver={() => {
+                setLogoutHover(true);
+              }}
+              onMouseOut={() => {
+                setLogoutHover(false);
+              }}
+            />
+            <LogoutInfo styDisplay={logoutHover}>LOG OUT</LogoutInfo>
+          </BTN>
           <SPmenu sidepanelSty={sidepanel}>
             <SplitLine />
             <UnFoldSidepanel onClick={handleUnfoldSP} />
@@ -128,6 +135,7 @@ const GoBackBtn = styled.button`
   margin-left: 20px;
   font-weight: bold;
   color: #e0e0e0;
+  cursor: pointer;
   &:hover {
     color: #000000;
   }
@@ -135,6 +143,10 @@ const GoBackBtn = styled.button`
 const Menu = styled.div`
   display: flex;
   align-items: center;
+  margin-right: 20px;
+`;
+const BTN = styled.div`
+  position: relative;
 `;
 const SplitLine = styled.div`
   height: 14px;
@@ -142,35 +154,34 @@ const SplitLine = styled.div`
   margin-left: 14px;
 `;
 const SignBtn = styled.button`
-  background-image: ${(props) => (props.signHoverSty ? `url(${signSel})` : `url(${sign})`)};
-  margin-right: ${(props) => (props.sidepanelSty ? '14px' : '0px')};
+  display: ${(props) => (props.StySign ? 'none' : 'block')};
+  background-image: ${(props) => (props.styDisplay ? `url(${signSel})` : `url(${sign})`)};
   background-size: cover;
   width: 20px;
   height: 20px;
   margin-left: 14px;
+  cursor: pointer;
 `;
 const SignInfo = styled.h6`
-  display: ${(props) => (props.signHoverSty ? 'block' : 'none')};
-  text-align: center;
+  display: ${(props) => (props.styDisplay ? 'block' : 'none')};
   letter-spacing: 1px;
-  margin-left: 2px;
   position: absolute;
-  top: 6px;
-  left: 6px;
+  top: 30px;
+  right: -4px;
 `;
 const SaveBtn = styled.button`
-  background-image: ${(props) => (props.saveHoverSty ? `url(${saveSel})` : `url(${save})`)};
+  background-image: ${(props) => (props.styDisplay ? `url(${saveSel})` : `url(${save})`)};
   background-size: cover;
   width: 20px;
   height: 20px;
+  cursor: pointer;
 `;
 const SaveInfo = styled.h6`
-  display: ${(props) => (props.saveHoverSty ? 'block' : 'none')};
+  display: ${(props) => (props.styDisplay ? 'block' : 'none')};
   letter-spacing: 1px;
-  margin-left: 12px;
   position: absolute;
-  top: 6px;
-  right: -5px;
+  top: 30px;
+  left: -5px;
 `;
 const UnFoldSidepanel = styled.button`
   width: 24px;
@@ -178,6 +189,7 @@ const UnFoldSidepanel = styled.button`
   background-image: url(${unFoldSP});
   background-size: cover;
   margin-left: 10px;
+  cursor: pointer;
   &:hover {
     background-image: url(${unFoldSPSel});
   }
@@ -188,8 +200,19 @@ const SPmenu = styled.div`
   align-items: center;
 `;
 const LogoutBtn = styled.button`
-  background-image: ${(props) => (props.saveHoverSty ? `url(${logout})` : `url(${logout})`)};
+  display: ${(props) => (props.StySign ? 'block' : 'none')};
+  background-image: ${(props) => (props.styDisplay ? `url(${logoutSel})` : `url(${logout})`)};
   background-size: cover;
+  margin-left: 14px;
+  cursor: pointer;
   width: 20px;
   height: 20px;
+`;
+const LogoutInfo = styled.h6`
+  display: ${(props) => (props.styDisplay ? 'block' : 'none')};
+  width: 15px;
+  letter-spacing: 1px;
+  position: absolute;
+  top: 30px;
+  right: 5px;
 `;

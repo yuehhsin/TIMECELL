@@ -23,7 +23,6 @@ export default OneDay;
 const Oneday = styled.div`
   margin-right: 20px;
   user-select: none;
-  // border: 1px solid blue;
   & h3 {
     text-align: center;
     margin: 0px 0px 20px 0px;

@@ -18,24 +18,6 @@ const EventForm = ({ inputValue, setInputValue, eventText, setEventText }) => {
       setEventText(uploadEvent);
       setInputValue('');
     }
-    // if (inputValue !== '') {
-    // const selColor = document.querySelector('input[name="color"]:checked').value;
-    //   // event資料建立到資料庫;
-    //   const uploadEvent = [
-    //     { content: inputValue, color: selColor, id: Math.random() },
-    //     ...eventText,
-    //   ];
-    //   memberData
-    //     .doc('test@gmail.com')
-    //     .set({ eventInfo: uploadEvent })
-    //     .then(() => {
-    //       setEventText(uploadEvent);
-    //     })
-    //     .catch((E) => {
-    //       console.error('Error writing document: ', E);
-    //     });
-    //   setInputValue('');
-    // }
   };
   return (
     <Eventform onSubmit={handleSubmit}>

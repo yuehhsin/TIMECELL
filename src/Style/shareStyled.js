@@ -67,6 +67,7 @@ export const CloseBtn = styled.button`
   position: absolute;
   top: 20px;
   right: 20px;
+  cursor: pointer;
   &:hover {
     background-image: url(${closePopSel});
   }
@@ -77,7 +78,7 @@ export const SignText = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 65px;
+  padding-top: 80px;
   & form {
     display: flex;
     flex-direction: column;

@@ -9,7 +9,7 @@ const TimeBefore = ({ timeBefore, TBinfo, mouseDown }) => {
   };
   // HOOK
   const { reRender, selTB, setSelTB } = useContext(timeblockDataContext);
-  const [timeState, setTimeState] = useState(false); // 紀錄時間塊選取狀態
+  const [timeState, setTimeState] = useState(false);
 
   const handleTimeState = (e) => {
     if (mouseDown) {
@@ -36,6 +36,9 @@ const TimeBefore = ({ timeBefore, TBinfo, mouseDown }) => {
     setTimeState(false);
   }, [reRender]);
 
+  const TBwidth = document.body.clientWidth - 375;
+  const TBwidthLap = (document.body.clientWidth - 415) / 3;
+
   const dataSet = `${TBinfo.week}-${TBinfo.time}`;
   return (
     <Timeblock
@@ -43,6 +46,8 @@ const TimeBefore = ({ timeBefore, TBinfo, mouseDown }) => {
       onMouseOver={handleTimeState}
       onClick={handleClick}
       style={TBcolor}
+      styleWidth={TBwidth}
+      styleWidthLap={TBwidthLap}
       data-position={dataSet}
       borderSty={timeState}
       blockSty={timeBefore}
@@ -55,7 +60,18 @@ export default TimeBefore;
 
 // STYLE
 const Timeblock = styled.button`
-  width: 140px;
+  @media (min-width: 500px) {
+    width: ${(props) => props.styleWidth}px;
+    // height: 45px;
+  }
+  @media (min-width: 768px) {
+    width: ${(props) => props.styleWidthLap}px;
+  }
+  @media (min-width: 1478px) {
+    // height: 40px;
+    width: 140px;
+  }
+  width: ${(props) => props.styleWidth}px;
   height: 40px;
   background-color: #f4f4f4;
   display: flex;

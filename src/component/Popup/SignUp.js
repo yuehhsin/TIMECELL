@@ -7,7 +7,6 @@ import signupImg from '../../image/signup.png';
 import 'animate.css';
 
 const SignUp = () => {
-  // hook
   const [signupMessage, setSignupMessage] = useState('');
   const [messageColor, setMessageColor] = useState('');
   const [signupForm] = useState({ email: '', password: '' });
@@ -19,7 +18,6 @@ const SignUp = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    // 註冊
     firebase
       .auth()
       .createUserWithEmailAndPassword(signupForm.email, signupForm.password)
@@ -27,21 +25,8 @@ const SignUp = () => {
         setSignupMessage('Registration Success!!!');
         setMessageColor('#383838');
         setTimeout(() => {
-          document.location.href = '/signin';
-          // setSwitch('signin');
+          document.location.href = '/';
         }, 1000);
-        // 初始化timeInfo
-        // initData('test@gmail.com');
-        // // 初始化eventInfo
-        // memberData
-        //   .doc(email)
-        //   .set({
-        //     eventInfo: [{ content: 'Hello REACT', color: '#36BC9B', id: Math.random() }],
-        //   })
-        //   .then(() => {})
-        //   .catch((E) => {
-        //     console.error('Write Data Error: ', E);
-        //   });
       })
       .catch((ero) => {
         console.log('signup-error', ero.message);
