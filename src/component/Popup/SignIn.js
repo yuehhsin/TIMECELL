@@ -41,15 +41,13 @@ const SingIn = () => {
         }
       });
   };
-  const popupX = (document.body.clientWidth - 240 - 512) / 2;
-  const popupY = (window.screen.height - 428) / 2 - 100;
 
   return (
     <>
       <Link to="/">
         <PopBG />
       </Link>
-      <PopUp posXsty={popupX} posYsty={popupY}>
+      <PopUp>
         <Link to="/">
           <CloseBtn type="button" />
         </Link>
@@ -89,7 +87,13 @@ export default SingIn;
 
 // STYLE
 const SignInImg = styled.div`
-  width: 350px;
+  @media (min-width: 100px) {
+    display: none;
+  }
+  @media (min-width: 800px) {
+    display: block;
+  }
+  width: 320px;
   height: 428px;
   background-image: url(${signinImg});
   background-size: cover;
@@ -107,12 +111,19 @@ const SwitchBtn = styled.button`
   }
 `;
 const SignupMessage = styled.h4`
+  @media (min-width: 100px) {
+    width: 274px;
+    bottom: 30px;
+  }
+  @media (min-width: 800px) {
+    width: 334px;
+    bottom: 50px;
+  }
   background-color: ${(props) => props.BGcolor};
   text-align: center;
   position: absolute;
   padding: 5px 0px 5px 0px;
-  bottom: 50px;
+
   right: 0px;
-  width: 378px;
   color: #fff;
 `;

@@ -53,11 +53,12 @@ const Nav = ({ sidepanel, setSidePanel, userId, setSaveCaution }) => {
     localStorage.setItem('temporaryData', JSON.stringify(tbData));
     history.push('/signUp');
   };
+  const windowWidth = document.body.clientWidth;
   return (
     <>
       <NavBar sidepanelSty={sidepanel}>
         <Link to="/welcome">
-          <GoBackBtn>BACK</GoBackBtn>
+          <GoBackBtn style={windowWidth}>BACK</GoBackBtn>
         </Link>
         <Menu>
           <BTN>
@@ -129,7 +130,7 @@ const NavBar = styled.div`
   left: 0px;
 `;
 const GoBackBtn = styled.button`
-  display: flex;
+  display: ${(props) => (props.style < 700 ? 'none' : 'display')};
   justify-content: center;
   align-items: center;
   margin-left: 20px;
