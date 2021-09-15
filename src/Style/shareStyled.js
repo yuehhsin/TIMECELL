@@ -37,7 +37,7 @@ export const PosCenter = styled.div`
 export const PopBG = styled.button`
   position: absolute;
   width: 100%;
-  height: 250%;
+  height: 300%;
   background-color: rgba(56, 56, 56, 0.5);
   z-index: 1002;
   top: 0px;
@@ -46,18 +46,16 @@ export const PopBG = styled.button`
   }
 `;
 export const PopUp = styled.div`
-  width: 706px;
-  height: 428px;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
   background-color: #fff;
   position: fixed;
-  left: 50%;
   display: flex;
   justify-content: center;
   border-radius: 5px;
   z-index: 1003;
   box-shadow: 2px 2px 2px rgb(0 0 0 / 25%);
-  top: ${(props) => props.posYsty}px;
-  left ${(props) => props.posXsty}px;
 `;
 export const CloseBtn = styled.button`
   width: 20px;
@@ -73,12 +71,18 @@ export const CloseBtn = styled.button`
   }
 `;
 export const SignText = styled.div`
+  @media (min-width: 100px) {
+    padding: 60px 20px 60px 20px;
+  }
+  @media (min-width: 800px) {
+    padding-top: 80px;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
   font-size: 20px;
-  width: calc(100% - 303px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 80px;
   & form {
     display: flex;
     flex-direction: column;
@@ -93,6 +97,7 @@ export const SignText = styled.div`
   & form h5 {
     margin-top: 0px;
     margin-right: 10px;
+  }
   }
 `;
 export const SignSubmit = styled.button`

@@ -17,7 +17,6 @@ const ArtBoard = ({ setSignPop, sidepanel, setSidePanel, userId, setUserId, setS
   };
   const Test = useRef();
   const windowWidth = document.body.clientWidth;
-  console.log(windowWidth);
   const scroll = windowWidth - 375;
   const handleLeft = () => {
     Test.current.scrollLeft += scroll + 20;
@@ -70,7 +69,7 @@ const Week = styled.div`
   overflow: scroll;
 `;
 const LeftBTN = styled.button`
-  display: ${(props) => (props.style > 1478 ? 'none' : 'block')};
+  display: ${(props) => (props.style > 1478 || props.style < 700 ? 'none' : 'block')};
   width: 22px;
   height: 22px;
   transform: rotate(180deg);
@@ -87,7 +86,7 @@ const LeftBTN = styled.button`
   }
 `;
 const RightBTN = styled.button`
-  display: ${(props) => (props.style > 1478 ? 'none' : 'block')};
+  display: ${(props) => (props.style > 1478 || props.style < 700 ? 'none' : 'block')};
   position: absolute;
   width: 22px;
   height: 22px;

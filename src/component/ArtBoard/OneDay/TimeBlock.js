@@ -35,10 +35,7 @@ const TimeBefore = ({ timeBefore, TBinfo, mouseDown }) => {
   useEffect(() => {
     setTimeState(false);
   }, [reRender]);
-
-  const TBwidth = document.body.clientWidth - 375;
-  const TBwidthLap = (document.body.clientWidth - 415) / 3;
-
+  const windowWidth = document.body.clientWidth;
   const dataSet = `${TBinfo.week}-${TBinfo.time}`;
   return (
     <Timeblock
@@ -46,8 +43,7 @@ const TimeBefore = ({ timeBefore, TBinfo, mouseDown }) => {
       onMouseOver={handleTimeState}
       onClick={handleClick}
       style={TBcolor}
-      styleWidth={TBwidth}
-      styleWidthLap={TBwidthLap}
+      styleWidth={windowWidth}
       data-position={dataSet}
       borderSty={timeState}
       blockSty={timeBefore}
@@ -61,17 +57,24 @@ export default TimeBefore;
 // STYLE
 const Timeblock = styled.button`
   @media (min-width: 500px) {
-    width: ${(props) => props.styleWidth}px;
-    // height: 45px;
+    width: ${(props) => props.styleWidth - 375}px;
+  }
+  @media (min-width: 600px) {
+    width: ${(props) => (props.styleWidth - 405) / 2}px;
   }
   @media (min-width: 768px) {
-    width: ${(props) => props.styleWidthLap}px;
+    width: ${(props) => (props.styleWidth - 415) / 3}px;
+  }
+  @media (min-width: 970px) {
+    width: ${(props) => (props.styleWidth - 435) / 4}px;
+  }
+  @media (min-width: 1200px) {
+    width: ${(props) => (props.styleWidth - 455) / 5}px;
   }
   @media (min-width: 1478px) {
-    // height: 40px;
-    width: 140px;
+    width: 160px;
   }
-  width: ${(props) => props.styleWidth}px;
+  width: 160px;
   height: 40px;
   background-color: #f4f4f4;
   display: flex;
