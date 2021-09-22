@@ -46,7 +46,6 @@ const IndexPage = () => {
   }, 60000);
 
   useEffect(() => {
-    console.log('cookie', document.cookie);
     if (document.cookie === '') {
       history.push('/welcome');
       document.cookie = 'welcome=Hi TIMECELL;max-age=2592000';
@@ -169,7 +168,7 @@ const IndexPage = () => {
           setSidePanel={setSidePanel}
         />
         {saveCaution ? <SaveCaution /> : false}
-        <FloatPanel setCACaution={setCACaution} />
+        <FloatPanel setCACaution={setCACaution} sidepanel={sidepanel} />
       </timeblockDataContext.Provider>
       {memo.map((memoText) => (
         <MemoPanel memoText={memoText.content} dataId={memoText.id} memo={memo} setMemo={setMemo} />

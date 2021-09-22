@@ -95,6 +95,7 @@ const SignInImg = styled.div`
   }
   width: 320px;
   height: 428px;
+  background-color: #f3f3f3;
   background-image: url(${signinImg});
   background-size: cover;
   border-radius: 5px 0px 0px 5px;

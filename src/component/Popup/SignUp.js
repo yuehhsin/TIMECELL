@@ -99,6 +99,7 @@ const SignImg = styled.div`
   background-image: url(${signupImg});
   background-size: cover;
   border-radius: 5px 0px 0px 5px;
+  background-color: #f3f3f3;
 `;
 const SwitchBtn = styled.button`
   padding: 0px;

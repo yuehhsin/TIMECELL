@@ -6,7 +6,7 @@ import 'animate.css';
 import CleanOptions from './CleanOptions';
 import { timeblockDataContext } from '../../contexts/contexts';
 
-const FloatPanel = ({ setCACaution }) => {
+const FloatPanel = ({ setCACaution, sidepanel }) => {
   const { selTB } = useContext(timeblockDataContext);
   const [cleanPop, setCleanPop] = useState(false);
   const selTime = `Select  ${selTB.length * 0.5}  Hour`;
@@ -20,7 +20,7 @@ const FloatPanel = ({ setCACaution }) => {
   return (
     <>
       <CleanBG onClick={handleClose} displaySty={cleanPop} />
-      <Floatpanel className="animate__animated animate__fadeInUp" displaySty={floatpanel}>
+      <Floatpanel displaySty={floatpanel} isSP={sidepanel}>
         {cleanPop ? (
           <CleanOptions setCACaution={setCACaution} setCleanPop={setCleanPop} selTB={selTB} />
         ) : (
@@ -63,6 +63,7 @@ const Floatpanel = styled.div`
   padding-right: 15px;
   border-radius: 5px;
   left: calc((100% - 240px) / 2);
+  left: ${(props) => (props.isSP ? false : '50%')};
   top: 93%;
   transform: translateX(-50%);
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);

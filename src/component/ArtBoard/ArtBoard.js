@@ -39,13 +39,13 @@ const ArtBoard = ({ setSignPop, sidepanel, setSidePanel, userId, setUserId, setS
         />
         <TimeLine />
         <Week style={{ right: '100px' }} ref={Test}>
-          <OneDay day="MON" data={tbData.MON} mouseDown={mouseDown} />
-          <OneDay day="TUE" data={tbData.TUE} mouseDown={mouseDown} />
-          <OneDay day="WED" data={tbData.WED} mouseDown={mouseDown} />
-          <OneDay day="THU" data={tbData.THU} mouseDown={mouseDown} />
-          <OneDay day="FRI" data={tbData.FRI} mouseDown={mouseDown} />
-          <OneDay day="SAT" data={tbData.SAT} mouseDown={mouseDown} />
-          <OneDay day="SUN" style={{ margin: '0px' }} data={tbData.SUN} mouseDown={mouseDown} />
+          <OneDay day="MON" data={tbData.MON} mouseDown={mouseDown} sidepanel={sidepanel} />
+          <OneDay day="TUE" data={tbData.TUE} mouseDown={mouseDown} sidepanel={sidepanel} />
+          <OneDay day="WED" data={tbData.WED} mouseDown={mouseDown} sidepanel={sidepanel} />
+          <OneDay day="THU" data={tbData.THU} mouseDown={mouseDown} sidepanel={sidepanel} />
+          <OneDay day="FRI" data={tbData.FRI} mouseDown={mouseDown} sidepanel={sidepanel} />
+          <OneDay day="SAT" data={tbData.SAT} mouseDown={mouseDown} sidepanel={sidepanel} />
+          <OneDay day="SUN" data={tbData.SUN} mouseDown={mouseDown} sidepanel={sidepanel} />
         </Week>
         <RightBTN onClick={handleRight} style={windowWidth} />
       </Artboard>
@@ -69,7 +69,7 @@ const Week = styled.div`
   overflow: scroll;
 `;
 const LeftBTN = styled.button`
-  display: ${(props) => (props.style > 1478 || props.style < 700 ? 'none' : 'block')};
+  display: ${(props) => (props.style > 1200 || props.style < 700 ? 'none' : 'block')};
   width: 22px;
   height: 22px;
   transform: rotate(180deg);
@@ -86,7 +86,7 @@ const LeftBTN = styled.button`
   }
 `;
 const RightBTN = styled.button`
-  display: ${(props) => (props.style > 1478 || props.style < 700 ? 'none' : 'block')};
+  display: ${(props) => (props.style > 1200 || props.style < 700 ? 'none' : 'block')};
   position: absolute;
   width: 22px;
   height: 22px;

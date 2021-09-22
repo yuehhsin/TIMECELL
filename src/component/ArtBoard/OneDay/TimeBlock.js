@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import styled from 'styled-components';
 import { timeblockDataContext } from '../../../contexts/contexts';
 
-const TimeBefore = ({ timeBefore, TBinfo, mouseDown }) => {
+const TimeBefore = ({ timeBefore, TBinfo, mouseDown, sidepanel }) => {
   const TBcolor = {
     backgroundColor: TBinfo.color,
     color: TBinfo.color === '#F4F4F4' ? '#000000' : '#FFFFFF',
@@ -47,6 +47,7 @@ const TimeBefore = ({ timeBefore, TBinfo, mouseDown }) => {
       data-position={dataSet}
       borderSty={timeState}
       blockSty={timeBefore}
+      ifSP={sidepanel}
     >
       {TBinfo.event}
     </Timeblock>
@@ -69,7 +70,8 @@ const Timeblock = styled.button`
     width: ${(props) => (props.styleWidth - 435) / 4}px;
   }
   @media (min-width: 1200px) {
-    width: ${(props) => (props.styleWidth - 455) / 5}px;
+    width: ${(props) =>
+      (props.ifSP ? (props.styleWidth - 495) / 7 : (props.styleWidth - 255) / 7)}px;
   }
   @media (min-width: 1478px) {
     width: 160px;

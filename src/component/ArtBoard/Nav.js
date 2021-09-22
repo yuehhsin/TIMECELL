@@ -58,7 +58,7 @@ const Nav = ({ sidepanel, setSidePanel, userId, setSaveCaution }) => {
     <>
       <NavBar sidepanelSty={sidepanel}>
         <Link to="/welcome">
-          <GoBackBtn style={windowWidth}>BACK</GoBackBtn>
+          <GoBackBtn style={windowWidth}>INFO</GoBackBtn>
         </Link>
         <Menu>
           <BTN>

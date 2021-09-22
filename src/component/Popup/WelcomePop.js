@@ -46,6 +46,7 @@ const WelcomePopUp = styled.div`
   z-index: 1003;
   box-shadow: 2px 2px 2px rgb(0 0 0 / 25%);
   border-radius: 10px;
+  background-color: #f3f3f3;
 `;
 const KV = styled.div`
   @media (min-width: 100px) {
