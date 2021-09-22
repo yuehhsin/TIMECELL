@@ -131,6 +131,7 @@ const NavBar = styled.div`
 `;
 const GoBackBtn = styled.button`
   display: ${(props) => (props.style < 700 ? 'none' : 'display')};
+  letter-spacing: 1px;
   justify-content: center;
   align-items: center;
   margin-left: 20px;
